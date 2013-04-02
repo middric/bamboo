@@ -73,7 +73,7 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
     public function fetch($feedName, $params) {
         $params = $this->_prepareParams($params);
         $response = $this->_cache->get($feedName, $params);
-        if (is_null($response)) {
+        if (!$response) {
             $response = $this->_client->get($feedName, $params);
             $this->_cache->save($feedName, $params, $response);
         }
@@ -101,7 +101,7 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
 
     private function _prepareParams($params) {
         $params = array_merge(array('api_key' => $this->_apiKey), $params);
-        $params = ksort($params);
+        ksort($params);
         return $params;
     }
 

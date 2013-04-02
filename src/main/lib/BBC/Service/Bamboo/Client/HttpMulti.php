@@ -13,6 +13,9 @@
 class BBC_Service_Bamboo_Client_HttpMulti
     implements BBC_Service_Bamboo_Client_Interface
 {
+
+    const SUFFIX = '.json';
+
     /**
      * @var Zend_Config
      */
@@ -47,14 +50,14 @@ class BBC_Service_Bamboo_Client_HttpMulti
         );
         $response = null;
         $client = $this->getHttpClient();
-        $client->get($path, $options)->then(
+        $client->get($url, $options)->then(
             function ($myResponse) use (&$response) {
                 $response = $myResponse;
             }
         )->end();
         $client->run();
 
-        return $path;
+        return $response;
     }
 
     /**
@@ -111,7 +114,7 @@ class BBC_Service_Bamboo_Client_HttpMulti
 
     private function _buildURL($path, array $params) {
         $queryString = http_build_query($params);
-        $url = $this->_host . $this->_baseURL . $path . '?' . $queryString;
+        $url = $this->_host . $this->_baseURL . $path . self::SUFFIX . '?' . $queryString;
         if(!filter_var($url, FILTER_VALIDATE_URL,
             FILTER_FLAG_PATH_REQUIRED | FILTER_FLAG_QUERY_REQUIRED)) {
             throw new BBC_Service_Bamboo_Exception_BadRequest("iBL URL is bad: $url");

@@ -30,7 +30,7 @@ class BBC_Service_Bamboo_Client_Fail
 
         foreach ($this->_keywords as $keyword) {
             if ($this->_matchesKeyword($keyword, $path)) {
-                throw new BBC_Service_Matchstick_Exception_InternalServerError(
+                throw new BBC_Service_Bamboo_Exception_InternalServerError(
                     "[TEST] _fail query string match - failed on purpose."
                 );
             }
