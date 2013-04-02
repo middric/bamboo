@@ -38,7 +38,7 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
     public function __construct(array $params = array()) {
         $this->_configuration = new BBC_Service_Bamboo_Configuration($params);
         $this->_cache = new BBC_Service_Bamboo_Cache($this->_configuration->getConfiguration()->cache);
-        $this->_client = new BBC_Service_Bamboo_Client($this->_configuration->getConfiguration()->httpmulti);
+        $this->_client = new BBC_Service_Bamboo_Client_HttpMulti($this->_configuration->getConfiguration()->httpmulti);
     }
 
     /**

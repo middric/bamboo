@@ -10,7 +10,7 @@
  * @copyright Copyright (c) 2007 - 2013 BBC (http://www.bbc.co.uk)
  * @author Jak Spalding
  */
-class BBC_Service_Bamboo_Client
+class BBC_Service_Bamboo_Client_HttpMulti
 {
     /**
      * @var Zend_Config
