@@ -19,5 +19,5 @@ interface BBC_Service_Bamboo_Client_Interface
      * @param array $requests
      * @return array
      */
-    public function get($path, array $params);
+    public function get($path, array $params = array());
 }
