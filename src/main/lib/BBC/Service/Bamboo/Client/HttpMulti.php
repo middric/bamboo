@@ -11,6 +11,7 @@
  * @author Jak Spalding
  */
 class BBC_Service_Bamboo_Client_HttpMulti
+    implements BBC_Service_Bamboo_Client_Interface
 {
     /**
      * @var Zend_Config
@@ -29,7 +30,7 @@ class BBC_Service_Bamboo_Client_HttpMulti
         $this->_config = $config;
     }
 
-    public function get($path) {
+    public function get(string $path) {
         $options = array(
             'headers' => array(
                 'User-Agent' => $this->_config->useragent
