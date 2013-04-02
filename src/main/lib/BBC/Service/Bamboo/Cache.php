@@ -28,6 +28,7 @@ class BBC_Service_Bamboo_Cache
         $key = $this->_createKey($feedName, $params);
         $data = $this->getCache()->load($key);
         if (is_null($data)) {
+            BBC_Service_Bamboo_Monitoring_Counter::increment(BBC_Service_Bamboo_Monitoring_Counter::CACHE_MISS);
             BBC_Service_Bamboo_Log::debug("Cache miss: " . $key);
         } else {
             BBC_Service_Bamboo_Log::debug("Cache hit: " . $key);
