@@ -13,5 +13,88 @@
 		<groupId>bbc.forge.maven.parents</groupId>
 		<artifactId>pal-service</artifactId>
 		<version>1.33</version>
-	</parent>	
+	</parent>
+
+    <properties>
+        <buildRequirements>
+            bbc-pal-library-httpmulti,
+            bbc-codesniffer-rules
+        </buildRequirements>
+        <requires>
+            bbc-pal-library-httpmulti &gt;= 0.4.4
+        </requires>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>run-codesniffer</id>
+                        <phase>package</phase>
+                        <configuration>
+                            <tasks>
+                                <!-- Check the environment and only run on int -->
+                                <taskdef resource="net/sf/antcontrib/antlib.xml" classpathref="maven.plugin.classpath" />
+                                <property environment="MyEnv"/>
+                                <echo message="Current environment is ${MyEnv.TARGET_ENV}"/>
+                                <if>
+                                    <equals arg1="${MyEnv.TARGET_ENV}" arg2="int" />
+                                    <then>
+                                        <echo message="so running CodeSniffer" />
+                                        <mkdir dir="target/site/codesniffer"/>
+                                        <exec executable="touch">
+                                            <arg line="target/site/codesniffer/report.txt"/>
+                                        </exec>
+                                        <exec executable="phpcs" failonerror="true">
+                                            <arg value="--standard=BBC"/>
+                                            <arg value="--extensions=php"/>
+                                            <arg value="--report=full"/>
+                                            <arg value="--report-file=target/site/codesniffer/report.txt"/>
+                                            <arg value="--ignore=*/target/*,*/build/*"/>
+                                            <arg value="-n"/>
+                                            <arg value="-v"/>
+                                            <arg value="."/>
+                                        </exec>
+                                    </then>
+                                    <else>
+                                        <echo message="so not running Codesniffer" />
+                                    </else>
+                                </if>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>ant-contrib</groupId>
+                        <artifactId>ant-contrib</artifactId>
+                        <version>1.0b3</version>
+                        <exclusions>
+                            <exclusion>
+                                <groupId>ant</groupId>
+                                <artifactId>ant</artifactId>
+                            </exclusion>
+                        </exclusions>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.apache.ant</groupId>
+                        <artifactId>ant-nodeps</artifactId>
+                        <version>1.8.1</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.apache.ant</groupId>
+                        <artifactId>ant</artifactId>
+                        <version>1.8.1</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
