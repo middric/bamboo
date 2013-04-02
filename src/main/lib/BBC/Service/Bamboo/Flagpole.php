@@ -29,7 +29,7 @@ abstract class BBC_Service_Bamboo_Flagpole
 
     public function getStatus($throwException = false) {
         if (array_key_exists($this->getFlagpoleName(), $_SERVER)) {
-            return strtoupper($_SERVER[$this->getFlagpoleName()]);
+            return mb_strtoupper($_SERVER[$this->getFlagpoleName()]);
         }
         if ($throwException) {
             throw new BBC_Service_Bamboo_Exception_FlagpoleNotFound(self::FLAGPOLE);

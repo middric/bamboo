@@ -3,6 +3,7 @@
 /**
  * BBC_Service_Bamboo_Cache
  *
+ * @category BBC
  * @copyright BBC 2013
  * @package BBC_Service_Bamboo
  * @author Jak Spalding <jak.spalding@bbc.co.uk>
@@ -16,7 +17,7 @@ class BBC_Service_Bamboo_Cache
         if (!is_null($cache)) {
             $this->setCache($cache);
         }
-        $this->setDefaultLifetime($config->default_lifetime);
+        $this->setDefaultLifetime($config->lifetime);
     }
 
     /**
@@ -35,14 +36,17 @@ class BBC_Service_Bamboo_Cache
     }
 
     /**
-     * @param $key
+     * @param $feedName
+     * @param $params
      * @param $contents
      * @param $lifetime
+     * @internal param $key
      * @return boolean
      */
-    public function save($feedName, $params, $contents, $lifetime = self::DEFAULT_LIFETIME) {
+    public function save($feedName, $params, $contents, $lifetime = null) {
         $key = $this->_createKey($feedName, $params);
         BBC_Service_Bamboo_Log::debug("Cache save: " . $key);
+        $lifetime = ($lifetime == null ? $this->getDefaultLifetime() : $lifetime);
         return $this->getCache()->save($contents, $key, array(), $lifetime);
     }
 
@@ -73,6 +77,7 @@ class BBC_Service_Bamboo_Cache
         foreach ($params as $key => $value) {
             $cacheKey .= $key . $value;
         }
+        $cacheKey = preg_replace("/[^a-z0-9]/ui", "_", $cacheKey);
         return $cacheKey;
     }
 }
