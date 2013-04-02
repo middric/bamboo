@@ -7,8 +7,8 @@
  *
  * @category BBC
  * @package BBC_Service_Bamboo
- * @copyright Copyright (c) 2007 - 2012 BBC (http://www.bbc.co.uk)
- * @author Luke Sands <luke.sands@bbc.co.uk>
+ * @copyright Copyright (c) 2007 - 2013 BBC (http://www.bbc.co.uk)
+ * @author
  */
 class BBC_Service_Bamboo_Exception extends BBC_Service_Exception
 {
