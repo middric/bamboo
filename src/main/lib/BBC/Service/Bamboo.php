@@ -88,7 +88,7 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
 
     public function setLanguage($language) {
         BBC_Service_Bamboo_Log::debug("Accept-Language set to $language");
-        $this->_client->setAcceptLanguage($language);
+        $this->_client->setHeader('Accept-Language', $language);
     }
 
     public function setHost($host) {
