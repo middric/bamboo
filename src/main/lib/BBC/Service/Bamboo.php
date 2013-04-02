@@ -77,7 +77,7 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
             $response = $this->_client->get($feedName, $params);
             $this->_cache->save($feedName, $params, $response);
         }
-        return json_decode($response);
+        return json_decode($response->getBody());
     }
 
 
