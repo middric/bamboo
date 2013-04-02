@@ -13,7 +13,7 @@
 class BBC_Service_BambooFail extends BBC_Service_Bamboo
 {
     /**
-     *  @BBC_Service_Bamboo_Client_Fail
+     * @BBC_Service_Bamboo_Client_Fail
      */
     protected $_client = null;
 
@@ -22,18 +22,21 @@ class BBC_Service_BambooFail extends BBC_Service_Bamboo
 
     public function __construct(array $parameters = array()) {
         parent::__construct($parameters);
-        $this->_client = new BBC_Service_Bamboo_Client_Fail($this->_configuration->getConfiguration()->httpmulti, self::$_keywords);
+        $this->_client = new BBC_Service_Bamboo_Client_Fail(
+            $this->_configuration->getConfiguration()->httpmulti,
+            self::$_keywords
+        );
     }
 
     /**
      *  Adds a keyword to the matchstick client which will fail any requests which have as a
      *  substring these keywords
-     * 
-     *  @param array $keywords
+     *
+     * @param array $keywords
      */
     public static function addKeywords(array $keywords) {
         foreach ($keywords as $keyword) {
-            if($keyword != "")
+            if ($keyword != "")
                 self::$_keywords[] = $keyword;
         }
     }

@@ -9,7 +9,8 @@
  * @author Jak Spalding <jak.spalding@bbc.co.uk>
  */
 class BBC_Service_Bamboo_Exception_FlagpoleNotFound
-    extends BBC_Service_Bamboo_Exception {
+    extends BBC_Service_Bamboo_Exception
+{
 
     /**
      * @param $flagpoleName String name of the flagpole

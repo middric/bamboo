@@ -13,7 +13,7 @@
 class BBC_Service_BambooFake extends BBC_Service_BambooFail
 {
     /**
-     *  @BBC_Service_Bamboo_Client_Fail
+     * @BBC_Service_Bamboo_Client_Fail
      */
     protected $_client = null;
 
@@ -22,7 +22,11 @@ class BBC_Service_BambooFake extends BBC_Service_BambooFail
 
     public function __construct(array $parameters = array()) {
         parent::__construct($parameters);
-        $this->_client = new BBC_Service_Bamboo_Client_Fake($this->_configuration->getConfiguration()->httpmulti, self::$_keywords, self::$_paths);
+        $this->_client = new BBC_Service_Bamboo_Client_Fake(
+            $this->_configuration->getConfiguration()->httpmulti,
+            self::$_keywords,
+            self::$_paths
+        );
     }
 
     /**
