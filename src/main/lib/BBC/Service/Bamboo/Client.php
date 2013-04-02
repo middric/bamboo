@@ -10,7 +10,7 @@
  * @copyright Copyright (c) 2007 - 2013 BBC (http://www.bbc.co.uk)
  * @author Jak Spalding
  */
-public class BBC_Service_Bamboo_Client
+class BBC_Service_Bamboo_Client
 {
     /**
      * @var Zend_Config
@@ -29,8 +29,19 @@ public class BBC_Service_Bamboo_Client
         $this->_config = $config;
     }
 
+    public function get($path) {
+        $options = array(
+            'headers' => array(
+                'User-Agent' => $this->_config->useragent
+            )
+        );
+        $response = null;
+        $client = $this->getHttpClient();
+        $client->get($path, $options)->then(function ($myResponse) use (&$response) {
+            $response = $myResponse;
+        })->end();
+        $client->run();
 
-    public function get($path, $params) {
         return $path;
     }
 
@@ -82,5 +93,13 @@ public class BBC_Service_Bamboo_Client
             return $_SERVER['PAL_WEBAPP'];
         }
         return null;
+    }
+
+    public function setHost($host) {
+
+    }
+
+    public function setBaseURL($baseURL) {
+
     }
 }
