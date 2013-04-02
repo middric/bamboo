@@ -30,7 +30,8 @@ class BBC_Service_Bamboo_Client_HttpMulti
         $this->_config = $config;
     }
 
-    public function get(string $path) {
+    public function get($path, array $params) {
+        BBC_Service_Bamboo_Log::debug("Requesting $path");
         $options = array(
             'headers' => array(
                 'User-Agent' => $this->_config->useragent
