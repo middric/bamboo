@@ -1,0 +1,34 @@
+<phpunit backupGlobals="false"
+         colors="true"
+         processIsolation="false"
+         strict="true"
+         timeoutForSmallTests="5"
+         bootstrap="./phpunit-bootstrap.php"
+         verbose="true">
+
+    <testsuites>
+       <testsuite name="_service_name_">
+         <directory suffix="Test.php">./</directory>
+       </testsuite>
+    </testsuites>
+
+    <filter>
+      <blacklist>
+        <directory suffix=".php">/usr/share/pear</directory>
+        <directory suffix=".php">/usr/share/php</directory>
+      </blacklist>
+      <whitelist addUncoveredFilesFromWhitelist="true">
+        <directory suffix=".php">lib</directory>
+      </whitelist>
+    </filter>
+    <logging>
+      <log type="coverage-html" target="./reports/coverage" title="Promise Project"
+           charset="UTF-8" yui="true" highlight="true"
+           lowUpperBound="35" highLowerBound="65"/>
+      <log type="coverage-clover" target="./reports/coverage.xml"/>
+      <log type="story-html" target="./reports/html/story.html" />
+      <log type="junit" target="./reports/test-results.xml" logIncompleteSkipped="true"/>
+      <!--<log type="json" target="./reports/test-results.json" logIncompleteSkipped="true"/>-->
+      <log type="tap" target="./reports/test-results.tap" logIncompleteSkipped="true"/>
+    </logging>
+</phpunit>
