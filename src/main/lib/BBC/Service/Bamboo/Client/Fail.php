@@ -16,7 +16,8 @@ class BBC_Service_Bamboo_Client_Fail
      *  @param array of string $keywords
      *
      */
-    public function __construct(array $keywords) {
+    public function __construct($config, array $keywords) {
+        parent::__construct($config);
         $this->_keywords = $keywords;
     }
 
@@ -27,7 +28,6 @@ class BBC_Service_Bamboo_Client_Fail
      * @return array
      */
     public function get($path, array $params = array()) {
-
         foreach ($this->_keywords as $keyword) {
             if ($this->_matchesKeyword($keyword, $path)) {
                 throw new BBC_Service_Bamboo_Exception_InternalServerError(
@@ -42,3 +42,4 @@ class BBC_Service_Bamboo_Client_Fail
     private function _matchesKeyword($keyword, $requestUrl) {
         return (($keyword === "*") || (mb_strstr($requestUrl, $keyword) !== false));
     }
+}

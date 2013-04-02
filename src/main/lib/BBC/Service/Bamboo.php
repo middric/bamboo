@@ -99,7 +99,7 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
         $this->_client->setBaseURL($baseURL);
     }
 
-    private function _prepareParams($params) {
+    protected function _prepareParams($params) {
         $params = array_merge(array('api_key' => $this->_apiKey), $params);
         ksort($params);
         return $params;

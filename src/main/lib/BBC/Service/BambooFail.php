@@ -22,8 +22,7 @@ class BBC_Service_BambooFail extends BBC_Service_Bamboo
 
     public function __construct(array $parameters = array()) {
         parent::__construct($parameters);
-        $this->_client = new BBC_Service_Bamboo_Client_Fail(self::$_keywords);
-        $this->setClient($this->_client);
+        $this->_client = new BBC_Service_Bamboo_Client_Fail($this->_configuration->getConfiguration()->httpmulti, self::$_keywords);
     }
 
     /**
@@ -37,6 +36,13 @@ class BBC_Service_BambooFail extends BBC_Service_Bamboo
             if($keyword != "")
                 self::$_keywords[] = $keyword;
         }
+    }
+
+    public function fetch($feedName, $params) {
+        $params = parent::_prepareParams($params);
+        $response = $this->_client->get($feedName, $params);
+
+        return json_decode($response->getBody());
     }
 
     /**
