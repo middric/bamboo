@@ -29,7 +29,8 @@ class BBC_Service_Bamboo_Client_Fake
      *  @param array of string $keywords
      *  @param array of string $paths
      */
-    public function __construct(array $keywords, array $paths) {
+    public function __construct($config, array $keywords, array $paths) {
+        parent::__construct($config);
         $this->_keywords = $keywords;
         $this->_paths = $paths;
     }
@@ -50,7 +51,7 @@ class BBC_Service_Bamboo_Client_Fake
                     return $response;
                 } else {
                     throw new BBC_Service_Bamboo_Exception_NoFixturePathSet(
-                        "No paths to matchstick fixtures have been set!"
+                        "No paths to bamboo fixtures have been set!"
                     );
                 }
             }
@@ -76,7 +77,7 @@ class BBC_Service_Bamboo_Client_Fake
 
                     if (file_exists($fileName)) {
                         $m = __CLASS__ . ": using the file [" . $fileName . "]";
-                        $response = file_get_contents($fileName);
+                        $response = Zend_Http_Response::fromString(file_get_contents($fileName));
                         return $response;
                     }
                 }
@@ -92,6 +93,10 @@ class BBC_Service_Bamboo_Client_Fake
             echo $fileLocation . "<br/>";
         }
         exit;
+    }
+
+    private function _matchesKeyword($keyword, $requestUrl) {
+        return (($keyword === "*") || (mb_strstr($requestUrl, $keyword) !== false));
     }
 
 }
