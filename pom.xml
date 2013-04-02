@@ -6,7 +6,7 @@
 	<groupId>bbc.pal-service</groupId>
 	<artifactId>bamboo</artifactId>
 	<name>${pom.artifactId}</name>
-	<description>Service library description</description>
+	<description>iBL communication service</description>
 	<packaging>pom</packaging>
 	<version>0.1.0</version> <!-- the application version -->
 	<parent>
