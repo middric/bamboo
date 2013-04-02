@@ -26,7 +26,26 @@ class BBC_Service_Bamboo_Client_HttpMulti
      */
     protected $_httpClient;
 
+    /**
+     * HTTP Headers for the request
+     *
+     * @var array
+     */
     protected $_headers = array();
+
+    /**
+     * Status codes and their corresponding exceptions
+     *
+     * @var array
+     */
+    protected $_exceptions = array(
+        400 => 'BadRequest',
+        403 => 'Unauthorised',
+        404 => 'NotFound',
+        405 => 'MethodNotAllowed',
+        406 => 'NotAcceptable',
+        500 => 'InternalServerError'
+    );
 
     /**
      * @param $config Zend_Config configuration for the client
@@ -50,14 +69,66 @@ class BBC_Service_Bamboo_Client_HttpMulti
         );
         $response = null;
         $client = $this->getHttpClient();
+        $self = $this;
         $client->get($url, $options)->then(
-            function ($myResponse) use (&$response) {
+            function ($myResponse) use (&$response, &$self) {
+                $self->_handleErrors($myResponse);
                 $response = $myResponse;
             }
         )->end();
         $client->run();
 
         return $response;
+    }
+
+    private function _handleErrors($response) {
+        // Handle the response if it represents an error
+        if ($response->isError()) {
+            // Set the status code based on the HTTP status code of the response
+            $requestStatus = $response->getStatus();
+            // Retrieve the custom error nitro provides
+            $iblErrorMessage = $this->_getIblError($response);
+            $errorMessage = sprintf(
+                "Error Code %s: %s",
+                $requestStatus,
+                $iblErrorMessage
+            );
+            //
+            // Iterate through our predetermined exceptions, and throw the one
+            // that matches the response status code
+            foreach ($this->_exceptions as $exceptionStatus => $exceptionName) {
+                if ($requestStatus == $exceptionStatus) {
+                    $exceptionName = 'BBC_Service_Bamboo_Exception_' . $exceptionName;
+                    throw new $exceptionName($errorMessage);
+                }
+            }
+            // If we get here, then it's not a predetermined exception, throw it any way
+            throw new BBC_Service_Bamboo_Exception(
+                sprintf('An unknown iBL error occurred: [%s]', $errorMessage),
+                $requestStatus
+            );
+        } // end if ($rawResponse->isError())
+
+        // Return the response
+        return $response;
+    }
+
+    private function _getIblError($response) {
+        $body = $response->getBody();
+        if (!$body) {
+            return "No body content";
+        }
+        $json = json_decode($body);
+        if (!$json) {
+            return "Unable to parse body content";
+        }
+        if (!is_null($json->ibl) && !is_null($json->ibl->error) && !is_null($json->ibl->error->details)) {
+            if (!is_null($json->ibl->error->id)) {
+                return sprintf("[%s] %s", $json->ibl->error->id, $json->ibl->error->details);
+            }
+            return $json->ibl->error->details;
+        }
+        return "Unable to retrieve error details.";
     }
 
     /**
