@@ -10,7 +10,7 @@
  * @author
  */
 
-class BBC_Service_BambooMock implements BBC_Service_Bamboo
+class BBC_Service_BambooMock extends BBC_Service_Bamboo
 {
 
     /**
