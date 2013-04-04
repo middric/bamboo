@@ -19,4 +19,12 @@
 		<maven.doc.skip>true</maven.doc.skip>
 		<requires>bbc-pal-service-bamboo</requires>
 	</properties>
+    <build>
+        <resources>
+            <resource>
+                <directory>src/devel</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
 </project>
