@@ -72,7 +72,7 @@ class BBC_Service_Bamboo_Client_HttpMulti
         $self = $this;
         $client->get($url, $options)->then(
             function ($myResponse) use (&$response, &$self) {
-                $self->_handleErrors($myResponse);
+                $self->handleErrors($myResponse);
                 $response = $myResponse;
             }
         )->end();
@@ -81,7 +81,7 @@ class BBC_Service_Bamboo_Client_HttpMulti
         return $response;
     }
 
-    private function _handleErrors($response) {
+    public function handleErrors($response) {
         // Handle the response if it represents an error
         if ($response->isError()) {
             // Set the status code based on the HTTP status code of the response

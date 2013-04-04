@@ -84,15 +84,16 @@ class BBC_Service_Bamboo_Client_Fake
             }
         }
 
-        echo "Could not find these files for given URL - '". $path ."'<br/>";
+        $error = "Could not find these files for given URL - '". $path ."'\n";
         foreach ($baseNames as $baseName) {
-            echo $baseName. ".json" . "<br/>";
+            $error .= $baseName. ".json" . "\n";
         }
-        echo "in these locations: <br/>";
+        $error .= "\nin these locations: \n";
         foreach ($this->_paths as $fileLocation) {
-            echo $fileLocation . "<br/>";
+            $error .= $fileLocation . "\n";
         }
-        exit;
+
+        throw new Exception($error, 1);
     }
 
     private function _matchesKeyword($keyword, $requestUrl) {
