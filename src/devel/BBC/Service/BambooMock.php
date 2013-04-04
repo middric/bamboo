@@ -10,7 +10,7 @@
  * @author
  */
 
-class BBC_Service_BambooMock implements BBC_Service_Interface
+class BBC_Service_BambooMock implements BBC_Service_Bamboo
 {
 
     /**
@@ -20,34 +20,8 @@ class BBC_Service_BambooMock implements BBC_Service_Interface
      * @return void
      */
     public function __construct() {
-    }
-
-    /**
-     * Returns the name of the service
-     *
-     * @return string
-     */
-    public function getName() {
-        return 'bamboo';
-    }
-
-    /**
-     * Returns the class version
-     *
-     * @return string
-     */
-    public function getVersion() {
-        return '0.0.1';
-    }
-
-    /**
-     * Returns an instance of the class
-     *
-     * @param array $params  Parameters received from BBC_Service_Broker
-     * @return BBC_Service_Bamboo
-     */
-    public static function getInstance(array $params = array()) {
-        return new BBC_Service_BambooMock();
+        $this->setClient(new BBC_Service_Bamboo_Client_HttpMultiMock());
+        parent::__construct($parameters);
     }
 
 }
