@@ -48,6 +48,7 @@ class BBC_Service_Bamboo_Client_Fake
             if ($this->_matchesKeyword($keyword, $path)) {
                 if (count($this->_paths)) {
                     $response = $this->_getFakeResponseForRequest($path, $params);
+                    $this->handleErrors($response);
                     return $response;
                 } else {
                     throw new BBC_Service_Bamboo_Exception_NoFixturePathSet(
