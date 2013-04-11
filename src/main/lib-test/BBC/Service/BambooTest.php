@@ -44,11 +44,7 @@ class BBC_Service_BambooTest extends PHPUnit_Framework_TestCase
      * Test that bamboo returns a bamboo service object
      */
     public function testBambooService() {
-        $this->assertInstanceOf(
-            'BBC_Service_Bamboo',
-            $this->_service,
-            'Bambo did not return the correct Bamboo instance'
-        );
+        $this->assertEquals('BBC_Service_Bamboo', get_class($this->_service));
     }
 
     /**

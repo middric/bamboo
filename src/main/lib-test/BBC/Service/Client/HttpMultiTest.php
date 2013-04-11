@@ -47,7 +47,7 @@ class BBC_Service_Bamboo_Client_HttpMultiTest extends PHPUnit_Framework_TestCase
     public function testHttpMultiClient() {
         $httpMulti = $this->_client->getHttpClient();
 
-        $this->assertInstanceOf('BBC_Http_Multi_Client', $httpMulti);
+        $this->assertEquals('BBC_Http_Multi_Client', get_class($httpMulti));
     }
 
     /**
@@ -87,7 +87,7 @@ class BBC_Service_Bamboo_Client_HttpMultiTest extends PHPUnit_Framework_TestCase
 
         $response = $this->_client->get($feed, array('api_key' => 1));
 
-        $this->assertInstanceOf('Zend_Http_Response', $response);
+        $this->assertEquals('Zend_Http_Response', get_class($response));
         $body = json_decode($response->getBody());
         $this->assertObjectHasAttribute('ibl', $body);
     }
