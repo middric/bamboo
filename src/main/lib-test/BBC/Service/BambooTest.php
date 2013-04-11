@@ -59,7 +59,7 @@ class BBC_Service_BambooTest extends PHPUnit_Framework_TestCase
         $this->_service->getClient()->addResponseFromPath('http://hostname.com/baseurl/status.json?api_key=1', $fixture);
         $response = $this->_service->fetch('status', array());
 
-        $this->assertInternalType('object', $response);
+        $this->assertType(PHPUnit_Framework_Constraint_IsType::TYPE_OBJECT, $response);
         $this->assertObjectHasAttribute('ibl', $response);
     }
 }
