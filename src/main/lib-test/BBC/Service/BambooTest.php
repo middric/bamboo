@@ -56,7 +56,10 @@ class BBC_Service_BambooTest extends PHPUnit_Framework_TestCase
         $this->_service->setAPIKey(1);
 
         $fixture = dirname(__FILE__) . '/../../fixtures/status.json';
-        $this->_service->getClient()->addResponseFromPath('http://hostname.com/baseurl/status.json?api_key=1', $fixture);
+        $this->_service->getClient()->addResponseFromPath(
+            'http://hostname.com/baseurl/status.json?api_key=1',
+            $fixture
+        );
         $response = $this->_service->fetch('status', array());
 
         $this->assertType(PHPUnit_Framework_Constraint_IsType::TYPE_OBJECT, $response);
