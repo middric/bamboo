@@ -62,7 +62,7 @@ class BBC_Service_Bamboo_Client_HttpMulti
      * @return array
      */
     public function get($path, array $params = array()) {
-        $url = $this->_buildURL($path, $params);
+        $url = $this->buildURL($path, $params);
         BBC_Service_Bamboo_Log::debug("Requesting $url");
         $options = array(
             'headers' => $this->getHeaders()
@@ -122,6 +122,8 @@ class BBC_Service_Bamboo_Client_HttpMulti
         if (!$json) {
             return "Unable to parse body content";
         }
+
+        // TODO: refactor if statements so that they are easier to read
         if (!is_null($json->ibl) && !is_null($json->ibl->error) && !is_null($json->ibl->error->details)) {
             if (!is_null($json->ibl->error->id)) {
                 return sprintf("[%s] %s", $json->ibl->error->id, $json->ibl->error->details);
@@ -183,7 +185,7 @@ class BBC_Service_Bamboo_Client_HttpMulti
         return $this->_headers;
     }
 
-    private function _buildURL($path, array $params) {
+    public function buildURL($path, array $params) {
         $queryString = http_build_query($params);
         $url = $this->_host . $this->_baseURL . $path . self::SUFFIX . '?' . $queryString;
         if (!filter_var($url, FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED | FILTER_FLAG_QUERY_REQUIRED)) {

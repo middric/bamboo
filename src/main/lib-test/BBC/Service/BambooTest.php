@@ -25,19 +25,46 @@ class BBC_Service_BambooTest extends PHPUnit_Framework_TestCase
      * @access protected
      */
     protected function setUp() {
+        $appCacheBackend = new Zend_Cache_Backend_Apc();
+        $appCacheFront = new Zend_Cache_Core(
+            array(
+                'cache_id_prefix' => 'bamboo',
+                'lifetime' => 3600,
+                'automatic_serialization' => true
+            )
+        );
+        $appCacheFront->setBackend($appCacheBackend);
+        BBC_Service_Broker::setCache($appCacheFront);
+        BBC_Service_Broker::getInstance()->registerService('bamboo', 'BBC_Service_BambooMock', true);
 
+        $this->_service = BBC_Service_Broker::getInstance()->build('bamboo');
     }
 
     /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     *
-     * @access protected
+     * Test that bamboo returns a bamboo service object
      */
-    protected function tearDown() {
+    public function testBambooService() {
+        $this->assertInstanceOf(
+            'BBC_Service_Bamboo',
+            $this->_service,
+            'Bambo did not return the correct Bamboo instance'
+        );
     }
 
-    public function testBambooService() {
+    /**
+     * Test that bamboo can fetch data
+     */
+    public function testFetch() {
+        $this->_service->setHost('http://hostname.com');
+        $this->_service->setBaseURL('/baseurl/');
+        $this->_service->setAPIKey(1);
+
+        $fixture = dirname(__FILE__) . '/../../fixtures/status.json';
+        $this->_service->getClient()->addResponseFromPath('http://hostname.com/baseurl/status.json?api_key=1', $fixture);
+        $response = $this->_service->fetch('status', array());
+
+        $this->assertInternalType('object', $response);
+        $this->assertObjectHasAttribute('ibl', $response);
     }
 }
 

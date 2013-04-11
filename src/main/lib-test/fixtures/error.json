@@ -1,0 +1,4 @@
+HTTP/1.1 500 Server Error
+Server: Fixture
+Content-Language: en-GB
+Content-Type: application/json;charset=UTF-8

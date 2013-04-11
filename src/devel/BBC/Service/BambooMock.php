@@ -19,9 +19,10 @@ class BBC_Service_BambooMock extends BBC_Service_Bamboo
      * @param $text
      * @return void
      */
-    public function __construct() {
-        $this->setClient(new BBC_Service_Bamboo_Client_HttpMultiMock());
-        parent::__construct($parameters);
+    public function __construct($params) {
+        parent::__construct($params);
+
+        $this->setClient(new BBC_Service_Bamboo_Client_HttpMultiMock($this->_configuration->getConfiguration()->httpmulti));
     }
 
 }
