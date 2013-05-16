@@ -65,5 +65,26 @@ class BBC_Service_BambooTest extends PHPUnit_Framework_TestCase
         $this->assertType(PHPUnit_Framework_Constraint_IsType::TYPE_OBJECT, $response);
         $this->assertObjectHasAttribute('ibl', $response);
     }
+
+    /**
+     * Test that bamboo can fetch data with a query string appended to it
+     */
+    public function testQueryFetch() {
+        $this->_service->setHost('http://hostname.com');
+        $this->_service->setBaseURL('/baseurl/');
+        $this->_service->setAPIKey(1);
+
+        $fixture = dirname(__FILE__) . '/../../fixtures/status.json_page_1';
+        $this->_service->getClient()->addResponseFromPath(
+            'http://hostname.com/baseurl/status.json?api_key=1&page=1',
+            $fixture
+        );
+        $response = $this->_service->fetch('status', array('page' => '1'));
+
+        $this->assertType(PHPUnit_Framework_Constraint_IsType::TYPE_OBJECT, $response);
+        $this->assertObjectHasAttribute('ibl', $response);
+    }
+
+
 }
 

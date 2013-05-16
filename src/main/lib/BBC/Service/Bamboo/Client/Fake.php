@@ -22,7 +22,7 @@ class BBC_Service_Bamboo_Client_Fake
      *  Accepted file types
      */
     protected $_types = array(
-        "json" => "application/json",
+        "json" => "application/json"
     );
 
     /**
@@ -71,11 +71,25 @@ class BBC_Service_Bamboo_Client_Fake
             preg_replace("/\W+/", "_", $path)
         );
 
+        // If the API Key is part of the params, remove it
+
+        if (array_key_exists('api_key', $params)) {
+            unset($params['api_key']);
+        }
+
+        if (!empty($params)) {
+            // build any key/values we have back into a HTTP query
+            // Then lowercase & strip out any characters that might cause us headaches
+            $queryString = '_' .
+                preg_replace('/\W+/', '_', mb_strtolower(http_build_query($params)));
+        } else {
+            $queryString = '';
+        }
+
         foreach ($baseNames as $baseName) {
             foreach ($this->_paths as $fileLocation) {
                 foreach ($this->_types as $extension => $type) {
-                    $fileName = $fileLocation . '/' . $baseName . '.' . $extension;
-
+                    $fileName = $fileLocation . '/' . $baseName . '.' . $extension . $queryString;
                     if (file_exists($fileName)) {
                         $m = __CLASS__ . ": using the file [" . $fileName . "]";
                         $response = Zend_Http_Response::fromString(file_get_contents($fileName));
@@ -85,9 +99,12 @@ class BBC_Service_Bamboo_Client_Fake
             }
         }
 
-        $error = "Could not find these files for given URL - '". $path ."'\n";
+
+        $error = "Could not find these files for given URL - '". $path ."'\n\nTried:\n";
         foreach ($baseNames as $baseName) {
-            $error .= $baseName. ".json" . "\n";
+            foreach ($this->_types as $extension => $type) {
+                $error .= $baseName . '.' . $extension . $queryString ."\n";
+            }
         }
         $error .= "\nin these locations: \n";
         foreach ($this->_paths as $fileLocation) {

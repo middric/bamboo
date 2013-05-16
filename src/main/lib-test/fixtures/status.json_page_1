@@ -1,0 +1,6 @@
+HTTP/1.1 200 OK
+Server: Fixture
+Content-Language: en-GB
+Content-Type: application/json;charset=UTF-8
+
+{"ibl":{"version":0.0,"encoding":"UTF-8","error":{"details":"Missing api_key parameter"}}}
