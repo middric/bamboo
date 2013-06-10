@@ -177,6 +177,10 @@ class BBC_Service_Bamboo_Client_HttpMulti
         $this->_baseURL = $baseURL;
     }
 
+    public function getBaseURL() {
+        return $this->_baseURL;
+    }
+
     public function setHeader($name, $value) {
         $this->_headers[$name] = $value;
     }
