@@ -89,7 +89,7 @@ class BBC_Service_Bamboo_Client_Fake
         foreach ($baseNames as $baseName) {
             foreach ($this->_paths as $fileLocation) {
                 foreach ($this->_types as $extension => $type) {
-                    $fileName = $fileLocation . '/' . $baseName . '.' . $extension . $queryString;
+                    $fileName = $fileLocation . $baseName . '.' . $extension . $queryString;
                     if (file_exists($fileName)) {
                         $m = __CLASS__ . ": using the file [" . $fileName . "]";
                         $response = Zend_Http_Response::fromString(file_get_contents($fileName));
