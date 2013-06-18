@@ -94,13 +94,15 @@ class BBC_Service_Bamboo_Client_Fake
                         $m = __CLASS__ . ": using the file [" . $fileName . "]";
                         $response = Zend_Http_Response::fromString(file_get_contents($fileName));
                         return $response;
+                    } else {
+                        $error .= $fileName . "\n";
                     }
                 }
             }
         }
 
 
-        $error = "Could not find these files for given URL - '". $path ."'\n\nTried:\n";
+        $error .= "Could not find these files for given URL - '". $path ."'\n\nTried:\n";
         foreach ($baseNames as $baseName) {
             foreach ($this->_types as $extension => $type) {
                 $error .= $baseName . '.' . $extension . $queryString ."\n";
