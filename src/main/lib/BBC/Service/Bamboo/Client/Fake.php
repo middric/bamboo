@@ -95,7 +95,7 @@ class BBC_Service_Bamboo_Client_Fake
                         $response = Zend_Http_Response::fromString(file_get_contents($fileName));
                         return $response;
                     } else {
-                        $error .= $fileName . "\n";
+                        $error .= realpath($fileName) . "\n";
                     }
                 }
             }
