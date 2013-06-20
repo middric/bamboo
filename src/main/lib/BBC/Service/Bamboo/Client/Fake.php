@@ -90,6 +90,14 @@ class BBC_Service_Bamboo_Client_Fake
             foreach ($this->_paths as $fileLocation) {
                 foreach ($this->_types as $extension => $type) {
                     $fileName = $fileLocation . $baseName . '.' . $extension . $queryString;
+                    try {
+                        var_dump($fileName);
+                        var_dump(file_exists($fileName));
+                        var_dump(file_get_contents($fileName));
+                    } catch (Exception $e) {
+                        var_dump($e);
+                    }
+                    die();
                     if (file_exists($fileName)) {
                         $m = __CLASS__ . ": using the file [" . $fileName . "]";
                         $response = Zend_Http_Response::fromString(file_get_contents($fileName));
