@@ -94,6 +94,11 @@ class BBC_Service_Bamboo_Client_Fake
                         var_dump($fileName);
                         var_dump(file_exists($fileName));
                         var_dump(file_get_contents($fileName));
+                        try {
+                            var_dump(scandir($fileLocation));
+                        } catch (Exception $e) {
+                            var_dump($e);
+                        }
                     } catch (Exception $e) {
                         var_dump($e);
                     }
