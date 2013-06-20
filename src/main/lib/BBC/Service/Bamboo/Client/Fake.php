@@ -117,11 +117,26 @@ class BBC_Service_Bamboo_Client_Fake
                         echo '<br /><br />';
                         var_dump(scandir('/data/webapps/bbc.co.uk/tviplayer/webapp/php/lib/BBC/Tviplayer/../../../'));
                         echo '<br /><br />';
-                        var_dump(scandir('/data/webapps/bbc.co.uk/tviplayer/webapp/php/lib/BBC/Tviplayer/../../../lib-test/'));
+                        var_dump(
+                            scandir(
+                                '/data/webapps/bbc.co.uk/tviplayer/' .
+                                'webapp/php/lib/BBC/Tviplayer/../../../lib-test/'
+                            )
+                        );
                         echo '<br /><br />';
-                        var_dump(scandir('/data/webapps/bbc.co.uk/tviplayer/webapp/php/lib/BBC/Tviplayer/../../../lib-test/fixtures/'));
+                        var_dump(
+                            scandir(
+                                '/data/webapps/bbc.co.uk/tviplayer/' .
+                                'webapp/php/lib/BBC/Tviplayer/../../../lib-test/fixtures/'
+                            )
+                        );
                         echo '<br /><br />';
-                        var_dump(scandir('/data/webapps/bbc.co.uk/tviplayer/webapp/php/lib/BBC/Tviplayer/../../../lib-test/fixtures/bamboo/'));
+                        var_dump(
+                            scandir(
+                                '/data/webapps/bbc.co.uk/tviplayer/' .
+                                'webapp/php/lib/BBC/Tviplayer/../../../lib-test/fixtures/bamboo/'
+                            )
+                        );
                     } catch (Exception $e) {
                         var_dump($e);
                     }
