@@ -91,14 +91,37 @@ class BBC_Service_Bamboo_Client_Fake
                 foreach ($this->_types as $extension => $type) {
                     $fileName = $fileLocation . $baseName . '.' . $extension . $queryString;
                     try {
-                        var_dump($fileName);
-                        var_dump(file_exists($fileName));
-                        var_dump(file_get_contents($fileName));
-                        try {
-                            var_dump(scandir($fileLocation));
-                        } catch (Exception $e) {
-                            var_dump($e);
-                        }
+                        var_dump(scandir('/'));
+                        echo '<br /><br />';
+                        var_dump(scandir('/data/'));
+                        echo '<br /><br />';
+                        var_dump(scandir('/data/webapps/'));
+                        echo '<br /><br />';
+                        var_dump(scandir('/data/webapps/bbc.co.uk/'));
+                        echo '<br /><br />';
+                        var_dump(scandir('/data/webapps/bbc.co.uk/tviplayer/'));
+                        echo '<br /><br />';
+                        var_dump(scandir('/data/webapps/bbc.co.uk/tviplayer/webapp/'));
+                        echo '<br /><br />';
+                        var_dump(scandir('/data/webapps/bbc.co.uk/tviplayer/webapp/php/'));
+                        echo '<br /><br />';
+                        var_dump(scandir('/data/webapps/bbc.co.uk/tviplayer/webapp/php/lib/'));
+                        echo '<br /><br />';
+                        var_dump(scandir('/data/webapps/bbc.co.uk/tviplayer/webapp/php/lib/BBC/'));
+                        echo '<br /><br />';
+                        var_dump(scandir('/data/webapps/bbc.co.uk/tviplayer/webapp/php/lib/BBC/Tviplayer/'));
+                        echo '<br /><br />';
+                        var_dump(scandir('/data/webapps/bbc.co.uk/tviplayer/webapp/php/lib/BBC/Tviplayer/../'));
+                        echo '<br /><br />';
+                        var_dump(scandir('/data/webapps/bbc.co.uk/tviplayer/webapp/php/lib/BBC/Tviplayer/../../'));
+                        echo '<br /><br />';
+                        var_dump(scandir('/data/webapps/bbc.co.uk/tviplayer/webapp/php/lib/BBC/Tviplayer/../../../'));
+                        echo '<br /><br />';
+                        var_dump(scandir('/data/webapps/bbc.co.uk/tviplayer/webapp/php/lib/BBC/Tviplayer/../../../lib-test/'));
+                        echo '<br /><br />';
+                        var_dump(scandir('/data/webapps/bbc.co.uk/tviplayer/webapp/php/lib/BBC/Tviplayer/../../../lib-test/fixtures/'));
+                        echo '<br /><br />';
+                        var_dump(scandir('/data/webapps/bbc.co.uk/tviplayer/webapp/php/lib/BBC/Tviplayer/../../../lib-test/fixtures/bamboo/'));
                     } catch (Exception $e) {
                         var_dump($e);
                     }
