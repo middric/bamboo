@@ -71,8 +71,8 @@ class BBC_Service_Bamboo_Client_HttpMulti
         $client = $this->getHttpClient();
         $self = $this;
         $client->get($url, $options)->then(
-            function ($myResponse) use (&$response, &$self) {
-                $self->handleErrors($myResponse);
+            function ($myResponse) use (&$response, &$self, &$url) {
+                $self->handleErrors($myResponse, $url);
                 $response = $myResponse;
             }
         )->end();
@@ -81,7 +81,7 @@ class BBC_Service_Bamboo_Client_HttpMulti
         return $response;
     }
 
-    public function handleErrors($response) {
+    public function handleErrors($response, $url) {
         // Handle the response if it represents an error
         if ($response->isError()) {
             // Set the status code based on the HTTP status code of the response
@@ -89,9 +89,10 @@ class BBC_Service_Bamboo_Client_HttpMulti
             // Retrieve the custom error nitro provides
             $iblErrorMessage = $this->_getIblError($response);
             $errorMessage = sprintf(
-                "Error Code %s: %s",
+		"Error Code %s: %s \nFor URL: %s",
                 $requestStatus,
-                $iblErrorMessage
+                $iblErrorMessage,
+		$url
             );
             //
             // Iterate through our predetermined exceptions, and throw the one
