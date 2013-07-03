@@ -89,10 +89,10 @@ class BBC_Service_Bamboo_Client_HttpMulti
             // Retrieve the custom error nitro provides
             $iblErrorMessage = $this->_getIblError($response);
             $errorMessage = sprintf(
-		"Error Code %s: %s \nFor URL: %s",
+                "Error Code %s: %s \nFor URL: %s",
                 $requestStatus,
                 $iblErrorMessage,
-		$url
+                $url
             );
             //
             // Iterate through our predetermined exceptions, and throw the one
