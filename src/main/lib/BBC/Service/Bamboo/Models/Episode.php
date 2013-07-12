@@ -53,12 +53,9 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
 
     public function getReleaseDate()
     {
-        // @codingStandardsIgnoreStart
         if ($this->_release_date) {
-            return new DateTime($this->_release_date);
+            return $this->_release_date;
         }
-        // @codingStandardsIgnoreEnd
-
         return "";
     }
 
