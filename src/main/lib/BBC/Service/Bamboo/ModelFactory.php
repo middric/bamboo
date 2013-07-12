@@ -29,26 +29,28 @@ class BBC_Service_Bamboo_ModelFactory
             $responseDecoded->timestamp
         );
 
-        foreach ($responseDecoded as $key => $value) {
-            $this->_root = $key;
-            $this->_responseDecoded = $value;
-            break;
+        if ($responseDecoded) {
+            foreach ($responseDecoded as $key => $value) {
+                $this->_root = $key;
+                $this->_responseDecoded = $value;
+                break;
+            }
         }
     }
 
     /**
-     * Build response array based 
+     * Build response array based
      * @return Object $responseArray
      */
     public function build() {
         if ($this->_responseDecoded) {
-            $responseArray = array();           
+            $responseArray = array();
 
             switch($this->_root) {
-                case 'categories': 
+                case 'categories':
                     $responseArray = $this->getCategories($this->_responseDecoded);
                     break;
-                case 'channels': 
+                case 'channels':
                     //$responseArray = $this->getChannels($this->_responseDecoded);
                     break;
 
@@ -70,7 +72,7 @@ class BBC_Service_Bamboo_ModelFactory
     }
 
     /**
-     * Returns the array of category objects 
+     * Returns the array of category objects
      * @return Object $response
      */
     public function getCategories($categories) {
