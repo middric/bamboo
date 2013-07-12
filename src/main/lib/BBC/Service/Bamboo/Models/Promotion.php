@@ -27,7 +27,7 @@ class BBC_Service_Bamboo_Models_Promotion
         $this->_title = $response->title;
         $this->_subtitle = $response->subtitle;
         $this->_synopsis = new BBC_Service_Bamboo_Models_Synopsis($response);
-        foreach ($response->episode as $episode){
+        foreach ($response->episode as $episode) {
             $this->_episode[] = new BBC_Service_Bamboo_Models_Episode($episode);
         }
     }   
@@ -69,7 +69,9 @@ class BBC_Service_Bamboo_Models_Promotion
      * @return array
      */
     public function getEpisodesArray() {
+        // @codingStandardsIgnoreStart
         return $this->_initial_child_episodes;
+        // @codingStandardsIgnoreEnd
     }
 
 }

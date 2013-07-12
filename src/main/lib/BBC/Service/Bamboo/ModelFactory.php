@@ -59,7 +59,7 @@ class BBC_Service_Bamboo_ModelFactory
             $response = new ArrayObject($responseArray);
 
             // This needs to be refactored when ibl wraps all of our known objects in an elements array
-            foreach($this->_responseDecoded as $key => $value) {
+            foreach ($this->_responseDecoded as $key => $value) {
                 $response->$key = $value;
             }
 
