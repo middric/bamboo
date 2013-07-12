@@ -62,7 +62,7 @@ class BBC_Service_BambooTest extends PHPUnit_Framework_TestCase
         );
         $response = $this->_service->fetch('status', array());
 
-        $this->assertInstanceOf('ArrayObject', $response);
+        $this->assertEquals('ArrayObject', get_class($response));
         $this->assertObjectHasAttribute('build_version', $response);
     }
 
