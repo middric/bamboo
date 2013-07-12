@@ -73,6 +73,10 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
         return '';
     }
 
+    public function getGuidanceObj() {
+        return $this->_guidance;
+    }
+
     public function getGuidance() {
         if (isset($this->_guidance['text'])) {
             return $this->_guidance['text'];
