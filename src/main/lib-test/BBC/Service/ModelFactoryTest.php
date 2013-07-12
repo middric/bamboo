@@ -39,7 +39,9 @@ class BBC_Service_ModelFactoryTest extends PHPUnit_Framework_TestCase
     }
 
     public function testAddsRootParameter() {
-        $zendResponse = Zend_Http_Response::fromString(file_get_contents(dirname(__FILE__) . '/../../fixtures/status.json'));
+        $zendResponse = Zend_Http_Response::fromString(
+            file_get_contents(dirname(__FILE__) . '/../../fixtures/status.json')
+        );
         $response = json_decode($zendResponse->getBody());
         $factory = new BBC_Service_Bamboo_ModelFactory($response);
         $factory->build();
@@ -48,7 +50,9 @@ class BBC_Service_ModelFactoryTest extends PHPUnit_Framework_TestCase
     }
 
     public function testStripsUnnecessaryParameter() {
-        $zendResponse = Zend_Http_Response::fromString(file_get_contents(dirname(__FILE__) . '/../../fixtures/status.json'));
+        $zendResponse = Zend_Http_Response::fromString(
+            file_get_contents(dirname(__FILE__) . '/../../fixtures/status.json')
+        );
         $response = json_decode($zendResponse->getBody());
         $factory = new BBC_Service_Bamboo_ModelFactory($response);
         $factory->build();
@@ -66,7 +70,9 @@ class BBC_Service_ModelFactoryTest extends PHPUnit_Framework_TestCase
      * @expectedException BBC_Service_Bamboo_Exception_EmptyFeed
      */
     public function testThrowsEmptyFeedError() {
-        $zendResponse = Zend_Http_Response::fromString(file_get_contents(dirname(__FILE__) . '/../../fixtures/empty.json'));
+        $zendResponse = Zend_Http_Response::fromString(
+            file_get_contents(dirname(__FILE__) . '/../../fixtures/empty.json')
+        );
         $response = json_decode($zendResponse->getBody());
         $factory = new BBC_Service_Bamboo_ModelFactory($response);
         $factory->build();
@@ -74,7 +80,9 @@ class BBC_Service_ModelFactoryTest extends PHPUnit_Framework_TestCase
     }
 
     public function testContainsEpisodesFromAFeedWithElements() {
-        $zendResponse = Zend_Http_Response::fromString(file_get_contents(dirname(__FILE__) . '/../../fixtures/episodes_p01b2b5c_recommendations.json'));
+        $zendResponse = Zend_Http_Response::fromString(
+            file_get_contents(dirname(__FILE__) . '/../../fixtures/episodes_p01b2b5c_recommendations.json')
+        );
         $response = json_decode($zendResponse->getBody());
         $factory = new BBC_Service_Bamboo_ModelFactory($response);
         $elements = $factory->build();
@@ -85,7 +93,9 @@ class BBC_Service_ModelFactoryTest extends PHPUnit_Framework_TestCase
     }
 
     public function testContainsEpisodesFromAFeedWithoutElements() {
-        $zendResponse = Zend_Http_Response::fromString(file_get_contents(dirname(__FILE__) . '/../../fixtures/episodes_p01b2b5c.json'));
+        $zendResponse = Zend_Http_Response::fromString(
+            file_get_contents(dirname(__FILE__) . '/../../fixtures/episodes_p01b2b5c.json')
+        );
         $response = json_decode($zendResponse->getBody());
         $factory = new BBC_Service_Bamboo_ModelFactory($response);
         $elements = $factory->build();
@@ -96,7 +106,9 @@ class BBC_Service_ModelFactoryTest extends PHPUnit_Framework_TestCase
     }
 
     /*public function testContainsMixtureOfModels() {
-        $zendResponse = Zend_Http_Response::fromString(file_get_contents(dirname(__FILE__) . '/../../fixtures/channels_bbc_one_highlights.json'));
+        $zendResponse = Zend_Http_Response::fromString(
+            file_get_contents(dirname(__FILE__) . '/../../fixtures/channels_bbc_one_highlights.json')
+        );
         $response = json_decode($zendResponse->getBody());
         $factory = new BBC_Service_Bamboo_ModelFactory($response);
         $elements = $factory->build();

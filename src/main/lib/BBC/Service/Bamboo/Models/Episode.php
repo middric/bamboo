@@ -12,8 +12,10 @@
 class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Element
 {
     protected $_subtitle = "";
+    // @codingStandardsIgnoreStart
     protected $_release_date = "";
     protected $_tleo_id = "";
+    // @codingStandardsIgnoreEnd
     protected $_versions = array();
     protected $_film = false;
     protected $_duration = "";
@@ -28,7 +30,9 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
     }
 
     public function getTleoId() {
+        // @codingStandardsIgnoreStart
         return $this->_tleo_id;
+        // @codingStandardsIgnoreEnd
     }
 
     public function getEditorialLabel()
@@ -49,9 +53,11 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
 
     public function getReleaseDate()
     {
+        // @codingStandardsIgnoreStart
         if ($this->_release_date) {
             return new DateTime($this->_release_date);
         }
+        // @codingStandardsIgnoreEnd
 
         return "";
     }

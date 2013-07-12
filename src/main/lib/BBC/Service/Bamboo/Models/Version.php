@@ -20,7 +20,9 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
     protected $_duration = "";
     protected $_rrc = array();
     protected $_guidance = array();
+    // @codingStandardsIgnoreStart
     protected $_credits_timestamp = "";
+    // @codingStandardsIgnoreEnd
 
     public function getAvailability()
     {
@@ -44,51 +46,51 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
     }
 
     public function getRRC() {
-    	return $this->_rrc;
+        return $this->_rrc;
     }
 
     public function getRRCShort() {
-    	if (isset($this->_rrc['description']) && isset($this->_rrc['description']->small)) {
-    		return $this->_rrc['description']->small;
-    	}
+        if (isset($this->_rrc['description']) && isset($this->_rrc['description']->small)) {
+            return $this->_rrc['description']->small;
+        }
 
-    	return '';
+        return '';
     }
 
     public function getRRCLong() {
-    	if (isset($this->_rrc['description']) && isset($this->_rrc['description']['large'])) {
-    		return $this->_rrc['description']['large'];
-    	}
+        if (isset($this->_rrc['description']) && isset($this->_rrc['description']['large'])) {
+            return $this->_rrc['description']['large'];
+        }
 
-    	return '';
+        return '';
     }
 
     public function getRRCURL() {
-    	if (isset($this->_rrc['url'])) {
-    		return $this->_rrc['url'];
-    	}
+        if (isset($this->_rrc['url'])) {
+            return $this->_rrc['url'];
+        }
 
-    	return '';
+        return '';
     }
 
     public function getGuidance() {
-    	if (isset($this->_guidance['text'])) {
-    		return $this->_guidance['text'];
-    	}
+        if (isset($this->_guidance['text'])) {
+            return $this->_guidance['text'];
+        }
 
-    	return '';
+        return '';
     }
 
     public function getGuidanceID() {
-    	if (isset($this->_guidance['id'])) {
-    		return $this->_guidance['id'];
-    	}
+        if (isset($this->_guidance['id'])) {
+            return $this->_guidance['id'];
+        }
 
-    	return '';
+        return '';
     }
 
     public function isDownload() {
-    	return !!$this->_download;
+        return !!$this->_download;
     }
 
     public function isHD()

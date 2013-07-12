@@ -87,11 +87,11 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
             $this->_cache->save($feedName, $params, $response);
         }
 
-        $json_response = json_decode($response->getBody());
-        $factory = new BBC_Service_Bamboo_ModelFactory($json_response);
-        $response_array = $factory->build();
+        $json = json_decode($response->getBody());
+        $factory = new BBC_Service_Bamboo_ModelFactory($json);
+        $built = $factory->build();
 
-        return $response_array;
+        return $built;
     }
 
     public function setAPIKey($apiKey) {

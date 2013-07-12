@@ -14,95 +14,95 @@ class BBC_Service_Bamboo_ModelFactory
     /**
      * @var stdClass object
      */
-	private $_response_decoded;
+    private $_responseDecoded;
 
-	private $_root;
+    private $_root;
 
     /**
      * Constructor setting up instance vars for object instance
-     * @param stdClass $response_decoded
+     * @param stdClass $responseDecoded
      */
-	public function __construct($response_decoded) {
-		unset(
-			$response_decoded->version,
-			$response_decoded->schema,
-			$response_decoded->timestamp
-		);
+    public function __construct($responseDecoded) {
+        unset(
+            $responseDecoded->version,
+            $responseDecoded->schema,
+            $responseDecoded->timestamp
+        );
 
-		foreach ($response_decoded as $key => $value) {
-			$this->_root = $key;
-			$this->_response_decoded = $value;
-			break;
-		}
-	}
+        foreach ($responseDecoded as $key => $value) {
+            $this->_root = $key;
+            $this->_responseDecoded = $value;
+            break;
+        }
+    }
 
     /**
      * Build response array based 
-     * @return Object $response_array
+     * @return Object $responseArray
      */
-	public function build() {
-		if ($this->_response_decoded) {
-			$response_array = array();			
+    public function build() {
+        if ($this->_responseDecoded) {
+            $responseArray = array();           
 
-			switch($this->_root) {
-				case 'categories': 
-					$response_array = $this->getCategories($this->_response_decoded);
-					break;
-				case 'channels': 
-					//$response_array = $this->getChannels($this->_response_decoded);
-					break;
+            switch($this->_root) {
+                case 'categories': 
+                    $responseArray = $this->getCategories($this->_responseDecoded);
+                    break;
+                case 'channels': 
+                    //$responseArray = $this->getChannels($this->_responseDecoded);
+                    break;
 
-				default:
-					$this->_findElements($this->_response_decoded, $response_array);
-			}
+                default:
+                    $this->_findElements($this->_responseDecoded, $responseArray);
+            }
 
-			$response = new ArrayObject($response_array);
+            $response = new ArrayObject($responseArray);
 
-			// This needs to be refactored when ibl wraps all of our known objects in an elements array
-			foreach($this->_response_decoded as $key => $value) {
-				$response->$key = $value;
-			}
+            // This needs to be refactored when ibl wraps all of our known objects in an elements array
+            foreach($this->_responseDecoded as $key => $value) {
+                $response->$key = $value;
+            }
 
-		    return $response;
-		} else {
-			throw new BBC_Service_Bamboo_Exception_EmptyFeed('Feed is empty');
-		}
-	}
+            return $response;
+        } else {
+            throw new BBC_Service_Bamboo_Exception_EmptyFeed('Feed is empty');
+        }
+    }
 
     /**
      * Returns the array of category objects 
      * @return Object $response
      */
-	public function getCategories($categories) {
-		$array = array();
-		foreach ($categories as $element) {
-			$item = new BBC_Service_Bamboo_Models_Category($element);
-			$array[] = $item;
-		}
+    public function getCategories($categories) {
+        $array = array();
+        foreach ($categories as $element) {
+            $item = new BBC_Service_Bamboo_Models_Category($element);
+            $array[] = $item;
+        }
 
-		return $array;
-	}
+        return $array;
+    }
 
-	public function getRoot() {
-		return $this->_root;
-	}
+    public function getRoot() {
+        return $this->_root;
+    }
 
-	public function getResponse() {
-		return $this->_response_decoded;
-	}
+    public function getResponse() {
+        return $this->_responseDecoded;
+    }
 
-	protected function _findElements($item, &$elements) {
-		if (isset($item->type)) {
-			$type = str_replace('_large', '', $item->type);
-			$className = 'BBC_Service_Bamboo_Models_' . ucfirst($type);
-			if (class_exists($className)) {
-				$elements[] = new $className($item);
-			}
-		} elseif (is_array($item) || is_object($item)) {
-			foreach ($item as $key => $value) {
-				$this->_findElements($value, $elements);
-			}
-		}
-	}
+    protected function _findElements($item, &$elements) {
+        if (isset($item->type)) {
+            $type = str_replace('_large', '', $item->type);
+            $className = 'BBC_Service_Bamboo_Models_' . mb_convert_case($type, MB_CASE_TITLE);
+            if (class_exists($className)) {
+                $elements[] = new $className($item);
+            }
+        } elseif (is_array($item) || is_object($item)) {
+            foreach ($item as $key => $value) {
+                $this->_findElements($value, $elements);
+            }
+        }
+    }
 
 }

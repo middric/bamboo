@@ -17,8 +17,8 @@ class BBC_Service_Bamboo_Models_Base
 
     public function __construct($response) {
         $this->_response = $response;
-        foreach($response as $key => $value) {
-            switch($key) {
+        foreach ($response as $key => $value) {
+            switch ($key) {
                 case "versions":
                     $this->_setVersions();
                     break;
@@ -45,14 +45,16 @@ class BBC_Service_Bamboo_Models_Base
     }
 
     private function _setProperty($key) {
-        if(isset($this->_response->{$key}) && isset($this->{"_$key"})) {
-            if(is_array($this->{"_$key"})) {
+        if (isset($this->_response->{$key}) && isset($this->{"_$key"})) {
+            if (is_array($this->{"_$key"})) {
                 $this->{"_$key"} = (array) $this->_response->{$key};
             } else {
                 $this->{"_$key"} = $this->_response->{$key};
             }
         } else {
-            throw new BBC_Service_Bamboo_Exception_ExpectedProperty("Expected property \$_$key to be set on " . get_class($this));
+            throw new BBC_Service_Bamboo_Exception_ExpectedProperty(
+                "Expected property \$_$key to be set on " . get_class($this)
+            );
         }
     }
 
@@ -62,17 +64,23 @@ class BBC_Service_Bamboo_Models_Base
                 $this->_versions[] = new BBC_Service_Bamboo_Models_Version($version);
             }
         } else {
-            throw new BBC_Service_Bamboo_Exception_ExpectedProperty("Expected property \$_versions to be set on " . get_class($this));
+            throw new BBC_Service_Bamboo_Exception_ExpectedProperty(
+                "Expected property \$_versions to be set on " . get_class($this)
+            );
         }
     }
 
     private function _setEpisodes() {
+        // @codingStandardsIgnoreStart
         if (isset($this->_response->initial_child_episodes) && isset($this->_initial_child_episodes)) {
             foreach ($this->_response->initial_child_episodes as $episode) {
                 $this->_initial_child_episodes[] = new BBC_Service_Bamboo_Models_Episode($episode);
             }
         } else {
-            throw new BBC_Service_Bamboo_Exception_ExpectedProperty("Expected property \$_initial_child_episodes to be set on " . get_class($this));
+            throw new BBC_Service_Bamboo_Exception_ExpectedProperty(
+                "Expected property \$_initial_child_episodes to be set on " . get_class($this)
+            );
         }
+        // @codingStandardsIgnoreEnd
     }
 }

@@ -14,7 +14,9 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
     protected $_type = '';
     protected $_synopses = array();
     protected $_images = array();
+    // @codingStandardsIgnoreStart
     protected $_master_brand = array();
+    // @codingStandardsIgnoreEnd
 
     public function getShortSynopsis()
     {
@@ -50,17 +52,21 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
 
     public function getMasterBrand()
     {
+        // @codingStandardsIgnoreStart
         if (isset($this->_master_brand['name'])) {
             return $this->_master_brand['name'];
         }
+        // @codingStandardsIgnoreEnd
         return "";
     }
 
     public function getMasterBrandId()
     {
+        // @codingStandardsIgnoreStart
         if (isset($this->_master_brand['id'])) {
             return $this->_master_brand['id'];
         }
+        // @codingStandardsIgnoreEnd
         return "";
     }
 
