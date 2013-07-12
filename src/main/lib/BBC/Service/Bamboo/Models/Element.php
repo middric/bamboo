@@ -42,10 +42,11 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
         return "";
     }
 
-    public function getStandardImage()
+    public function getStandardImage($width = 336, $height = 189)
     {
+        $dimensions = "{$width}x{$height}";
         if (isset($this->_images['standard'])) {
-            return $this->_images['standard'];
+            return str_replace('{recipe}', $dimensions, $this->_images['standard']);
         }
         return "";
     }
