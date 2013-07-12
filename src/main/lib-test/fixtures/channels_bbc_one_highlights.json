@@ -1,0 +1,1962 @@
+HTTP/1.1 200 OK
+Server: Fixture
+Content-Language: en-GB
+Content-Type: application/json;charset=UTF-8
+
+{
+"version": "1.0.0",
+"schema": "/ibl/v1/schema/ibl.json",
+"timestamp": "2013-05-09T16:00:30Z",
+"home_highlights": {
+"elements": [
+{
+"id": "b01rt1v6",
+"type": "episode",
+"title": "Have I Got News for You - Series 45",
+"subtitle": "Episode 1",
+"synopses": {
+"small": "Stephen Mangan hosts, with guest panellists Joan Bakewell and Richard Osman.",
+"medium": "The popular news quiz returns, with team captains Paul Merton and Ian Hislop, guest host Stephen Mangan and guest panellists Joan Bakewell and Richard Osman."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01rt1v6.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b01rt1v6",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"tleo_id": "b006mkw3",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b01rx0lj",
+"type": "episode",
+"title": "Doctor Who - Series 7 Part 2",
+"subtitle": "2. The Rings Of Akhaten",
+"synopses": {
+"small": "The Doctor takes Clara to the Festival of Offerings, but the Old God is waking...",
+"medium": "The Doctor takes Clara to the Festival of Offerings, but the Old God is waking and demands sacrifice!"
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01rx0lj.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b01rx0lj",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"tleo_id": "b006q2x0",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b01rw07q",
+"type": "episode",
+"title": "The Voice UK - Series 2",
+"subtitle": "2. Blind Auditions 2",
+"synopses": {
+"small": "Holly Willoughby and Reggie Yates return to present the next set of blind auditions.",
+"medium": "Holly Willoughby and Reggie Yates return to present the next set of blind auditions, as the four coaches continue to build their talented teams."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01rw07q.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b01rw07q",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"tleo_id": "b01nnfdd",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b01rt1v6",
+"type": "episode",
+"title": "Have I Got News for You - Series 45",
+"subtitle": "Episode 1",
+"synopses": {
+"small": "Stephen Mangan hosts, with guest panellists Joan Bakewell and Richard Osman.",
+"medium": "The popular news quiz returns, with team captains Paul Merton and Ian Hislop, guest host Stephen Mangan and guest panellists Joan Bakewell and Richard Osman."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01rt1v6.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b01rt1v6",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"tleo_id": "b006mkw3",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "popular",
+"type": "group",
+"title": "Most Popular",
+"subtitle": "Popular group of episodes within iPlayer",
+"synopses": {
+"small": "The most popular episodes currently available within iPlayer."
+},
+"initial_child_episodes": [
+{
+"id": "b020xrpd",
+"type": "episode",
+"title": "The Apprentice",
+"subtitle": "Series 9 - Dubai",
+"synopses": {
+"small": "The teams must secure a number of items for a hotel in Dubai.",
+"medium": "Business competition. The teams head off on a business trip to Dubai, where they must secure a number of items required by a new multi-million pound hotel."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b020xrpd.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b020xrpd",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"stacked": true,
+"tleo_id": "b006q2x0",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b020yrhy",
+"type": "episode",
+"title": "EastEnders",
+"subtitle": "28/05/2013",
+"synopses": {
+"small": "Tanya is on a mission to stop Lauren from getting her hands on any alcohol.",
+"medium": "Realising Lauren's drinking is out of control, Tanya is on a mission to stop her from getting her hands on any alcohol. Kim has a realisation at her birthday party."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b020yrhy.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b020yrhy",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"stacked": true,
+"tleo_id": "b006q2x0",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b020yqhf",
+"type": "episode",
+"title": "The Fall",
+"subtitle": "Episode 3",
+"synopses": {
+"small": "After realising that his perfect kill is tainted, Spector looks for his next victim.",
+"medium": "Crime drama. As Stella Gibson takes control of the hunt for the serial killer, the realisation that his perfect kill is tainted pushes Spector into looking for his next victim."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b020yqhf.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b020yqhf",
+"master_brand": {
+"id": "bbc_two",
+"name": "BBC Two"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"stacked": true,
+"tleo_id": "b006q2x0",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b020vjyy",
+"type": "episode",
+"title": "The Voice",
+"subtitle": "Series 2 - Battle Rounds 3",
+"synopses": {
+"small": "Holly Willoughby and Reggie Yates present as the battle rounds come to their conclusion.",
+"medium": "Holly Willoughby and Reggie Yates present as the battle rounds come to their conclusion, with only one person from each battle progressing to the next stage."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b020vjyy.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b020vjyy",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"stacked": true,
+"tleo_id": "b006q2x0",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b00p1p3d",
+"type": "episode",
+"title": "Miranda",
+"subtitle": "Series 1 - Teacher",
+"synopses": {
+"small": "Miranda joins an evening class to learn French, the language of love.",
+"medium": "Sitcom. Trying to overcome her hang-ups over sex, Miranda joins an evening class to learn French, the language of love. However, she discovers it is run by her old teacher."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b00p1p3d.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b00p1p3d",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"stacked": true,
+"tleo_id": "b006q2x0",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b01sksvk",
+"type": "episode",
+"title": "Russell Howard's Good News",
+"subtitle": "Series 8 - Episode 5",
+"synopses": {
+"small": "Topical comedy show in which Russell Howard offers up his unique perspective on the news.",
+"medium": "Topical comedy show in which Russell Howard offers his unique perspective on the news stories that dominated the broadcast and print media over the previous seven days."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01sksvk.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b01sksvk",
+"master_brand": {
+"id": "bbc_three",
+"name": "BBC Three"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"stacked": true,
+"tleo_id": "b006q2x0",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b02144nm",
+"type": "episode",
+"title": "Springwatch",
+"subtitle": "2013 - Episode 1",
+"synopses": {
+"small": "Stories include the late spring of 2013, red kites, wild boar, dolphins and otters.",
+"medium": "Springwatch returns with the best of the UK's wildlife - live. Stories include the strange late spring of 2013, red kites, wild boar, dolphins and otters."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b02144nm.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b02144nm",
+"master_brand": {
+"id": "bbc_two",
+"name": "BBC Two"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"stacked": true,
+"tleo_id": "b006q2x0",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "p018cc8p",
+"type": "episode",
+"title": "Ice Age Giants",
+"subtitle": "Land of the Cave-Bear",
+"synopses": {
+"small": "Professor Alice Roberts ventures to the areas hit hardest by the cold of the ice age.",
+"medium": "Professor Alice Roberts goes on the trail of the great beasts of the Ice Age. This time she visits Europe and Siberia, which were hit hardest by the cold."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/p018cc8p.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/p018cc8p",
+"master_brand": {
+"id": "bbc_two",
+"name": "BBC Two"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"stacked": true,
+"tleo_id": "b006q2x0",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+}
+],
+"child_episode_count": 25
+},
+{
+"id": "b007qgcl",
+"type": "group",
+"title": "Series Catchup",
+"subtitle": "The series catchup collection.",
+"synopses": {
+"small": "The series catchup collection."
+},
+"initial_child_episodes": [
+{
+"id": "b020xrpd",
+"type": "episode",
+"title": "The Apprentice",
+"subtitle": "Series 9 - Dubai",
+"synopses": {
+"small": "The teams must secure a number of items for a hotel in Dubai.",
+"medium": "Business competition. The teams head off on a business trip to Dubai, where they must secure a number of items required by a new multi-million pound hotel."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b020xrpd.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b020xrpd",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"stacked": true,
+"tleo_id": "b006q2x0",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b020yrhy",
+"type": "episode",
+"title": "EastEnders",
+"subtitle": "28/05/2013",
+"synopses": {
+"small": "Tanya is on a mission to stop Lauren from getting her hands on any alcohol.",
+"medium": "Realising Lauren's drinking is out of control, Tanya is on a mission to stop her from getting her hands on any alcohol. Kim has a realisation at her birthday party."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b020yrhy.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b020yrhy",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"stacked": true,
+"tleo_id": "b006q2x0",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b020yqhf",
+"type": "episode",
+"title": "The Fall",
+"subtitle": "Episode 3",
+"synopses": {
+"small": "After realising that his perfect kill is tainted, Spector looks for his next victim.",
+"medium": "Crime drama. As Stella Gibson takes control of the hunt for the serial killer, the realisation that his perfect kill is tainted pushes Spector into looking for his next victim."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b020yqhf.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b020yqhf",
+"master_brand": {
+"id": "bbc_two",
+"name": "BBC Two"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"stacked": true,
+"tleo_id": "b006q2x0",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b020vjyy",
+"type": "episode",
+"title": "The Voice",
+"subtitle": "Series 2 - Battle Rounds 3",
+"synopses": {
+"small": "Holly Willoughby and Reggie Yates present as the battle rounds come to their conclusion.",
+"medium": "Holly Willoughby and Reggie Yates present as the battle rounds come to their conclusion, with only one person from each battle progressing to the next stage."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b020vjyy.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b020vjyy",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"stacked": true,
+"tleo_id": "b006q2x0",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b00p1p3d",
+"type": "episode",
+"title": "Miranda",
+"subtitle": "Series 1 - Teacher",
+"synopses": {
+"small": "Miranda joins an evening class to learn French, the language of love.",
+"medium": "Sitcom. Trying to overcome her hang-ups over sex, Miranda joins an evening class to learn French, the language of love. However, she discovers it is run by her old teacher."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b00p1p3d.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b00p1p3d",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"stacked": true,
+"tleo_id": "b006q2x0",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b01sksvk",
+"type": "episode",
+"title": "Russell Howard's Good News",
+"subtitle": "Series 8 - Episode 5",
+"synopses": {
+"small": "Topical comedy show in which Russell Howard offers up his unique perspective on the news.",
+"medium": "Topical comedy show in which Russell Howard offers his unique perspective on the news stories that dominated the broadcast and print media over the previous seven days."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01sksvk.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b01sksvk",
+"master_brand": {
+"id": "bbc_three",
+"name": "BBC Three"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"stacked": true,
+"tleo_id": "b006q2x0",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b02144nm",
+"type": "episode",
+"title": "Springwatch",
+"subtitle": "2013 - Episode 1",
+"synopses": {
+"small": "Stories include the late spring of 2013, red kites, wild boar, dolphins and otters.",
+"medium": "Springwatch returns with the best of the UK's wildlife - live. Stories include the strange late spring of 2013, red kites, wild boar, dolphins and otters."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b02144nm.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b02144nm",
+"master_brand": {
+"id": "bbc_two",
+"name": "BBC Two"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"stacked": true,
+"tleo_id": "b006q2x0",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "p018cc8p",
+"type": "episode",
+"title": "Ice Age Giants",
+"subtitle": "Land of the Cave-Bear",
+"synopses": {
+"small": "Professor Alice Roberts ventures to the areas hit hardest by the cold of the ice age.",
+"medium": "Professor Alice Roberts goes on the trail of the great beasts of the Ice Age. This time she visits Europe and Siberia, which were hit hardest by the cold."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/p018cc8p.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/p018cc8p",
+"master_brand": {
+"id": "bbc_two",
+"name": "BBC Two"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"stacked": true,
+"tleo_id": "b006q2x0",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+}
+],
+"child_episode_count": 25
+},
+{
+"id": "b01rx0lj",
+"type": "episode",
+"title": "Doctor Who - Series 7 Part 2",
+"subtitle": "2. The Rings Of Akhaten",
+"synopses": {
+"small": "The Doctor takes Clara to the Festival of Offerings, but the Old God is waking...",
+"medium": "The Doctor takes Clara to the Festival of Offerings, but the Old God is waking and demands sacrifice!"
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01rx0lj.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b01rx0lj",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"stacked": true,
+"tleo_id": "b006q2x0",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b01rw07q",
+"type": "episode",
+"title": "The Voice UK - Series 2",
+"subtitle": "2. Blind Auditions 2",
+"synopses": {
+"small": "Holly Willoughby and Reggie Yates return to present the next set of blind auditions.",
+"medium": "Holly Willoughby and Reggie Yates return to present the next set of blind auditions, as the four coaches continue to build their talented teams."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01rw07q.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b01rw07q",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"stacked": true,
+"tleo_id": "b01nnfdd",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b01rt1v6",
+"type": "episode",
+"title": "Have I Got News for You - Series 45",
+"subtitle": "Episode 1",
+"synopses": {
+"small": "Stephen Mangan hosts, with guest panellists Joan Bakewell and Richard Osman.",
+"medium": "The popular news quiz returns, with team captains Paul Merton and Ian Hislop, guest host Stephen Mangan and guest panellists Joan Bakewell and Richard Osman."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01rt1v6.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b01rt1v6",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"stacked": true,
+"tleo_id": "b006mkw3",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b01rx0lj",
+"type": "episode",
+"title": "Doctor Who - Series 7 Part 2",
+"subtitle": "2. The Rings Of Akhaten",
+"synopses": {
+"small": "The Doctor takes Clara to the Festival of Offerings, but the Old God is waking...",
+"medium": "The Doctor takes Clara to the Festival of Offerings, but the Old God is waking and demands sacrifice!"
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01rx0lj.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b01rx0lj",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"stacked": true,
+"tleo_id": "b006q2x0",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b01rw07q",
+"type": "episode",
+"title": "The Voice UK - Series 2",
+"subtitle": "2. Blind Auditions 2",
+"synopses": {
+"small": "Holly Willoughby and Reggie Yates return to present the next set of blind auditions.",
+"medium": "Holly Willoughby and Reggie Yates return to present the next set of blind auditions, as the four coaches continue to build their talented teams."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01rw07q.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b01rw07q",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"tleo_id": "b01nnfdd",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b01rt1v6",
+"type": "episode",
+"title": "Have I Got News for You - Series 45",
+"subtitle": "Episode 1",
+"synopses": {
+"small": "Stephen Mangan hosts, with guest panellists Joan Bakewell and Richard Osman.",
+"medium": "The popular news quiz returns, with team captains Paul Merton and Ian Hislop, guest host Stephen Mangan and guest panellists Joan Bakewell and Richard Osman."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01rt1v6.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b01rt1v6",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"tleo_id": "b006mkw3",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b01rx0lj",
+"type": "episode",
+"title": "Doctor Who - Series 7 Part 2",
+"subtitle": "2. The Rings Of Akhaten",
+"synopses": {
+"small": "The Doctor takes Clara to the Festival of Offerings, but the Old God is waking...",
+"medium": "The Doctor takes Clara to the Festival of Offerings, but the Old God is waking and demands sacrifice!"
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01rx0lj.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b01rx0lj",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"tleo_id": "b006q2x0",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b01rw07q",
+"type": "episode",
+"title": "The Voice UK - Series 2",
+"subtitle": "2. Blind Auditions 2",
+"synopses": {
+"small": "Holly Willoughby and Reggie Yates return to present the next set of blind auditions.",
+"medium": "Holly Willoughby and Reggie Yates return to present the next set of blind auditions, as the four coaches continue to build their talented teams."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01rw07q.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b01rw07q",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"tleo_id": "b01nnfdd",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b01rt1v6",
+"type": "episode",
+"title": "Have I Got News for You - Series 45",
+"subtitle": "Episode 1",
+"synopses": {
+"small": "Stephen Mangan hosts, with guest panellists Joan Bakewell and Richard Osman.",
+"medium": "The popular news quiz returns, with team captains Paul Merton and Ian Hislop, guest host Stephen Mangan and guest panellists Joan Bakewell and Richard Osman."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01rt1v6.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b01rt1v6",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"tleo_id": "b006mkw3",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b01rx0lj",
+"type": "episode",
+"title": "Doctor Who - Series 7 Part 2",
+"subtitle": "2. The Rings Of Akhaten",
+"synopses": {
+"small": "The Doctor takes Clara to the Festival of Offerings, but the Old God is waking...",
+"medium": "The Doctor takes Clara to the Festival of Offerings, but the Old God is waking and demands sacrifice!"
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01rx0lj.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b01rx0lj",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"tleo_id": "b006q2x0",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b01rw07q",
+"type": "episode",
+"title": "The Voice UK - Series 2",
+"subtitle": "2. Blind Auditions 2",
+"synopses": {
+"small": "Holly Willoughby and Reggie Yates return to present the next set of blind auditions.",
+"medium": "Holly Willoughby and Reggie Yates return to present the next set of blind auditions, as the four coaches continue to build their talented teams."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01rw07q.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b01rw07q",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"tleo_id": "b01nnfdd",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b01rt1v6",
+"type": "episode",
+"title": "Have I Got News for You - Series 45",
+"subtitle": "Episode 1",
+"synopses": {
+"small": "Stephen Mangan hosts, with guest panellists Joan Bakewell and Richard Osman.",
+"medium": "The popular news quiz returns, with team captains Paul Merton and Ian Hislop, guest host Stephen Mangan and guest panellists Joan Bakewell and Richard Osman."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01rt1v6.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b01rt1v6",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"tleo_id": "b006mkw3",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b01rx0lj",
+"type": "episode",
+"title": "Doctor Who - Series 7 Part 2",
+"subtitle": "2. The Rings Of Akhaten",
+"synopses": {
+"small": "The Doctor takes Clara to the Festival of Offerings, but the Old God is waking...",
+"medium": "The Doctor takes Clara to the Festival of Offerings, but the Old God is waking and demands sacrifice!"
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01rx0lj.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b01rx0lj",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"tleo_id": "b006q2x0",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+},
+{
+"id": "b01rw07q",
+"type": "episode",
+"title": "The Voice UK - Series 2",
+"subtitle": "2. Blind Auditions 2",
+"synopses": {
+"small": "Holly Willoughby and Reggie Yates return to present the next set of blind auditions.",
+"medium": "Holly Willoughby and Reggie Yates return to present the next set of blind auditions, as the four coaches continue to build their talented teams."
+},
+"images": {
+"standard": "http://ichef.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01rw07q.jpg"
+},
+"href": "http://www.bbc.co.uk/iplayer/b01rw07q",
+"master_brand": {
+"id": "bbc_one",
+"name": "BBC One"
+},
+"labels": {
+"editorial": "Coming Soon",
+"time": "3 days left"
+},
+"tleo_id": "b01nnfdd",
+"release_date": "2013-05-09T16:00:30Z",
+"versions": [
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "original",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"hd": true,
+"download": true,
+"duration": "PT1H"
+},
+{
+"id": "b01rx0ld",
+"type": "version",
+"kind": "signed",
+"availability": {
+"start": "2013-03-09T16:00:30Z",
+"end": "2013-04-09T16:00:30Z",
+"remaining": {
+"duration": "PT24H",
+"text": "1 day"
+}
+},
+"duration": "PT1H"
+}
+]
+}
+]
+}
+}

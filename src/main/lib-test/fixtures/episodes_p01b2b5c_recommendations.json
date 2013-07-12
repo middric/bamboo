@@ -1,0 +1,307 @@
+HTTP/1.1 200 OK
+Server: Fixture
+Content-Language: en-GB
+Content-Type: application/json;charset=UTF-8
+
+{
+    "version": "1.0",
+    "schema": "/ibl/v1/schema/ibl.json",
+    "timestamp": "2013-07-11T09:07:36Z",
+    "episode_recommendations": {
+        "count": 10,
+        "page": 1,
+        "per_page": 20,
+        "elements": [{
+            "id": "b036y80n",
+            "title": "The White Queen",
+            "subtitle": "Episode 4",
+            "synopses": {
+                "small": "Warwick plots to control the crown, and Anne is used to make an unexpected alliance.",
+                "medium": "Drama series set during the Wars of the Roses. Exiled in France, Warwick still plots to control the crown. His youngest daughter Anne is used to make an unexpected alliance."
+            },
+            "images": {
+                "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b036y80n.jpg"
+            },
+            "master_brand": {
+                "id": "bbc_one",
+                "name": "BBC One"
+            },
+            "versions": [{
+                "id": "b037bm0k",
+                "kind": "hd",
+                "availability": {
+                    "end": "2013-08-25T20:59:00Z"
+                }
+            }, {
+                "id": "p01cgnlm",
+                "kind": "audio-described",
+                "availability": {
+                    "end": "2013-08-25T20:59:00Z"
+                }
+            }],
+            "release_date": "07 Jul 2013",
+            "type": "episode",
+            "tleo_id": "p018sxqp"
+        }, {
+            "id": "b036tj52",
+            "title": "Holby City",
+            "subtitle": "Series 15 - Mens Sana In Corpore Sano",
+            "synopses": {
+                "small": "Oliver descends to new depths as he risks betraying Tara and destroying his career.",
+                "medium": "A desperate Oliver descends to new depths as he risks betraying Tara and destroying his career; will he be forced to leave Holby for good?"
+            },
+            "images": {
+                "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b036tj52.jpg"
+            },
+            "master_brand": {
+                "id": "bbc_one",
+                "name": "BBC One"
+            },
+            "versions": [{
+                "id": "b036tj19",
+                "kind": "hd",
+                "availability": {
+                    "end": "2013-07-16T19:59:00Z"
+                }
+            }, {
+                "id": "p01cjff4",
+                "kind": "audio-described",
+                "availability": {
+                    "end": "2013-07-16T19:59:00Z"
+                }
+            }],
+            "release_date": "09 Jul 2013",
+            "type": "episode",
+            "tleo_id": "b006mhd6"
+        }, {
+            "id": "b036t8w6",
+            "title": "Howzat! Kerry Packer's War",
+            "subtitle": "Episode 1",
+            "synopses": {
+                "small": "Drama about Australian media mogul Kerry Packer's war with the established cricket world.",
+                "medium": "Drama centred around Australian media mogul Kerry Packer, who fought a cricket war by secretly signing up 50 of the world's greatest players to form a breakaway tournament."
+            },
+            "images": {
+                "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b036t8w6.jpg"
+            },
+            "master_brand": {
+                "id": "bbc_four",
+                "name": "BBC Four"
+            },
+            "versions": [{
+                "id": "b036t8vj",
+                "kind": "original",
+                "availability": {
+                    "end": "2013-07-15T21:29:00Z"
+                }
+            }],
+            "release_date": "08 Jul 2013",
+            "type": "episode",
+            "tleo_id": "b036z84s"
+        }, {
+            "id": "b036s3w1",
+            "title": "Casualty",
+            "subtitle": "Series 27 - A History of Violence",
+            "synopses": {
+                "small": "When Marcus is mugged, Sam and Fletch work together to reveal who the real victim is.",
+                "medium": "When Marcus is mugged, Sam and Fletch work together to reveal who the real victim is; and Robyn uncovers the facts behind little Tyler's injured arm."
+            },
+            "images": {
+                "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b036s3w1.jpg"
+            },
+            "master_brand": {
+                "id": "bbc_one",
+                "name": "BBC One"
+            },
+            "versions": [{
+                "id": "b036s3rm",
+                "kind": "hd",
+                "availability": {
+                    "end": "2013-07-13T20:59:00Z"
+                }
+            }, {
+                "id": "p01cf4k8",
+                "kind": "audio-described",
+                "availability": {
+                    "end": "2013-07-13T20:59:00Z"
+                }
+            }],
+            "release_date": "06 Jul 2013",
+            "type": "episode",
+            "tleo_id": "b006m8wd"
+        }, {
+            "id": "b036j1wh",
+            "title": "Waterloo Road",
+            "subtitle": "Series 8 - Episode 30",
+            "synopses": {
+                "small": "Tom's attempts to help former bad boy pupil Kyle Stack end in disaster.",
+                "medium": "School-based drama. When former bad boy pupil Kyle Stack shows up at Waterloo Road, matters take a turn for the worse after Tom tries to help the troubled boy."
+            },
+            "images": {
+                "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b036j1wh.jpg"
+            },
+            "master_brand": {
+                "id": "bbc_one",
+                "name": "BBC One"
+            },
+            "versions": [{
+                "id": "p01cb8t1",
+                "kind": "audio-described",
+                "availability": {
+                    "end": "2013-07-11T19:59:00Z"
+                }
+            }, {
+                "id": "b036j0lz",
+                "kind": "hd",
+                "availability": {
+                    "end": "2013-07-11T19:59:00Z"
+                }
+            }],
+            "release_date": "04 Jul 2013",
+            "type": "episode",
+            "tleo_id": "b006t1p7"
+        }, {
+            "id": "b01qqyt4",
+            "title": "Oslo, August 31st",
+            "subtitle": "ITS A FILM",
+            "synopses": {
+                "small": "Norwegian drama about a day in the life of Anders, a recovering drug addict.",
+                "medium": "Drama about a day in the life of a recovering drug addict. Anders is in Oslo to go to a job interview and see old friends, where he takes stock of himself and his situation."
+            },
+            "images": {
+                "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01qqyt4.jpg"
+            },
+            "master_brand": {
+                "id": "bbc_four",
+                "name": "BBC Four"
+            },
+            "versions": [{
+                "id": "b01mq2m5",
+                "kind": "other",
+                "availability": {
+                    "end": "2013-07-14T22:29:00Z"
+                }
+            }],
+            "release_date": "2011",
+            "film": true,
+            "type": "episode",
+            "tleo_id": "b01qqyt4"
+        }, {
+            "id": "b01m87pf",
+            "title": "Wallander: The Fifth Woman",
+            "subtitle": "Part 4",
+            "synopses": {
+                "small": "During the chase at the railway station Wallander is drugged and Maja is shot.",
+                "medium": "After confusion during the chase Wallander is drugged by their escaping suspect and Maja is shot, but the net is closing on their nemesis."
+            },
+            "images": {
+                "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01m87pf.jpg"
+            },
+            "master_brand": {
+                "id": "bbc_four",
+                "name": "BBC Four"
+            },
+            "versions": [{
+                "id": "b01m87p9",
+                "kind": "other",
+                "availability": {
+                    "end": "2013-07-13T21:59:00Z"
+                }
+            }],
+            "release_date": "18 Aug 2012",
+            "type": "episode",
+            "tleo_id": "b01m2t0k"
+        }, {
+            "id": "b017z1kq",
+            "title": "Merlin",
+            "subtitle": "Series 4 - A Herald of the New Age",
+            "synopses": {
+                "small": "The discovery of a shrine in the woods unearths a haunting secret from Camelot's past.",
+                "medium": "Fantasy drama series. The discovery of a shrine in the woods unearths a haunting secret from Camelot's past."
+            },
+            "images": {
+                "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b017z1kq.jpg"
+            },
+            "master_brand": {
+                "id": "bbc_one",
+                "name": "BBC One"
+            },
+            "versions": [{
+                "id": "b017z1hn",
+                "kind": "original",
+                "availability": {
+                    "end": "2013-07-12T17:44:00Z"
+                }
+            }, {
+                "id": "p00m9mg5",
+                "kind": "audio-described",
+                "availability": {
+                    "end": "2013-07-12T17:44:00Z"
+                }
+            }],
+            "type": "episode",
+            "tleo_id": "b00mjlxv"
+        }, {
+            "id": "b0162zbx",
+            "title": "Holy Flying Circus",
+            "subtitle": "",
+            "synopses": {
+                "small": "Fantastical re-imagining of the controversy surrounding the release of Life of Brian.",
+                "medium": "A fantastical re-imagining of the events of 1979, when Monty Python made Life of Brian and the debate about what is an acceptable subject for comedy was blown wide open."
+            },
+            "images": {
+                "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b0162zbx.jpg"
+            },
+            "master_brand": {
+                "id": "bbc_four",
+                "name": "BBC Four"
+            },
+            "versions": [{
+                "id": "b0162zbj",
+                "kind": "original",
+                "availability": {
+                    "end": "2013-07-11T21:29:00Z"
+                }
+            }, {
+                "id": "p01cbc35",
+                "kind": "audio-described",
+                "availability": {
+                    "end": "2013-07-11T21:29:00Z"
+                }
+            }],
+            "release_date": "19 Oct 2011",
+            "type": "episode",
+            "tleo_id": "b0162zbx"
+        }, {
+            "id": "b00mq45z",
+            "title": "Land Girls",
+            "subtitle": "Series 1 - Codes of Honour",
+            "synopses": {
+                "small": "Annie is not dealing well with Harry's death, while Esther is screening Nancy's letters.",
+                "medium": "Period drama series. Three months on, and Annie is not dealing very well with Harry's death. Nancy and Lawrence's attraction has blossomed into a full-on affair."
+            },
+            "images": {
+                "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b00mq45z.jpg"
+            },
+            "master_brand": {
+                "id": "bbc_one",
+                "name": "BBC One"
+            },
+            "versions": [{
+                "id": "b00n8bmj",
+                "kind": "other",
+                "availability": {
+                    "end": "2013-07-17T13:29:00Z"
+                }
+            }, {
+                "id": "p004c6h9",
+                "kind": "audio-described",
+                "availability": {
+                    "end": "2013-07-17T13:29:00Z"
+                }
+            }],
+            "type": "episode",
+            "tleo_id": "b00xxnhv"
+        }]
+    }
+}

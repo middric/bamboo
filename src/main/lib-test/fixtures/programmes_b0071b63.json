@@ -1,0 +1,146 @@
+HTTP/1.1 200 OK
+Server: Fixture
+Content-Language: en-GB
+Content-Type: application/json;charset=UTF-8
+
+{
+    "version": "1.0",
+    "schema": "/ibl/v1/schema/ibl.json",
+    "timestamp": "2013-07-11T09:16:13Z",
+    "programmes": [{
+        "id": "b0071b63",
+        "title": "The Apprentice",
+        "synopses": {
+            "small": "Series in which candidates compete to go into business with multi-millionaire Lord Sugar."
+        },
+        "images": {
+            "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/brand/b0071b63.jpg"
+        },
+        "type": "programme_large",
+        "initial_child_episodes": [{
+            "id": "p017h0nh",
+            "title": "The Apprentice",
+            "subtitle": "Series 9 - Container",
+            "synopses": {
+                "small": "The battle to become Lord Sugar's next business partner begins with a selling task.",
+                "medium": "Sixteen ambitious entrepreneurs start their fight for a life-changing investment, as the battle to become Lord Sugar's next business partner begins with a selling task."
+            },
+            "images": {
+                "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/p017h0nh.jpg"
+            },
+            "master_brand": {
+                "id": "bbc_one",
+                "name": "BBC One"
+            },
+            "versions": [{
+                "id": "b01sk4t5",
+                "kind": "signed",
+                "availability": {
+                    "end": "2013-07-24T00:19:00Z"
+                }
+            }, {
+                "id": "b01sffv8",
+                "kind": "hd",
+                "availability": {
+                    "end": "2013-07-17T19:59:00Z"
+                }
+            }],
+            "release_date": "07 May 2013",
+            "type": "episode",
+            "tleo_id": "b0071b63"
+        }, {
+            "id": "b01sfh3g",
+            "title": "The Apprentice",
+            "subtitle": "Series 9 - Beer",
+            "synopses": {
+                "small": "The candidates must invent a new flavoured beer, but there is trouble brewing.",
+                "medium": "The candidates face an early morning trip to the pub, as they are tasked with inventing a new flavoured beer. But there is trouble brewing when the process goes into meltdown."
+            },
+            "images": {
+                "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01sfh3g.jpg"
+            },
+            "master_brand": {
+                "id": "bbc_one",
+                "name": "BBC One"
+            },
+            "versions": [{
+                "id": "b01sk71m",
+                "kind": "signed",
+                "availability": {
+                    "end": "2013-07-31T00:19:00Z"
+                }
+            }, {
+                "id": "b01sfgxj",
+                "kind": "hd",
+                "availability": {
+                    "end": "2013-07-24T20:59:00Z"
+                }
+            }],
+            "release_date": "08 May 2013",
+            "type": "episode",
+            "tleo_id": "b0071b63"
+        }, {
+            "id": "b01sk6s4",
+            "title": "The Apprentice",
+            "subtitle": "Series 9 - Flat-Pack",
+            "synopses": {
+                "small": "The candidates must come up with a unique piece of flat-pack furniture.",
+                "medium": "Business competition. The candidates must come up with a unique piece of flat-pack furniture, before producing prototypes and pitching their products to retailers."
+            },
+            "images": {
+                "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01sk6s4.jpg"
+            },
+            "master_brand": {
+                "id": "bbc_one",
+                "name": "BBC One"
+            },
+            "versions": [{
+                "id": "b01sk6s0",
+                "kind": "hd",
+                "availability": {
+                    "end": "2013-07-24T20:59:00Z"
+                }
+            }, {
+                "id": "b01xqfrz",
+                "kind": "signed",
+                "availability": {
+                    "end": "2013-07-31T01:09:00Z"
+                }
+            }],
+            "release_date": "15 May 2013",
+            "type": "episode",
+            "tleo_id": "b0071b63"
+        }, {
+            "id": "b01sksvh",
+            "title": "The Apprentice",
+            "subtitle": "Series 9 - Farm Shop",
+            "synopses": {
+                "small": "The fight for Lord Sugar's investment continues with some farmyard fun.",
+                "medium": "Business competition. The fight for Lord Sugar's investment continues with some farmyard fun, as this task sees the candidates open their own farm shops."
+            },
+            "images": {
+                "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01sksvh.jpg"
+            },
+            "master_brand": {
+                "id": "bbc_one",
+                "name": "BBC One"
+            },
+            "versions": [{
+                "id": "b026xkg0",
+                "kind": "signed",
+                "availability": {
+                    "end": "2013-07-31T01:14:00Z"
+                }
+            }, {
+                "id": "b01sksrj",
+                "kind": "hd",
+                "availability": {
+                    "end": "2013-07-24T20:59:00Z"
+                }
+            }],
+            "type": "episode",
+            "tleo_id": "b0071b63"
+        }],
+        "child_episode_count": 4
+    }]
+}

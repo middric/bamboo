@@ -39,7 +39,11 @@ class BBC_Service_BambooFake extends BBC_Service_BambooFail
     public function fetch($feedName, $params) {
         $params = parent::_prepareParams($params);
         $response = $this->_client->get($feedName, $params);
+        
+        $json_response = json_decode($response->getBody());
+        $factory = new BBC_Service_Bamboo_ModelFactory($json_response);
+        $response_array = $factory->build();
 
-        return json_decode($response->getBody());
+        return $response_array;
     }
 }

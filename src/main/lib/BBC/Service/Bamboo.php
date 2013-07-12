@@ -80,12 +80,18 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
 
     public function fetch($feedName, $params) {
         $params = $this->_prepareParams($params);
+
         $response = $this->_cache->get($feedName, $params);
         if (!$response) {
             $response = $this->_client->get($feedName, $params);
             $this->_cache->save($feedName, $params, $response);
         }
-        return json_decode($response->getBody());
+
+        $json_response = json_decode($response->getBody());
+        $factory = new BBC_Service_Bamboo_ModelFactory($json_response);
+        $response_array = $factory->build();
+
+        return $response_array;
     }
 
     public function setAPIKey($apiKey) {

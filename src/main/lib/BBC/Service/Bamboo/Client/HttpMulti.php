@@ -63,6 +63,13 @@ class BBC_Service_Bamboo_Client_HttpMulti
      */
     public function get($path, array $params = array()) {
         $url = $this->buildURL($path, $params);
+
+        //Test URLs
+        //die(var_dump($url));
+        //$url = 'https://repo.dev.bbc.co.uk/applications/iplayerapps/tviplayer/trunk/webapp/php/lib-test/fixtures/bamboo/episodes_b02xjywp.json';
+        //$url = "http://d.bbc.co.uk/test/tviplayer/v1/episodes/b02xjywp?api_key=a9svsu3j2tgva4pchjtux93y";
+        //$url = "http://open.int.bbc.co.uk/ibl/v1/stubs/episodes/b01rx0lj.json";
+
         BBC_Service_Bamboo_Log::debug("Requesting $url");
         $options = array(
             'headers' => $this->getHeaders()

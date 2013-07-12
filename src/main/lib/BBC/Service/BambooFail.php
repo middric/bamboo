@@ -45,7 +45,11 @@ class BBC_Service_BambooFail extends BBC_Service_Bamboo
         $params = parent::_prepareParams($params);
         $response = $this->_client->get($feedName, $params);
 
-        return json_decode($response->getBody());
+        $json_response = json_decode($response->getBody());
+        $factory = new BBC_Service_Bamboo_ModelFactory($json_response);
+        $response_array = $factory->build();
+        
+        return $response_array;
     }
 
     /**

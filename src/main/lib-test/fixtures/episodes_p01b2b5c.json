@@ -1,0 +1,87 @@
+HTTP/1.1 200 OK
+Server: Fixture
+Content-Language: en-GB
+Content-Type: application/json;charset=UTF-8
+
+{
+    "version": "1.0",
+    "schema": "/ibl/v1/schema/ibl.json",
+    "timestamp": "2013-07-11T09:07:19Z",
+    "episodes": [{
+        "id": "p01b2b5c",
+        "title": "Luther",
+        "subtitle": "Series 3 - Episode 1",
+        "synopses": {
+            "small": "Luther investigates two horrific cases, unaware his every step is under scrutiny.",
+            "medium": "Crime drama series. A chance encounter means Luther might be on the verge of finding love. But nothing comes easily - not when a fetish killer is on the hunt.",
+            "large": "Luther returns to investigate a twisted fetishist who is murdering women in a horrific echo of an unsolved case from the 1980s. The team must put all their resources into finding the copycat killer, whose murderous spree has only just begun. \n\nLuther's focus is divided when a reluctant Schenk assigns him to another case - a malicious internet tormentor has been found murdered in his home, with all his possessions stripped from the flat. With so many people wanting the tormentor dead, Luther needs to apply brute force to a key witness for more information, unaware that every move he makes is being watched...\n\nPulled in every direction, Luther's patience is wearing thin and a car crash as he rushes to the second crime scene is the last thing he needs - or so he thinks, until he sets eyes on the beautiful Mary Day. Could this chance encounter mean that Luther might just be on the verge of finding love?\n\nBut nothing ever comes easily for John Luther and other forces are at work against him, in the shape of Erin Gray, now a DCI in anti-corruption, and her boss, DSU Stark. Stark and Gray will stop at nothing to punish those who work outside the perimeters of the law and their furtive plan involves the man who is Luther's colleague and best friend - DSU Justin Ripley."
+        },
+        "images": {
+            "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/p01b2b5c.jpg"
+        },
+        "master_brand": {
+            "id": "bbc_one",
+            "name": "BBC One"
+        },
+        "versions": [{
+            "id": "b036y9g5",
+            "kind": "signed",
+            "availability": {
+                "end": "2013-07-30T20:29:00Z"
+            }
+        }, {
+            "id": "p01c7b48",
+            "kind": "audio-described",
+            "availability": {
+                "end": "2013-07-30T20:59:00Z"
+            }
+        }, {
+            "id": "b036pmb7",
+            "kind": "hd",
+            "availability": {
+                "end": "2013-07-30T20:59:00Z"
+            }
+        }],
+        "release_date": "02 Jul 2013",
+        "type": "episode_large",
+        "tleo_id": "b00vk2lp"
+    },{
+        "id": "p01b2b5c",
+        "title": "Luther",
+        "subtitle": "Series 3 - Episode 1",
+        "synopses": {
+            "small": "Luther investigates two horrific cases, unaware his every step is under scrutiny.",
+            "medium": "Crime drama series. A chance encounter means Luther might be on the verge of finding love. But nothing comes easily - not when a fetish killer is on the hunt.",
+            "large": "Luther returns to investigate a twisted fetishist who is murdering women in a horrific echo of an unsolved case from the 1980s. The team must put all their resources into finding the copycat killer, whose murderous spree has only just begun. \n\nLuther's focus is divided when a reluctant Schenk assigns him to another case - a malicious internet tormentor has been found murdered in his home, with all his possessions stripped from the flat. With so many people wanting the tormentor dead, Luther needs to apply brute force to a key witness for more information, unaware that every move he makes is being watched...\n\nPulled in every direction, Luther's patience is wearing thin and a car crash as he rushes to the second crime scene is the last thing he needs - or so he thinks, until he sets eyes on the beautiful Mary Day. Could this chance encounter mean that Luther might just be on the verge of finding love?\n\nBut nothing ever comes easily for John Luther and other forces are at work against him, in the shape of Erin Gray, now a DCI in anti-corruption, and her boss, DSU Stark. Stark and Gray will stop at nothing to punish those who work outside the perimeters of the law and their furtive plan involves the man who is Luther's colleague and best friend - DSU Justin Ripley."
+        },
+        "images": {
+            "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/p01b2b5c.jpg"
+        },
+        "master_brand": {
+            "id": "bbc_one",
+            "name": "BBC One"
+        },
+        "versions": [{
+            "id": "b036y9g5",
+            "kind": "signed",
+            "availability": {
+                "end": "2013-07-30T20:29:00Z"
+            }
+        }, {
+            "id": "p01c7b48",
+            "kind": "audio-described",
+            "availability": {
+                "end": "2013-07-30T20:59:00Z"
+            }
+        }, {
+            "id": "b036pmb7",
+            "kind": "hd",
+            "availability": {
+                "end": "2013-07-30T20:59:00Z"
+            }
+        }],
+        "release_date": "02 Jul 2013",
+        "type": "episode_large",
+        "tleo_id": "b00vk2lp"
+    }]
+}

@@ -62,8 +62,8 @@ class BBC_Service_BambooTest extends PHPUnit_Framework_TestCase
         );
         $response = $this->_service->fetch('status', array());
 
-        $this->assertType(PHPUnit_Framework_Constraint_IsType::TYPE_OBJECT, $response);
-        $this->assertObjectHasAttribute('ibl', $response);
+        $this->assertInstanceOf('ArrayObject', $response);
+        $this->assertObjectHasAttribute('build_version', $response);
     }
 
     /**
@@ -81,8 +81,8 @@ class BBC_Service_BambooTest extends PHPUnit_Framework_TestCase
         );
         $response = $this->_service->fetch('status', array('page' => '1'));
 
-        $this->assertType(PHPUnit_Framework_Constraint_IsType::TYPE_OBJECT, $response);
-        $this->assertObjectHasAttribute('ibl', $response);
+        $this->assertInstanceOf('ArrayObject', $response);
+        $this->assertObjectHasAttribute('build_version', $response);
     }
 
 

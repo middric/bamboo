@@ -89,7 +89,7 @@ class BBC_Service_Bamboo_Client_HttpMultiTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals('Zend_Http_Response', get_class($response));
         $body = json_decode($response->getBody());
-        $this->assertObjectHasAttribute('ibl', $body);
+        $this->assertObjectHasAttribute('status', $body);
     }
 
     /**
