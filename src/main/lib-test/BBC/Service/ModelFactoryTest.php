@@ -80,7 +80,7 @@ class BBC_Service_ModelFactoryTest extends PHPUnit_Framework_TestCase
         $elements = $factory->build();
 
         foreach ($elements as $value) {
-            $this->assertInstanceOf('BBC_Service_Bamboo_Models_Episode', $value);
+            $this->assertEquals('BBC_Service_Bamboo_Models_Episode', get_class($value));
         }
     }
 
@@ -91,7 +91,7 @@ class BBC_Service_ModelFactoryTest extends PHPUnit_Framework_TestCase
         $elements = $factory->build();
 
         foreach ($elements as $value) {
-            $this->assertInstanceOf('BBC_Service_Bamboo_Models_Episode', $value);
+            $this->assertEquals('BBC_Service_Bamboo_Models_Episode', get_class($value));
         }
     }
 
