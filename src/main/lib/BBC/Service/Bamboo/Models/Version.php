@@ -33,20 +33,20 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
     }
 
 
-    public function hasDuration() {
+    public function hasDuration() 
+    {
         if ($this->_duration) {
             return true;
         }
-
         return false;
     }
 
 
-    public function getDuration() {
+    public function getDuration() 
+    {
         if ($this->_duration) {
             return new DateInterval($this->_duration);
         }
-
         return "";
     }
 
