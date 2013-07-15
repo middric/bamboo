@@ -80,6 +80,24 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
         return $this->_versions;
     }
 
+    public function hasOriginalVersion()
+    {
+        if(isset($this->_versions[0])) {
+            return $this->_versions[0];
+        } else {
+            return "";
+        }
+    }
+
+    public function getOriginalVersion() 
+    {
+        if(isset($this->_versions[0])) {
+            return $this->_versions[0];
+        } else {
+            return "";
+        }
+    }
+
     public function getHref() {
         return $this->_href;
     }
