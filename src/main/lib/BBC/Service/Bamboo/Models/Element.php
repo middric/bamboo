@@ -54,7 +54,7 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
     public function getStandardImageRecipe()
     {
         if (isset($this->_images['standard'])) {
-            $this->_images['standard'];
+            return $this->_images['standard'];
         }
         return "";
     }
