@@ -25,11 +25,11 @@ class BBC_Service_Bamboo_Models_Programme extends BBC_Service_Bamboo_Models_Elem
 
     public function getLatestAvailableEpisode()
     {
+        // @codingStandardsIgnoreStart
         if (isset($this->_initial_child_episodes[0])) {
-            // @codingStandardsIgnoreStart
             return $this->_initial_child_episodes[0];
-            // @codingStandardsIgnoreEnd
         } 
         return "";
+        // @codingStandardsIgnoreEnd
     }
 }
