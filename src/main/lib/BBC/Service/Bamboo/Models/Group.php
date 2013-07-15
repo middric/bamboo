@@ -15,7 +15,25 @@ class BBC_Service_Bamboo_Models_Group extends BBC_Service_Bamboo_Models_Element
     // @codingStandardsIgnoreStart
     protected $_initial_child_episodes = "";
     protected $_child_episode_count = "";
+    protected $_labels = "";
     // @codingStandardsIgnoreEnd
+
+
+    /*
+     * Returns the subtitle of the episode
+     * @return string
+     */
+    public function getSubtitle() {
+        return $this->_subtitle;
+    }
+
+    /*
+     * Returns the labels of the episode
+     * @return string
+     */
+    public function getLabels() {
+        return $this->_labels;
+    }
 
     public function getInitialChildEpisodes() {
     	// @codingStandardsIgnoreStart

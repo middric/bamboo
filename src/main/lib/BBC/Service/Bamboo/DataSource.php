@@ -60,7 +60,7 @@ class BBC_Service_Bamboo_DataSource
             throw $e;
         } catch (BBC_Service_Bamboo_Exception $e) { // All other errors
             BBC_Tviplayer_CounterFactory::increment(BBC_Tviplayer_CounterFactory::BAMBOO_OTHER);
-            $message = sprintf('Failed to get data from Bamboo [%s]', $e->getMessage());
+            $message = sprintf('Failed to get data from Bamboo feed %s [%s]', $feedName, $e->getMessage());
             BBC_Tviplayer_Log::error($message);
             throw new BBC_Tviplayer_Exception_DataError_Bamboo($message, 500, $e);
         }

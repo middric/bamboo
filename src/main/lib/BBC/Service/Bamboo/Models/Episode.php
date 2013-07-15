@@ -55,7 +55,11 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
     {
         // @codingStandardsIgnoreStart
         if ($this->_release_date) {
-            return $this->_release_date;
+            $date = strtotime($this->_release_date);
+            if ($date === false) {
+                $date = "";
+            }
+            return $date;
         }
         // @codingStandardsIgnoreEnd
         return "";
