@@ -60,8 +60,8 @@ class BBC_Service_Bamboo_ModelFactory
                     $this->_findElements($this->_responseDecoded, $responseArray);
             }
 
-            $response = new ArrayObject($responseArray);
-
+            $response = new BBC_Service_Bamboo_ResponseArrayObject($responseArray);
+            
             // This needs to be refactored when ibl wraps all of our known objects in an elements array
             foreach ($this->_responseDecoded as $key => $value) {
                 if ($key === 'group') {
