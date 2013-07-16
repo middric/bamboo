@@ -17,7 +17,7 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
     protected $_type = "";
     protected $_hd = false;
     protected $_download = false;
-    protected $_duration = "";
+    protected $_duration = array();
     protected $_rrc = array();
     protected $_guidance = array();
     // @codingStandardsIgnoreStart
@@ -33,10 +33,10 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
     }
 
 
-    public function getDuration() 
+    public function getDuration()
     {
-        if ($this->_duration) {
-            return new DateInterval($this->_duration);
+        if (isset($this->_duration['text'])) {
+            return $this->_duration['text'];
         }
         return "";
     }
