@@ -66,7 +66,7 @@ class BBC_Service_Bamboo_ModelFactory
             foreach ($this->_responseDecoded as $key => $value) {
                 if ($key === 'group') {
                     $response->$key = new BBC_Service_Bamboo_Models_Group($value);
-                }else{
+                } else {
                     $response->$key = $value;
                 }
             }
