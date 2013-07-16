@@ -79,6 +79,16 @@ class BBC_Service_ModelFactoryTest extends PHPUnit_Framework_TestCase
         $strippedResponse = $factory->getResponse();
     }
 
+    public function testReturnsEmptyArrayWhenElementsIsEmpty() {
+        $zendResponse = Zend_Http_Response::fromString(
+            file_get_contents(dirname(__FILE__) . '/../../fixtures/no_elements.json')
+        );
+        $response = json_decode($zendResponse->getBody());
+        $factory = new BBC_Service_Bamboo_ModelFactory($response);
+        $elements = $factory->build();
+        $this->assertEquals(0, count($elements));
+    }
+
     public function testContainsEpisodesFromAFeedWithElements() {
         $zendResponse = Zend_Http_Response::fromString(
             file_get_contents(dirname(__FILE__) . '/../../fixtures/episodes_p01b2b5c_recommendations.json')

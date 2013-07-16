@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: Fixture
+Content-Language: en-GB
+Content-Type: application/json;charset=UTF-8
+
+{
+    "version": "1.0.0",
+    "schema": "/ibl/v1/schema/schema.json",
+    "timestamp": "2013-05-09T16:00:30Z",
+    "home_highlights": {
+        "elements": [ ]
+    }
+}
