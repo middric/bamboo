@@ -86,7 +86,7 @@ class BBC_Service_ModelFactoryTest extends PHPUnit_Framework_TestCase
         $response = json_decode($zendResponse->getBody());
         $factory = new BBC_Service_Bamboo_ModelFactory($response);
         $elements = $factory->build();
-        $this->assertEquals(0, count($elements));
+        $this->assertTrue($elements->isEmpty());
     }
 
     public function testContainsEpisodesFromAFeedWithElements() {
