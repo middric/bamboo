@@ -16,6 +16,6 @@ class BBC_Service_Bamboo_ResponseArrayObject Extends ArrayObject
         if ($this->count() === 0 ) {
             return true;
         }
-		return false;
+        return false;
     }
 }
