@@ -62,7 +62,7 @@ class BBC_Service_BambooTest extends PHPUnit_Framework_TestCase
         );
         $response = $this->_service->fetch('status', array());
 
-        $this->assertEquals('ArrayObject', get_class($response));
+        $this->assertEquals('BBC_Service_Bamboo_ResponseArrayObject', get_class($response));
         $this->assertObjectHasAttribute('build_version', $response);
     }
 
@@ -81,7 +81,7 @@ class BBC_Service_BambooTest extends PHPUnit_Framework_TestCase
         );
         $response = $this->_service->fetch('status', array('page' => '1'));
 
-        $this->assertEquals('ArrayObject', get_class($response));
+        $this->assertEquals('BBC_Service_Bamboo_ResponseArrayObject', get_class($response));
         $this->assertObjectHasAttribute('build_version', $response);
     }
 
