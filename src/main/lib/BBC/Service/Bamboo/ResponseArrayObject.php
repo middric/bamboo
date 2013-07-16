@@ -11,13 +11,11 @@
 class BBC_Service_Bamboo_ResponseArrayObject Extends ArrayObject
 {
 
-	/* @return if array is empty
-	 */
-	function isEmpty() 
-	{
-		if ($this->count() === 0 ) {
-			return true;
-		}
+    public function isEmpty() 
+    {
+        if ($this->count() === 0 ) {
+            return true;
+        }
 		return false;
-	}
+    }
 }
