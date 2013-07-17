@@ -24,10 +24,17 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
     protected $_credits_timestamp = "";
     // @codingStandardsIgnoreEnd
 
-    public function getAvailability()
+    /**
+     * getAvailability 
+     * 
+     * @param string $type start, end or remaining 
+     * @access public
+     * @return string
+     */
+    public function getAvailability($type = 'end')
     {
-        if (isset($this->_availability['end'])) {
-            return $this->_availability['end'];
+        if (isset($this->_availability[$type])) {
+            return $this->_availability[$type];
         }
         return "";
     }
