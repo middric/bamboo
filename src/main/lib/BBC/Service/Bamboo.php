@@ -78,7 +78,7 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
         return new $calledClass($params);
     }
 
-    public function fetch($feedName, $params) {
+    public function getJson($feedName, $params = array()) {
         $params = $this->_prepareParams($params);
 
         $response = $this->_cache->get($feedName, $params);
@@ -88,6 +88,12 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
         }
 
         $json = json_decode($response->getBody());
+
+        return $json;
+    }
+
+    public function fetch($feedName, $params = array()) {
+        $json = $this->getJson($feedName, $params);
         $factory = new BBC_Service_Bamboo_ModelFactory($json);
         $built = $factory->build();
 
