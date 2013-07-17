@@ -50,12 +50,6 @@ class BBC_Service_Bamboo_ModelFactory
                 case 'categories':
                     $responseArray = $this->getCategories($this->_responseDecoded);
                     break;
-                case 'channels':
-                    //$responseArray = $this->getChannels($this->_responseDecoded);
-                    break;
-                case 'group_episodes':
-                    $responseArray = $this->getGroupEpisodes($this->_responseDecoded);
-                    break;
                 default:
                     $this->_findElements($this->_responseDecoded, $responseArray);
             }
@@ -80,20 +74,6 @@ class BBC_Service_Bamboo_ModelFactory
             throw new BBC_Service_Bamboo_Exception_EmptyFeed('Feed is empty');
         }
     }
-
-    /**
-     * Returns the array of category objects
-     * @return Object $response
-     */
-    public function getGroupEpisodes($groupEpisodes) {
-        $array = array();
-        foreach ($groupEpisodes->elements as $element) {
-            $item = new BBC_Service_Bamboo_Models_Episode($element);
-            $array[] = $item;
-        }
-        return $array;
-    }
-
 
     /**
      * Returns the array of category objects
@@ -130,5 +110,4 @@ class BBC_Service_Bamboo_ModelFactory
             }
         }
     }
-
 }
