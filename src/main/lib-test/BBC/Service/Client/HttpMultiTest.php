@@ -1,7 +1,7 @@
 <?php
 
 /**
- * BBC_Service_Matchstick_Client_NitroTest
+ * BBC_Service_Bamboo_Client_HttpMultiTest
  *
  * Tests for the Bamboo client for HTTPMulti
  *

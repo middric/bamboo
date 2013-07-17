@@ -6,7 +6,7 @@
  * A class representing our mocked Nitro client
  *
  * @category BBC
- * @package BBC_Service_Matchstick
+ * @package BBC_Service_Bamboo
  * @copyright Copyright (c) 2007 - 2012 BBC (http://www.bbc.co.uk)
  * @author Luke Sands <luke.sands@bbc.co.uk>
  */
