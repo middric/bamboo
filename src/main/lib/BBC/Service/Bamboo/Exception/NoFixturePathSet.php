@@ -7,7 +7,7 @@
  *
  *
  * @category BBC
- * @package BBC_Service_Matchstick
+ * @package BBC_Service_Bamboo
  * @copyright Copyright (c) 2007 - 2012 BBC (http://www.bbc.co.uk)
  * @author David Simkin <david.simkin@bbc.co.uk>
  */
