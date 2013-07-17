@@ -62,13 +62,17 @@ class BBC_Service_Bamboo_ModelFactory
 
             $response = new BBC_Service_Bamboo_ResponseArrayObject($responseArray);
             
-            // This needs to be refactored when ibl wraps all of our known objects in an elements array
+            // This needs to be refactored when ibl wraps all of our known objects in an elements array         
             foreach ($this->_responseDecoded as $key => $value) {
-                if ($key === 'group') {
-                    $response->$key = new BBC_Service_Bamboo_Models_Group($value);
+                $ucKey = mb_convert_case($key, MB_CASE_TITLE);
+                $className = "BBC_Service_Bamboo_Models_$ucKey";
+
+                if (class_exists($className)) {
+                    $response->$key = new $className($value);
                 } else {
                     $response->$key = $value;
                 }
+                
             }
 
             return $response;
