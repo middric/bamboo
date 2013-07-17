@@ -41,6 +41,21 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
      * 
      * @return string
      */
+    /**
+     * getRemainingAvailability 
+     * 
+     * @access public
+     * @return void
+     */
+    public function getRemainingAvailability()
+    {
+        if (isset($this->_availability['remaining'])) {
+            return $this->_availability['remaining']->text;
+        }
+        return "";
+    }
+
+
     public function getDuration()
     {
         if (isset($this->_duration['text'])) {
