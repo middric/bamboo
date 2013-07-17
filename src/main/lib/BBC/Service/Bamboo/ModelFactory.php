@@ -56,7 +56,7 @@ class BBC_Service_Bamboo_ModelFactory
 
             $response = new BBC_Service_Bamboo_ResponseArrayObject($responseArray);
             
-            if (is_array($this->_responseDecoded)) {
+            if (is_array($this->_responseDecoded) || is_object($this->_responseDecoded)) {
                 // This needs to be refactored when ibl wraps all of our known objects in an elements array         
                 foreach ($this->_responseDecoded as $key => $value) {
                     $ucKey = mb_convert_case($key, MB_CASE_TITLE);
