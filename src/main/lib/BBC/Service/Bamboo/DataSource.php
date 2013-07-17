@@ -5,8 +5,7 @@
  *
  * Bamboo class for retrieving data from Bamboo
  *
- * @package         tviplayer
- * @subpackage      BBC_Service_Bamboo
+ * @package      BBC_Service_Bamboo
  * @author          Craig Taub <craig.taub@bbc.co.uk>
  * @copyright       Copyright (c) 2013 BBC (http://www.bbc.co.uk)
  */
