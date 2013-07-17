@@ -31,19 +31,35 @@ class BBC_Service_Bamboo_Models_Base
         }
     }
 
+    /**
+     * Get the element ID
+     * @return string
+     */
     public function getId() {
         return $this->_id;
     }
 
+    /**
+     * Get the element title
+     * @return string
+     */
     public function getTitle() {
         return $this->_title;
     }
 
-    public function getResponse()
-    {
+    /**
+     * Get the raw iBL response object
+     * @return stdClass
+     */
+    public function getResponse() {
         return $this->_response;
     }
 
+    /**
+     * Generic method to set a class property to the value stored in iBL
+     * 
+     * @throws BBC_Service_Bamboo_Exception_ExpectedProperty Throws exception when property not defined in class
+     */
     private function _setProperty($key) {
         if (isset($this->_response->{$key}) && isset($this->{"_$key"})) {
             if (is_array($this->{"_$key"})) {
@@ -58,6 +74,12 @@ class BBC_Service_Bamboo_Models_Base
         }
     }
 
+    /**
+     * For iBL responses with version children this method will generate an array of 
+     * {@link BBC_Service_Bamboo_Models_Version} objects and attach them to the parent object
+     * 
+     * @throws BBC_Service_Bamboo_Exception_ExpectedProperty Throws exception when $_versions is not defined
+     */
     private function _setVersions() {
         if (isset($this->_response->versions) && isset($this->_versions)) {
             foreach ($this->_response->versions as $version) {
@@ -70,6 +92,13 @@ class BBC_Service_Bamboo_Models_Base
         }
     }
 
+
+    /**
+     * For iBL responses with episode children this method will generate an array of 
+     * {@link BBC_Service_Bamboo_Models_Episode} objects and attach them to the parent object
+     * 
+     * @throws BBC_Service_Bamboo_Exception_ExpectedProperty Throws exception when property is not defined in class
+     */
     private function _setEpisodes() {
         // @codingStandardsIgnoreStart
         if (isset($this->_response->initial_child_episodes) && isset($this->_initial_child_episodes)) {

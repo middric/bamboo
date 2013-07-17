@@ -15,10 +15,20 @@ class BBC_Service_Bamboo_Models_Category extends BBC_Service_Bamboo_Models_Base
     protected $_child_episode_count = 0;
     // @codingStandardsIgnoreEnd
 
+    /**
+     * Get the category kind
+     * 
+     * @return string
+     */
     public function getKind() {
         return $this->_kind;
     }
 
+    /**
+     * Get the number of episodes for a category
+     * 
+     * @return int
+     */
     public function getChildEpisodeCount() {
         // @codingStandardsIgnoreStart
         return $_child_episode_count;
