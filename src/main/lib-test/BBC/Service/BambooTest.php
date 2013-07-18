@@ -57,7 +57,7 @@ class BBC_Service_BambooTest extends PHPUnit_Framework_TestCase
 
         $fixture = dirname(__FILE__) . '/../../fixtures/status.json';
         $this->_service->getClient()->addResponseFromPath(
-            'http://hostname.com/baseurl/status.json?api_key=1&initial_child_epiosodes=1',
+            'http://hostname.com/baseurl/status.json?api_key=1',
             $fixture
         );
         $response = $this->_service->fetch('status', array());
@@ -76,7 +76,7 @@ class BBC_Service_BambooTest extends PHPUnit_Framework_TestCase
 
         $fixture = dirname(__FILE__) . '/../../fixtures/status.json_page_1';
         $this->_service->getClient()->addResponseFromPath(
-            'http://hostname.com/baseurl/status.json?api_key=1&initial_child_epiosodes=1&page=1',
+            'http://hostname.com/baseurl/status.json?api_key=1&page=1',
             $fixture
         );
         $response = $this->_service->fetch('status', array('page' => '1'));
