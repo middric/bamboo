@@ -12,6 +12,11 @@ class BBC_Service_Bamboo_Models_EpisodeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('title', $episode->getSlug());
     }
 
+    public function testSlugWithTitleContainingDigits() {
+        $episode = $this->_createEpisode(array('title' => '90210'));
+        $this->assertEquals('90210', $episode->getSlug());
+    }
+
     public function testSlugWithMultiWordTitle() {
         $episode = $this->_createEpisode(array('title' => 'my title'));
         $this->assertEquals('my-title', $episode->getSlug());
@@ -58,7 +63,12 @@ class BBC_Service_Bamboo_Models_EpisodeTest extends PHPUnit_Framework_TestCase
     }
 
     public function testSlugWithLongTitleAndSubtitle() {
-        $episode = $this->_createEpisode(array('title' => "  The Longer\t  \tThë tîtle\t\t   ", 'subtitle' => "\t  the more hypheñs\t \t \t"));
+        $episode = $this->_createEpisode(
+            array(
+                'title' => "  The Longer\t  \tThë tîtle\t\t   ",
+                'subtitle' => "\t  the more hypheñs\t \t \t"
+            )
+        );
         $this->assertEquals('the-longer-the-title-the-more-hyphens', $episode->getSlug());
     }
 
