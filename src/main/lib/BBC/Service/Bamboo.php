@@ -101,12 +101,12 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
     }
 
     public function setAPIKey($apiKey) {
-        BBC_Service_Bamboo_Log::debug("API Key set to $apiKey");
+        BBC_Service_Bamboo_Log::info("API Key set to $apiKey");
         $this->_apiKey = $apiKey;
     }
 
     public function setLanguage($language) {
-        BBC_Service_Bamboo_Log::debug("Accept-Language set to $language");
+        BBC_Service_Bamboo_Log::info("Accept-Language set to $language");
         $this->_client->setHeader('Accept-Language', $language);
     }
 

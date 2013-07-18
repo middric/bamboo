@@ -29,9 +29,9 @@ class BBC_Service_Bamboo_Cache
         $data = $this->getCache()->load($key);
         if (is_null($data)) {
             BBC_Service_Bamboo_Monitoring_Counter::increment(BBC_Service_Bamboo_Monitoring_Counter::CACHE_MISS);
-            BBC_Service_Bamboo_Log::debug("Cache miss: " . $key);
+            BBC_Service_Bamboo_Log::info("Cache miss: " . $key);
         } else {
-            BBC_Service_Bamboo_Log::debug("Cache hit: " . $key);
+            BBC_Service_Bamboo_Log::info("Cache hit: " . $key);
         }
         return $data;
     }
@@ -46,7 +46,7 @@ class BBC_Service_Bamboo_Cache
      */
     public function save($feedName, $params, $contents, $lifetime = null) {
         $key = $this->_createKey($feedName, $params);
-        BBC_Service_Bamboo_Log::debug("Cache save: " . $key);
+        BBC_Service_Bamboo_Log::info("Cache save: " . $key);
         $lifetime = ($lifetime == null ? $this->getDefaultLifetime() : $lifetime);
         return $this->getCache()->save($contents, $key, array(), $lifetime);
     }

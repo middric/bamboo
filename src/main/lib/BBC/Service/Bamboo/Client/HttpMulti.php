@@ -64,7 +64,7 @@ class BBC_Service_Bamboo_Client_HttpMulti
     public function get($path, array $params = array()) {
         $url = $this->buildURL($path, $params);
 
-        BBC_Service_Bamboo_Log::debug("Requesting $url");
+        BBC_Service_Bamboo_Log::info("Requesting $url");
         $options = array(
             'headers' => $this->getHeaders()
         );
