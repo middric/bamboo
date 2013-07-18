@@ -123,7 +123,7 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
     }
 
     protected function _prepareParams($params) {
-        $params = array_merge(array('api_key' => $this->_apiKey, 'initial_child_epiosodes' => 1), $params);
+        $params = array_merge(array('api_key' => $this->_apiKey), $params);
         ksort($params);
         return $params;
     }
