@@ -26,7 +26,7 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
 
     /**
      * Get the episode subtitle
-     * 
+     *
      * @return string
      */
     public function getSubtitle() {
@@ -35,7 +35,7 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
 
     /**
      * Get the episode TLEO pid
-     * 
+     *
      * @return string
      */
     public function getTleoId() {
@@ -46,7 +46,7 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
 
     /**
      * Get the editorial label
-     * 
+     *
      * @return string
      */
     public function getEditorialLabel() {
@@ -58,7 +58,7 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
 
     /**
      * Get the timeliness label
-     * 
+     *
      * @return string
      */
     public function getTimelinessLabel() {
@@ -69,8 +69,8 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
     }
 
     /**
-     * Get the release date 
-     * 
+     * Get the release date
+     *
      * @return string
      */
     public function getReleaseDate() {
@@ -81,7 +81,7 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
 
     /**
      * Get the duration
-     * 
+     *
      * @return string|DateInterval
      */
     public function getDuration() {
@@ -94,7 +94,7 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
 
     /**
      * Is the episode a film
-     * 
+     *
      * @return bool
      */
     public function isFilm() {
@@ -103,7 +103,7 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
 
     /**
      * Get the versions attached to this episode. Returns an array of {@link BBC_Service_Bamboo_Models_Version} objects
-     * 
+     *
      * @return array
      */
     public function getVersions() {
@@ -112,20 +112,20 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
 
     /**
      * Gets the original version attached to the episode
-     * 
+     *
      * @return string|BBC_Service_Bamboo_Models_Version
      */
-    public function getOriginalVersion() 
+    public function getOriginalVersion()
     {
         if (isset($this->_versions[0])) {
             return $this->_versions[0];
-        } 
+        }
         return "";
     }
 
     /**
      * Get the episode HREF
-     * 
+     *
      * @return string
      */
     public function getHref() {
@@ -134,7 +134,7 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
 
     /**
      * Get the complete title for the episode. This is a combination of episode title and subtitle
-     * 
+     *
      * @return string
      */
     public function getCompleteTitle() {
@@ -142,15 +142,21 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
     }
 
     /**
-     * Get a URL safe title for the episode
-     * 
+     * Get a hyphenated slug of the title and subtitle
+     *
      * @return string
      */
-    public function getURLSafeTitle() {
-        return mb_strtolower(preg_replace('/[^a-zA-Z0-9]+/', '-', $this->getCompleteTitle()));
+    public function getSlug() {
+        $processedTitle = trim($this->_unaccent($this->getCompleteTitle()));
+        return mb_strtolower(preg_replace('/[^a-zA-Z0-9]+/', '-', $processedTitle));
     }
 
     public function getCredits() {
         return $this->_credits;
+    }
+
+    // Convert accented characters to their 'normal' alternative
+    private function _unaccent($string) {
+        return iconv('UTF-8', 'ASCII//TRANSLIT', $string);
     }
 }
