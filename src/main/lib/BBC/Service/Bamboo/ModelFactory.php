@@ -50,6 +50,8 @@ class BBC_Service_Bamboo_ModelFactory
                 case 'categories':
                     $responseArray = $this->getCategories($this->_responseDecoded);
                     break;
+                case 'channels':
+                    $responseArray = $this->_responseDecoded;
                 default:
                     $this->_findElements($this->_responseDecoded, $responseArray);
             }
