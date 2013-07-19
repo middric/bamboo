@@ -25,8 +25,8 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
 
     /**
      * Get the availability for this version
-     * 
-     * @param string $type start, end or remaining 
+     *
+     * @param string $type start, end or remaining
      * @return string
      */
     public function getAvailability($type = 'end') {
@@ -38,12 +38,12 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
 
     /**
      * Get the version duration
-     * 
+     *
      * @return string
      */
     /**
-     * getRemainingAvailability 
-     * 
+     * getRemainingAvailability
+     *
      * @access public
      * @return void
      */
@@ -66,7 +66,7 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
 
     /**
      * Get the version kind
-     * 
+     *
      * @return string
      */
     public function getKind() {
@@ -75,7 +75,7 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
 
     /**
      * Get the version RRC
-     * 
+     *
      * @return stdClass
      */
     public function getRRC() {
@@ -84,7 +84,7 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
 
     /**
      * Get the version RRC short description
-     * 
+     *
      * @return string
      */
     public function getRRCShort() {
@@ -97,7 +97,7 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
 
     /**
      * Get the version RRC long description
-     * 
+     *
      * @return string
      */
     public function getRRCLong() {
@@ -110,7 +110,7 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
 
     /**
      * Get the version RRC URL
-     * 
+     *
      * @return string
      */
     public function getRRCURL() {
@@ -123,7 +123,7 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
 
     /**
      * Get the version guidance object
-     * 
+     *
      * @return stdClass
      */
     public function getGuidanceObj() {
@@ -132,7 +132,7 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
 
     /**
      * Get the version guidance text
-     * 
+     *
      * @return string
      */
     public function getGuidance() {
@@ -145,7 +145,7 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
 
     /**
      * Get the version guidance ID
-     * 
+     *
      * @return string
      */
     public function getGuidanceID() {
@@ -158,7 +158,7 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
 
     /**
      * Is the version downloadable
-     * 
+     *
      * @return bool
      */
     public function isDownload() {
@@ -167,10 +167,30 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
 
     /**
      * Get the version HD
-     * 
+     *
      * @return bool
      */
     public function isHD() {
         return !!$this->_hd;
+    }
+
+    /**
+     * Get the slug of the version.
+     * This can be used in URLs for episode playback
+     *
+     * @return string
+     */
+    public function getSlug() {
+        switch ($this->_kind) {
+            case 'signed':
+                $slug = 'sign';
+                break;
+            case 'audio-described':
+                $slug = 'ad';
+                break;
+            default:
+                $slug = '';
+        }
+        return $slug;
     }
 }
