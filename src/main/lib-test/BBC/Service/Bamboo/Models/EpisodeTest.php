@@ -72,7 +72,50 @@ class BBC_Service_Bamboo_Models_EpisodeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('the-longer-the-title-the-more-hyphens', $episode->getSlug());
     }
 
+    public function testPriorityVersionWithMultipleVersions() {
+        $versions = $this->_createVersions(array('original', 'audio-described', 'signed', 'other'));
+        $episode = $this->_createEpisode(array('versions' => $versions));
+        $priorityVersion = $episode->getPriorityVersion();
+        $this->assertEquals('original', $priorityVersion->getKind());
+    }
+
+    public function testPriorityVersionWithSingleVersion() {
+        $versions = $this->_createVersions(array('signed'));
+        $episode = $this->_createEpisode(array('versions' => $versions));
+        $priorityVersion = $episode->getPriorityVersion();
+        $this->assertEquals('signed', $priorityVersion->getKind());
+    }
+
+    public function testPriorityVersionWithPreferenceThatExists() {
+        $versions = $this->_createVersions(array('original', 'signed'));
+        $episode = $this->_createEpisode(array('versions' => $versions));
+        $priorityVersion = $episode->getPriorityVersion('signed');
+        $this->assertEquals('signed', $priorityVersion->getKind());
+    }
+
+    public function testPriorityVersionWithPreferenceThatDoesntExist() {
+        $versions = $this->_createVersions(array('signed', 'other'));
+        $episode = $this->_createEpisode(array('versions' => $versions));
+        $priorityVersion = $episode->getPriorityVersion('audio-described');
+        // It should return the first version instead
+        $this->assertEquals('signed', $priorityVersion->getKind());
+    }
+
+    public function testPriorityVersionWithNoVersions() {
+        $episode = $this->_createEpisode(array('title' => 'My Title'));
+        $priorityVersion = $episode->getPriorityVersion();
+        $this->assertEquals('', $priorityVersion);
+    }
+
     private function _createEpisode($params) {
         return new BBC_Service_Bamboo_Models_Episode((object) $params);
+    }
+
+    private function _createVersions($kinds) {
+        $versions = array();
+        foreach ($kinds as $kind) {
+            $versions[] = (object) array('kind' => $kind);
+        }
+        return $versions;
     }
 }

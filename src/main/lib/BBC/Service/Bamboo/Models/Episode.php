@@ -111,14 +111,25 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
     }
 
     /**
-     * Gets the original version attached to the episode
+     * Gets the version with highest priority attached to the episode. A preference can be provided to override the
+     * default. If the preference is not found then the default will be returned instead.
+     *
+     * @param string $preference a specific version to look for
      *
      * @return string|BBC_Service_Bamboo_Models_Version
      */
-    public function getOriginalVersion()
+    public function getPriorityVersion($preference = null)
     {
         if (isset($this->_versions[0])) {
-            return $this->_versions[0];
+            $result = $this->_versions[0];
+            if ($preference) {
+                foreach ($this->_versions as $version) {
+                    if ($version->getKind() === $preference) {
+                        $result = $version;
+                    }
+                }
+            }
+            return $result;
         }
         return "";
     }
