@@ -12,3 +12,4 @@ ini_set(
 
 $_SERVER['PAL_WEBAPP'] = 'bamboo';
 $_SERVER['PAL_WEBAPP_ROOT'] = realpath(dirname(__FILE__) . '/../..');
+define('PHPUNIT', true);
