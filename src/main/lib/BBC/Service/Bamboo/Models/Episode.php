@@ -80,19 +80,6 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
     }
 
     /**
-     * Get the duration
-     *
-     * @return string|DateInterval
-     */
-    public function getDuration() {
-        if ($this->_duration) {
-            return new DateInterval($this->_duration);
-        }
-
-        return "";
-    }
-
-    /**
      * Is the episode a film
      *
      * @return bool
