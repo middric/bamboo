@@ -23,6 +23,7 @@
         <requires>
             bbc-pal-library-httpmulti &gt;= 0.4.4
         </requires>
+        <phpunitXmlFile>src/main/lib-test/phpunit.xml</phpunitXmlFile>
     </properties>
 
     <build>
