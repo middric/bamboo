@@ -107,6 +107,66 @@ class BBC_Service_Bamboo_Models_EpisodeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('', $priorityVersion);
     }
 
+    public function testPriorityVersionSlugCallsPriorityVersion() {
+        $stub = $this->getMockBuilder('BBC_Service_Bamboo_Models_Episode')
+            ->setMethods(array('getPriorityVersion'))
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $stub->expects($this->once())
+            ->method('getPriorityVersion');
+
+        $stub->getPriorityVersionSlug();
+    }
+
+    public function testPriorityVersionSlugPassesPreferenceToPriorityVersion() {
+        $stub = $this->getMockBuilder('BBC_Service_Bamboo_Models_Episode')
+            ->setMethods(array('getPriorityVersion'))
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $stub->expects($this->once())
+            ->method('getPriorityVersion')
+            ->with('signed');
+
+        $stub->getPriorityVersionSlug('signed');
+    }
+
+    public function testPriorityVersionSlugReturnsVersionSlug() {
+        $version = $this->getMockBuilder('BBC_Service_Bamboo_Models_Version')
+            ->setMethods(array('getSlug'))
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $episode = $this->getMockBuilder('BBC_Service_Bamboo_Models_Episode')
+            ->setMethods(array('getPriorityVersion'))
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $episode->expects($this->once())
+            ->method('getPriorityVersion')
+            ->will($this->returnValue($version));
+
+        $version->expects($this->once())
+            ->method('getSlug')
+            ->will($this->returnValue('slug'));
+
+        $this->assertEquals('slug', $episode->getPriorityVersionSlug());
+    }
+
+    public function testPriorityVersionSlugReturnsBlankWithNoVersion() {
+        $stub = $this->getMockBuilder('BBC_Service_Bamboo_Models_Episode')
+            ->setMethods(array('getPriorityVersion'))
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $stub->expects($this->once())
+            ->method('getPriorityVersion')
+            ->will($this->returnValue(''));
+
+        $this->assertEquals('', $stub->getPriorityVersionSlug());
+    }
+
     private function _createEpisode($params) {
         return new BBC_Service_Bamboo_Models_Episode((object) $params);
     }

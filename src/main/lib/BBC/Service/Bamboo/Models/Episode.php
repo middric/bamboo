@@ -135,6 +135,24 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
     }
 
     /**
+     * Gets the priority version and returns its slug. If no version exists it returns an empty string. An optional
+     * preference can be specified in which case the version of that kind will be returned if it exists, else the
+     * version with highest priority is returned.
+     *
+     * @param string $preference a specific version to return
+     *
+     * @return string
+     */
+    public function getPriorityVersionSlug($preference = null) {
+        $version = $this->getPriorityVersion($preference);
+
+        if ($version) {
+            return $version->getSlug();
+        }
+        return "";
+    }
+
+    /**
      * Get the episode HREF
      *
      * @return string
