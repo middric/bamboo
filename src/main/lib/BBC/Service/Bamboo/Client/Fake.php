@@ -77,6 +77,10 @@ class BBC_Service_Bamboo_Client_Fake
             unset($params['api_key']);
         }
 
+        if (array_key_exists('rights', $params)) {
+            unset($params['rights']);
+        }
+
         if (!empty($params)) {
             // build any key/values we have back into a HTTP query
             // Then lowercase & strip out any characters that might cause us headaches
