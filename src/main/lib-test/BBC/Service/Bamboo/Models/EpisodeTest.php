@@ -101,6 +101,14 @@ class BBC_Service_Bamboo_Models_EpisodeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('signed', $priorityVersion->getKind());
     }
 
+    public function testPriorityVersionWithBlankPreference() {
+        $versions = $this->_createVersions(array('signed', 'audio-described'));
+        $episode = $this->_createEpisode(array('versions' => $versions));
+        $priorityVersion = $episode->getPriorityVersion('');
+        // It should return the first version instead
+        $this->assertEquals('signed', $priorityVersion->getKind());
+    }
+
     public function testPriorityVersionWithNoVersions() {
         $episode = $this->_createEpisode(array('title' => 'My Title'));
         $priorityVersion = $episode->getPriorityVersion();
