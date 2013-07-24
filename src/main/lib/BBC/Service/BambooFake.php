@@ -17,7 +17,7 @@ class BBC_Service_BambooFake extends BBC_Service_BambooFail
      */
     protected $_client = null;
 
-    protected static $_paths = array();
+    protected static $_path;
 
 
     public function __construct(array $parameters = array()) {
@@ -25,21 +25,35 @@ class BBC_Service_BambooFake extends BBC_Service_BambooFail
         $this->_client = new BBC_Service_Bamboo_Client_Fake(
             $this->_configuration->getConfiguration()->httpmulti,
             self::$_keywords,
-            self::$_paths
+            array(self::$_path)
         );
+    }
+
+    /**
+     *  Adds a keyword to the matchstick client which will fail any requests which have as a
+     *  substring these keywords
+     *
+     * @param array $keywords
+     */
+    public static function addKeywords(array $keywords) {
+        foreach ($keywords as $keyword) {
+            if ($keyword != "") {
+                self::$_keywords[] = explode('@', $keyword);
+            }
+        }
     }
 
     /**
      *  Adds a path on the file system to the fixtures directory
      */
-    public static function addPath($path) {
-        self::$_paths[] = $path;
+    public static function setPath($path) {
+        self::$_path = $path;
     }
 
     public function fetch($feedName, $params) {
         $params = parent::_prepareParams($params);
         $response = $this->_client->get($feedName, $params);
-        
+
         $json = json_decode($response->getBody());
         $factory = new BBC_Service_Bamboo_ModelFactory($json);
         $built = $factory->build();

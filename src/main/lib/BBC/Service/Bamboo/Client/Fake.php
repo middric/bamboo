@@ -16,13 +16,20 @@ class BBC_Service_Bamboo_Client_Fake
     /**
      *  Path on file system to fixtures
      */
-    protected $_paths = array();
+    protected $_path;
 
     /**
      *  Accepted file types
      */
-    protected $_types = array(
-        "json" => "application/json"
+    protected $_extension = 'json';
+
+    /**
+     * Default parameters we don't want in the fixture names
+     */
+    protected $_defaultParams = array(
+        'per_page',
+        'api_key',
+        'rights'
     );
 
     /**
@@ -32,7 +39,7 @@ class BBC_Service_Bamboo_Client_Fake
     public function __construct($config, array $keywords, array $paths) {
         parent::__construct($config);
         $this->_keywords = $keywords;
-        $this->_paths = $paths;
+        $this->_path = $paths[0];
     }
 
     /**
@@ -45,14 +52,15 @@ class BBC_Service_Bamboo_Client_Fake
      */
     public function get($path, array $params = array()) {
         foreach ($this->_keywords as $keyword) {
-            if ($this->_matchesKeyword($keyword, $path)) {
-                if (count($this->_paths)) {
-                    $response = $this->_getFakeResponseForRequest($path, $params);
+            if ($this->_matchesKeyword($keyword[0], $path)) {
+                if ($this->_path) {
+                    $suffix = !empty($keyword[1]) ? "_{$keyword[1]}" : '';
+                    $response = $this->_getFakeResponseForRequest($path, $params, $suffix);
                     $this->handleErrors($response);
                     return $response;
                 } else {
                     throw new BBC_Service_Bamboo_Exception_NoFixturePathSet(
-                        "No paths to bamboo fixtures have been set!"
+                        "No path to bamboo fixtures has been set!"
                     );
                 }
             }
@@ -64,64 +72,50 @@ class BBC_Service_Bamboo_Client_Fake
     /**
      * Takes a request and returns a faked response containing fixture data
      */
-    private function _getFakeResponseForRequest($path, $params) {
+    private function _getFakeResponseForRequest($path, $params, $suffix="") {
 
-        $baseNames = array(
-            // Add the whole URL as the first base name to look for.
-            preg_replace("/\W+/", "_", $path)
-        );
+        $baseName = preg_replace("/\W+/", "_", $path.$suffix);
 
-        // If the API Key is part of the params, remove it
-
-        if (array_key_exists('api_key', $params)) {
-            unset($params['api_key']);
+        // Remove default parameters from the query string
+        foreach ($this->_defaultParams as $parameter) {
+            if (array_key_exists($parameter, $params)) {
+                unset($params[$parameter]);
+            }
         }
-
-        if (array_key_exists('rights', $params)) {
-            unset($params['rights']);
-        }
-
         if (!empty($params)) {
             // build any key/values we have back into a HTTP query
             // Then lowercase & strip out any characters that might cause us headaches
-            $queryString = '_' .
+            $queryString = '' .
                 preg_replace('/\W+/', '_', mb_strtolower(http_build_query($params)));
         } else {
             $queryString = '';
         }
 
-        foreach ($baseNames as $baseName) {
-            foreach ($this->_paths as $fileLocation) {
-                foreach ($this->_types as $extension => $type) {
-                    $fileName = $fileLocation . $baseName . '.' . $extension . $queryString;
-                    if (file_exists($fileName)) {
-                        $m = __CLASS__ . ": using the file [" . $fileName . "]";
-                        $response = Zend_Http_Response::fromString(file_get_contents($fileName));
-                        return $response;
-                    } else {
-                        $error .= realpath($fileName) . "\n";
-                    }
-                }
-            }
+        $fileName = $this->_buildFilename($this->_path, $baseName, $queryString, $this->_extension);
+
+        if (file_exists($fileName)) {
+            BBC_Service_Bamboo_Log::info(__CLASS__ . ": using the file [" . $fileName . "]");
+            $response = Zend_Http_Response::fromString(file_get_contents($fileName));
+            return $response;
         }
 
+        $error = "\nCould not find fixture for feed - '". $path ."'\n\nExpected:\n";
+        $error .= $fileName ."\n\n";
 
-        $error .= "Could not find these files for given URL - '". $path ."'\n\nTried:\n";
-        foreach ($baseNames as $baseName) {
-            foreach ($this->_types as $extension => $type) {
-                $error .= $baseName . '.' . $extension . $queryString ."\n";
-            }
-        }
-        $error .= "\nin these locations: \n";
-        foreach ($this->_paths as $fileLocation) {
-            $error .= $fileLocation . "\n";
-        }
-
-        throw new Exception($error, 1);
+        throw new BBC_Service_Bamboo_Exception_FixtureNotFound($error, 1);
     }
 
     private function _matchesKeyword($keyword, $requestUrl) {
         return (($keyword === "*") || (mb_strstr($requestUrl, $keyword) !== false));
+    }
+
+    private function _buildFilename($location, $baseName, $queryString, $extension) {
+        $fileName = $location . $baseName;
+        if ($queryString) {
+            $fileName .= "_$queryString";
+        }
+        $fileName .= ".$extension";
+        return mb_strtolower($fileName);
     }
 
 }
