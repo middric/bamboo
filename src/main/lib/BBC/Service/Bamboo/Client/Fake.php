@@ -115,7 +115,7 @@ class BBC_Service_Bamboo_Client_Fake
             $fileName .= "_$queryString";
         }
         $fileName .= ".$extension";
-        return mb_strtolower($fileName);
+        return $fileName;
     }
 
 }
