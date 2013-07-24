@@ -42,6 +42,19 @@ class BBC_Service_Bamboo_Models_EpisodeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('my-subtitle', $episode->getSlug());
     }
 
+    public function testSlugWithQuestionMark()
+    {
+        $episode = $this->_createEpisode(array('title' => 'Question mark?'));
+        $this->assertEquals('question-mark', $episode->getSlug());
+        $episode = $this->_createEpisode(array('title' => 'Question', 'subtitle' => 'mark?'));
+        $this->assertEquals('question-mark', $episode->getSlug());
+    }
+
+    public function testSlugWithApostrophe() {
+        $episode = $this->_createEpisode(array('title' => 'What\'s the craic', 'subtitle' => 'jack?'));
+        $this->assertEquals('whats-the-craic-jack', $episode->getSlug());
+    }
+
     public function testSlugWithMixedCaseTitle() {
         $episode = $this->_createEpisode(array('title' => 'MyTiTlE'));
         $this->assertEquals('mytitle', $episode->getSlug());

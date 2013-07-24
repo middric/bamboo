@@ -163,8 +163,19 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
      * @return string
      */
     public function getSlug() {
-        $processedTitle = trim($this->_unaccent($this->getCompleteTitle()));
-        return mb_strtolower(preg_replace('/[^a-zA-Z0-9]+/', '-', $processedTitle));
+        // Use title - subtitle
+        $title = $this->getCompleteTitle();
+        // Remove leading and trailing whitespace
+        $title = trim($this->getCompleteTitle());
+        // Replace accented characters with unaccented equivalent
+        $title = $this->_unaccent($title);
+        // Lowercase the title
+        $title = mb_strtolower($title);
+        // Remove non-alphanumeric-or-whitespace characters
+        $title = preg_replace('/[^\w\s]/', '', $title);
+        // Reduce multiple spaces to a single hyphen
+        $title = preg_replace('/\s\s*/', '-', $title);
+        return $title;
     }
 
     public function getCredits() {
