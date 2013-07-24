@@ -19,7 +19,7 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
 
     /**
      * Get the short synopsis (if available)
-     * 
+     *
      * @return string
      */
     public function getShortSynopsis() {
@@ -31,7 +31,7 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
 
     /**
      * Get the medium synopsis (if available)
-     * 
+     *
      * @return string
      */
     public function getMediumSynopsis() {
@@ -43,7 +43,7 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
 
     /**
      * Get the large synopsis (if available)
-     * 
+     *
      * @return string
      */
     public function getLargeSynopsis() {
@@ -55,10 +55,10 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
 
     /**
      * Get the standard image url for an element
-     * 
+     *
      * @param int $width  Desired width of image (default 336)
      * @param int $height Desired height of image (default 189)
-     * 
+     *
      * @return string
      */
     public function getStandardImage($width = 336, $height = 189) {
@@ -71,7 +71,7 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
 
     /**
      * Get the raw standard image for an element. This is a url which includes the recipe.
-     * 
+     *
      * @return string
      */
     public function getStandardImageRecipe() {
@@ -82,8 +82,36 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
     }
 
     /**
+     * Get the portrait image url for an element
+     *
+     * @param int $width  Desired width of image (default 336)
+     * @param int $height Desired height of image (default 581)
+     *
+     * @return string
+     */
+    public function getPortraitImage($width = 336, $height = 581) {
+        $dimensions = "{$width}x{$height}";
+        if (isset($this->_images['portrait'])) {
+            return str_replace('{recipe}', $dimensions, $this->_images['portrait']);
+        }
+        return "";
+    }
+
+    /**
+     * Get the raw portrait image for an element. This is a url which includes the recipe.
+     *
+     * @return string
+     */
+    public function getPortraitImageRecipe() {
+        if (isset($this->_images['portrait'])) {
+            return $this->_images['portrait'];
+        }
+        return "";
+    }
+
+    /**
      * Get the master brand name
-     * 
+     *
      * @return string
      */
     public function getMasterBrand() {
@@ -97,7 +125,7 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
 
     /**
      * Get the master brand id
-     * 
+     *
      * @return string
      */
     public function getMasterBrandId() {
@@ -111,7 +139,7 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
 
     /**
      * Get the element type
-     * 
+     *
      * @return string
      */
     public function getType() {
