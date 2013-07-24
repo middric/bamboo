@@ -17,7 +17,7 @@ class BBC_Service_BambooFake extends BBC_Service_BambooFail
      */
     protected $_client = null;
 
-    protected static $_path;
+    protected static $_paths;
 
 
     public function __construct(array $parameters = array()) {
@@ -25,7 +25,7 @@ class BBC_Service_BambooFake extends BBC_Service_BambooFail
         $this->_client = new BBC_Service_Bamboo_Client_Fake(
             $this->_configuration->getConfiguration()->httpmulti,
             self::$_keywords,
-            array(self::$_path)
+            self::$_paths
         );
     }
 
@@ -46,8 +46,8 @@ class BBC_Service_BambooFake extends BBC_Service_BambooFail
     /**
      *  Adds a path on the file system to the fixtures directory
      */
-    public static function setPath($path) {
-        self::$_path = $path;
+    public static function addPath($path) {
+        self::$_paths[] = $path;
     }
 
     public function fetch($feedName, $params) {

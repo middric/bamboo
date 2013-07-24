@@ -16,7 +16,7 @@ class BBC_Service_Bamboo_Client_Fake
     /**
      *  Path on file system to fixtures
      */
-    protected $_path;
+    protected $_paths;
 
     /**
      *  Accepted file types
@@ -39,7 +39,7 @@ class BBC_Service_Bamboo_Client_Fake
     public function __construct($config, array $keywords, array $paths) {
         parent::__construct($config);
         $this->_keywords = $keywords;
-        $this->_path = $paths[0];
+        $this->_paths = $paths;
     }
 
     /**
@@ -53,7 +53,7 @@ class BBC_Service_Bamboo_Client_Fake
     public function get($path, array $params = array()) {
         foreach ($this->_keywords as $keyword) {
             if ($this->_matchesKeyword($keyword[0], $path)) {
-                if ($this->_path) {
+                if (!empty($this->_paths[0])) {
                     $suffix = !empty($keyword[1]) ? "_{$keyword[1]}" : '';
                     $response = $this->_getFakeResponseForRequest($path, $params, $suffix);
                     $this->handleErrors($response);
@@ -91,7 +91,7 @@ class BBC_Service_Bamboo_Client_Fake
             $queryString = '';
         }
 
-        $fileName = $this->_buildFilename($this->_path, $baseName, $queryString, $this->_extension);
+        $fileName = $this->_buildFilename($this->_paths[0], $baseName, $queryString, $this->_extension);
 
         if (file_exists($fileName)) {
             BBC_Service_Bamboo_Log::info(__CLASS__ . ": using the file [" . $fileName . "]");
