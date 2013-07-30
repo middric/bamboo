@@ -80,6 +80,19 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
     }
 
     /**
+     * Get the duration of the highest priority version. If the episode has no version return an empty string.
+     *
+     * @return string
+     */
+    public function getDuration() {
+        $version = $this->getPriorityVersion();
+        if ($version) {
+            return $version->getDuration();
+        }
+        return '';
+    }
+
+    /**
      * Is the episode a film
      *
      * @return bool

@@ -188,6 +188,33 @@ class BBC_Service_Bamboo_Models_EpisodeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('', $stub->getPriorityVersionSlug());
     }
 
+    public function testGetDurationReturnsPriorityVersionDuration() {
+        $version = new BBC_Service_Bamboo_Models_Version((object) array('duration' => array('text' => '40 mins')));
+        $stub = $this->getMockBuilder('BBC_Service_Bamboo_Models_Episode')
+            ->setMethods(array('getPriorityVersion'))
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $stub->expects($this->once())
+            ->method('getPriorityVersion')
+            ->will($this->returnValue($version));
+
+        $this->assertEquals('40 mins', $stub->getDuration());
+    }
+
+    public function testGetDurationReturnsBlankWhenNoVersionPresent() {
+        $stub = $this->getMockBuilder('BBC_Service_Bamboo_Models_Episode')
+            ->setMethods(array('getPriorityVersion'))
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $stub->expects($this->once())
+            ->method('getPriorityVersion')
+            ->will($this->returnValue(''));
+
+        $this->assertEquals('', $stub->getDuration());
+    }
+
     private function _createEpisode($params) {
         return new BBC_Service_Bamboo_Models_Episode((object) $params);
     }

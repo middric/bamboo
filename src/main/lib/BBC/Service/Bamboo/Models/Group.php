@@ -20,7 +20,7 @@ class BBC_Service_Bamboo_Models_Group extends BBC_Service_Bamboo_Models_Element
 
     /**
      * Returns the subtitle of the episode
-     * 
+     *
      * @return string
      */
     public function getSubtitle() {
@@ -37,7 +37,7 @@ class BBC_Service_Bamboo_Models_Group extends BBC_Service_Bamboo_Models_Element
     /**
      * @todo Not sure this is relevant any longer
      */
-    public function getInitialChildEpisodes() {
+    public function getEpisodes() {
     	// @codingStandardsIgnoreStart
         return $this->_initial_child_episodes;
         // @codingStandardsIgnoreEnd
@@ -46,7 +46,7 @@ class BBC_Service_Bamboo_Models_Group extends BBC_Service_Bamboo_Models_Element
     /**
      * @todo Not sure this is relevant any longer
      */
-    public function getChildEpisodeCount() {
+    public function getEpisodeCount() {
     	// @codingStandardsIgnoreStart
         return $this->_child_episode_count;
         // @codingStandardsIgnoreEnd
