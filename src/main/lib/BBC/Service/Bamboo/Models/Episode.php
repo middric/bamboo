@@ -135,6 +135,42 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
     }
 
     /**
+     * Checks if HD exists on any version
+     *
+     * @return bool
+     */
+    public function hasHD()
+    {
+        if (isset($this->_versions[0])) {
+            foreach ($this->_versions as $version) {
+                if ($version->isHD()) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return false;
+    }
+
+    /**
+     * Checks if we need to show version flags
+     *
+     * @return bool
+     */
+    public function showFlags()
+    {
+        // if the episode has any versions at all
+        if (isset($this->_versions[0])) {
+            // we won't need version flags in this scenario: there's only the original version and has no HD
+            if ((count($this->_versions) === 1) && ($this->_versions[0]->getKind() === 'original') && !($this->_versions[0]->isHD())) {
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Gets the priority version and returns its slug. If no version exists it returns an empty string. An optional
      * preference can be specified in which case the version of that kind will be returned if it exists, else the
      * version with highest priority is returned.
