@@ -54,7 +54,7 @@ class BBC_Service_Bamboo_Log
     /**
      * Log a given message with a given level
      */
-    protected function _log($message, $level) {
+    protected static function _log($message, $level) {
         $logger = self::getLogger();
         if ($logger) {
             self::getLogger()->log($message, $level);
