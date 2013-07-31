@@ -41,7 +41,7 @@ class BBC_Service_BambooFail extends BBC_Service_Bamboo
         }
     }
 
-    public function fetch($feedName, $params) {
+    public function fetch($feedName, $params = array()) {
         $params = parent::_prepareParams($params);
         $response = $this->_client->get($feedName, $params);
 
