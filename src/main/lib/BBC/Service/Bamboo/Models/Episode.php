@@ -162,7 +162,9 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
         // if the episode has any versions at all
         if (isset($this->_versions[0])) {
             // we won't need version flags in this scenario: there's only the original version and has no HD
-            if ((count($this->_versions) === 1) && ($this->_versions[0]->getKind() === 'original') && !($this->_versions[0]->isHD())) {
+            if ((count($this->_versions) === 1) && 
+                ($this->_versions[0]->getKind() === 'original') && 
+                !($this->_versions[0]->isHD())) {
                 return false;
             }
             return true;
