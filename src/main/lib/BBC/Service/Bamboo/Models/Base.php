@@ -56,8 +56,7 @@ class BBC_Service_Bamboo_Models_Base
 
     /**
      * Generic method to set a class property to the value stored in iBL
-     * 
-     * @throws BBC_Service_Bamboo_Exception_ExpectedProperty Throws exception when property not defined in class
+     *
      */
     private function _setProperty($key) {
         if (isset($this->_response->{$key}) && isset($this->{"_$key"})) {
@@ -67,17 +66,14 @@ class BBC_Service_Bamboo_Models_Base
                 $this->{"_$key"} = $this->_response->{$key};
             }
         } else {
-            throw new BBC_Service_Bamboo_Exception_ExpectedProperty(
-                "Expected property \$_$key to be set on " . get_class($this)
-            );
+            BBC_Service_Bamboo_Log::warn("Expected property \$_$key to be set on " . get_class($this));
         }
     }
 
     /**
-     * For iBL responses with version children this method will generate an array of 
+     * For iBL responses with version children this method will generate an array of
      * {@link BBC_Service_Bamboo_Models_Version} objects and attach them to the parent object
-     * 
-     * @throws BBC_Service_Bamboo_Exception_ExpectedProperty Throws exception when $_versions is not defined
+     *
      */
     private function _setVersions() {
         if (isset($this->_response->versions) && isset($this->_versions)) {
@@ -85,18 +81,15 @@ class BBC_Service_Bamboo_Models_Base
                 $this->_versions[] = new BBC_Service_Bamboo_Models_Version($version);
             }
         } else {
-            throw new BBC_Service_Bamboo_Exception_ExpectedProperty(
-                "Expected property \$_versions to be set on " . get_class($this)
-            );
+            BBC_Service_Bamboo_Log::warn("Expected property \$_$key to be set on " . get_class($this));
         }
     }
 
 
     /**
-     * For iBL responses with episode children this method will generate an array of 
+     * For iBL responses with episode children this method will generate an array of
      * {@link BBC_Service_Bamboo_Models_Episode} objects and attach them to the parent object
-     * 
-     * @throws BBC_Service_Bamboo_Exception_ExpectedProperty Throws exception when property is not defined in class
+     *
      */
     private function _setEpisodes() {
         // @codingStandardsIgnoreStart
@@ -105,9 +98,7 @@ class BBC_Service_Bamboo_Models_Base
                 $this->_initial_child_episodes[] = new BBC_Service_Bamboo_Models_Episode($episode);
             }
         } else {
-            throw new BBC_Service_Bamboo_Exception_ExpectedProperty(
-                "Expected property \$_initial_child_episodes to be set on " . get_class($this)
-            );
+            BBC_Service_Bamboo_Log::warn("Expected property \$_$key to be set on " . get_class($this));
         }
         // @codingStandardsIgnoreEnd
     }
