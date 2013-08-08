@@ -8,9 +8,8 @@
  * @author Craig Taub <craig.taub@bbc.co.uk>
  * @copyright Copyright (c) 2013 BBC (http://www.bbc.co.uk)
  */
-class BBC_Service_Bamboo_ResponseArrayObject Extends ArrayObject
+class BBC_Service_Bamboo_ResponseArrayObject extends ArrayObject
 {
-
     public function isEmpty() 
     {
         if ($this->count() === 0 ) {
