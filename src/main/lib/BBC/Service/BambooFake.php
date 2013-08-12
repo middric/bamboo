@@ -10,7 +10,7 @@
  * @author Rich Middleditch <richard.middleditch1@bbc.co.uk>
  */
 
-class BBC_Service_BambooFake extends BBC_Service_BambooFail
+class BBC_Service_BambooFake extends BBC_Service_Bamboo
 {
     /**
      * @BBC_Service_Bamboo_Client_Fail
@@ -18,6 +18,8 @@ class BBC_Service_BambooFake extends BBC_Service_BambooFail
     protected $_client = null;
 
     protected static $_paths;
+
+    protected static $_keywords;
 
 
     public function __construct(array $parameters = array()) {
@@ -59,5 +61,12 @@ class BBC_Service_BambooFake extends BBC_Service_BambooFail
         $built = $factory->build();
 
         return $built;
+    }
+
+    /**
+     *  Resets keywords
+     */
+    public static function clearKeywords() {
+        self::$_keywords = array();
     }
 }
