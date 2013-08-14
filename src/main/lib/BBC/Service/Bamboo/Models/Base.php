@@ -66,7 +66,7 @@ class BBC_Service_Bamboo_Models_Base
                 $this->{"_$key"} = $this->_response->{$key};
             }
         } else {
-            BBC_Service_Bamboo_Log::warn("Expected property \$_$key to be set on " . get_class($this));
+            BBC_Service_Bamboo_Log::info("Expected property \$_$key to be set on " . get_class($this));
         }
     }
 
@@ -81,7 +81,7 @@ class BBC_Service_Bamboo_Models_Base
                 $this->_versions[] = new BBC_Service_Bamboo_Models_Version($version);
             }
         } else {
-            BBC_Service_Bamboo_Log::warn("Expected property \$_$key to be set on " . get_class($this));
+            BBC_Service_Bamboo_Log::info("Expected property \$_$key to be set on " . get_class($this));
         }
     }
 
@@ -98,7 +98,7 @@ class BBC_Service_Bamboo_Models_Base
                 $this->_initial_child_episodes[] = new BBC_Service_Bamboo_Models_Episode($episode);
             }
         } else {
-            BBC_Service_Bamboo_Log::warn("Expected property \$_$key to be set on " . get_class($this));
+            BBC_Service_Bamboo_Log::info("Expected property \$_$key to be set on " . get_class($this));
         }
         // @codingStandardsIgnoreEnd
     }
