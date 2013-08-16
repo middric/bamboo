@@ -67,9 +67,16 @@ class BBC_Service_Bamboo_Models_Group extends BBC_Service_Bamboo_Models_Element
     }
 
     /**
-     * @todo Not sure this is relevant any longer
+     * Get the number of episodes within this group object
      */
     public function getEpisodeCount() {
+        return count($this->getEpisodes());
+    }
+
+    /**
+     * Get the total number of episodes in this group
+     */
+    public function getTotalEpisodeCount() {
     	// @codingStandardsIgnoreStart
         return $this->_child_episode_count;
         // @codingStandardsIgnoreEnd
