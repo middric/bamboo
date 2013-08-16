@@ -93,6 +93,16 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
     }
 
     /**
+     * Is the episode stacked
+     * 
+     * @access public
+     * @return void
+     */
+    public function isStacked() {
+        return !!$this->_stacked;
+    }
+
+    /**
      * Is the episode a film
      *
      * @return bool
