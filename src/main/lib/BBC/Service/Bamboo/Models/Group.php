@@ -17,6 +17,7 @@ class BBC_Service_Bamboo_Models_Group extends BBC_Service_Bamboo_Models_Element
     protected $_labels = "";
     protected $_related_links = "";
     protected $_master_brand = "";
+    protected $_stacked = "";
     // @codingStandardsIgnoreEnd
 
     /**
@@ -48,6 +49,15 @@ class BBC_Service_Bamboo_Models_Group extends BBC_Service_Bamboo_Models_Element
      */
     public function getSubtitle() {
         return $this->_subtitle;
+    }
+
+    /**
+     * Is the group stacked? (All episodes share programme)
+     *
+     * @return boolean
+     */
+    public function isStacked() {
+        return !!$this->_stacked;
     }
 
     /**
