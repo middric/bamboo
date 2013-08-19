@@ -45,7 +45,6 @@ class BBC_Service_Bamboo_ModelFactory
     public function build() {
         if ($this->_responseDecoded) {
             $responseArray = array();
-
             switch($this->_root) {
                 case 'categories':
                     $responseArray = $this->getCategories($this->_responseDecoded);
@@ -54,7 +53,8 @@ class BBC_Service_Bamboo_ModelFactory
                     $responseArray = $this->getGroupEpisodes($this->_responseDecoded);
                     break;
                 case 'channels':
-                    $responseArray = $this->_responseDecoded;
+                    $responseArray = $this->getChannels($this->_responseDecoded);
+                    break;
                 default:
                     $this->_findElements($this->_responseDecoded, $responseArray);
             }
@@ -108,6 +108,20 @@ class BBC_Service_Bamboo_ModelFactory
         $array = array();
         foreach ($categories as $element) {
             $item = new BBC_Service_Bamboo_Models_Category($element);
+            $array[] = $item;
+        }
+
+        return $array;
+    }
+
+    /**
+     * Returns the array of channel objects
+     * @return Object $response
+     */
+    public function getChannels($channels) {
+        $array = array();
+        foreach ($channels as $element) {
+            $item = new BBC_Service_Bamboo_Models_Channel($element);
             $array[] = $item;
         }
 
