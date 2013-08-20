@@ -110,6 +110,36 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
     }
 
     /**
+     * Get the $type image url for an element
+     *
+     * @param string $type Type of image to get (standard|vertical|portrait)
+     * @param int $width  Desired width of image (default 336)
+     * @param int $height Desired height of image (default 581)
+     *
+     * @return string
+     */
+    public function getImage($type = 'standard', $width = 336, $height = 581) {
+        $dimensions = "{$width}x{$height}";
+        if (isset($this->_images[$type])) {
+            return str_replace('{recipe}', $dimensions, $this->_images[$type]);
+        }
+        return "";
+    }
+
+    /**
+     * Get the raw $type image for an element. This is a url which includes the recipe
+     * 
+     * @param string $type Type of image to get (standard|vertical|portrait)
+     * @return string
+     */
+    public function getImageRecipe($type) {
+        if (isset($this->_images[$type])) {
+            return $this->_images['portrait'];
+        }
+        return "";
+    }
+
+    /**
      * Get the master brand name
      *
      * @return string
