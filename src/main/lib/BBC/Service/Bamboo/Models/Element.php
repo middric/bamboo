@@ -146,6 +146,9 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
      */
     public function getMasterBrand() {
         // @codingStandardsIgnoreStart
+        if (isset($this->_master_brand['name'])) {
+            return $this->_master_brand['name'];
+        }
         if (isset($this->_master_brand['titles'])) {
             $titles = $this->_master_brand['titles'];
             if (isset($titles->small)) {
