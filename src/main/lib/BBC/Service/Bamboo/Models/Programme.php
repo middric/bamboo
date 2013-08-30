@@ -12,7 +12,7 @@ class BBC_Service_Bamboo_Models_Programme extends BBC_Service_Bamboo_Models_Elem
 {
     // @codingStandardsIgnoreStart
     protected $_initial_children = array();
-    protected $_child_episode_count = 0;
+    protected $_count = 0;
     // @codingStandardsIgnoreEnd
 
     /**
@@ -40,7 +40,7 @@ class BBC_Service_Bamboo_Models_Programme extends BBC_Service_Bamboo_Models_Elem
      */
     public function getTotalEpisodeCount() {
         // @codingStandardsIgnoreStart
-        return $this->_child_episode_count;
+        return $this->_count;
         // @codingStandardsIgnoreEnd
     }
 
