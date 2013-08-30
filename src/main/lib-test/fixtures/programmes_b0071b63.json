@@ -165,6 +165,6 @@ Content-Type: application/json;charset=UTF-8
             "type": "episode",
             "tleo_id": "b0071b63"
         }],
-        "child_episode_count": 4
+        "count": 4
     }]
 }
