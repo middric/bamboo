@@ -13,7 +13,7 @@ class BBC_Service_Bamboo_Models_Group extends BBC_Service_Bamboo_Models_Element
     protected $_subtitle = "";
     // @codingStandardsIgnoreStart
     protected $_initial_children = array();
-    protected $_count = "";
+    protected $_count = 0;
     protected $_labels = "";
     protected $_related_links = "";
     protected $_master_brand = "";
