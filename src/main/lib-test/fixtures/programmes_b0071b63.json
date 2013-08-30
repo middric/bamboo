@@ -17,7 +17,7 @@ Content-Type: application/json;charset=UTF-8
             "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/brand/b0071b63.jpg"
         },
         "type": "programme_large",
-        "initial_child_episodes": [{
+        "initial_children": [{
             "id": "p017h0nh",
             "title": "The Apprentice",
             "subtitle": "Series 9 - Container",
@@ -29,8 +29,14 @@ Content-Type: application/json;charset=UTF-8
                 "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/p017h0nh.jpg"
             },
             "master_brand": {
-                "id": "bbc_one",
-                "name": "BBC One"
+                "id": "bbc_two",
+                "type": "master_brand",
+                "titles": {
+                    "small": "BBC Two",
+                    "medium": "BBC Two",
+                    "large": "BBC Two"
+                },
+                "attribution": "bbc_two"
             },
             "versions": [{
                 "id": "b01sk4t5",
@@ -60,8 +66,14 @@ Content-Type: application/json;charset=UTF-8
                 "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01sfh3g.jpg"
             },
             "master_brand": {
-                "id": "bbc_one",
-                "name": "BBC One"
+                "id": "bbc_two",
+                "type": "master_brand",
+                "titles": {
+                    "small": "BBC Two",
+                    "medium": "BBC Two",
+                    "large": "BBC Two"
+                },
+                "attribution": "bbc_two"
             },
             "versions": [{
                 "id": "b01sk71m",
@@ -91,8 +103,14 @@ Content-Type: application/json;charset=UTF-8
                 "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01sk6s4.jpg"
             },
             "master_brand": {
-                "id": "bbc_one",
-                "name": "BBC One"
+                "id": "bbc_two",
+                "type": "master_brand",
+                "titles": {
+                    "small": "BBC Two",
+                    "medium": "BBC Two",
+                    "large": "BBC Two"
+                },
+                "attribution": "bbc_two"
             },
             "versions": [{
                 "id": "b01sk6s0",
@@ -122,8 +140,14 @@ Content-Type: application/json;charset=UTF-8
                 "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01sksvh.jpg"
             },
             "master_brand": {
-                "id": "bbc_one",
-                "name": "BBC One"
+                "id": "bbc_two",
+                "type": "master_brand",
+                "titles": {
+                    "small": "BBC Two",
+                    "medium": "BBC Two",
+                    "large": "BBC Two"
+                },
+                "attribution": "bbc_two"
             },
             "versions": [{
                 "id": "b026xkg0",
