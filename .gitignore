@@ -1,0 +1,14 @@
+# Generated
+src/main/lib-test/reports
+
+# SVN
+.svn
+
+# OSX
+.DS_Store
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
