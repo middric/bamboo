@@ -12,7 +12,7 @@ class BBC_Service_Bamboo_Models_Group extends BBC_Service_Bamboo_Models_Element
 {
     protected $_subtitle = "";
     // @codingStandardsIgnoreStart
-    protected $_initial_child_episodes = "";
+    protected $_initial_children = array();
     protected $_child_episode_count = "";
     protected $_labels = "";
     protected $_related_links = "";
@@ -72,7 +72,7 @@ class BBC_Service_Bamboo_Models_Group extends BBC_Service_Bamboo_Models_Element
      */
     public function getEpisodes() {
     	// @codingStandardsIgnoreStart
-        return $this->_initial_child_episodes;
+        return $this->_initial_children;
         // @codingStandardsIgnoreEnd
     }
 

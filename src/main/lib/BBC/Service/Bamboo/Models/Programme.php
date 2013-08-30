@@ -11,7 +11,7 @@
 class BBC_Service_Bamboo_Models_Programme extends BBC_Service_Bamboo_Models_Element
 {
     // @codingStandardsIgnoreStart
-    protected $_initial_child_episodes = array();
+    protected $_initial_children = array();
     protected $_child_episode_count = 0;
     // @codingStandardsIgnoreEnd
 
@@ -31,7 +31,7 @@ class BBC_Service_Bamboo_Models_Programme extends BBC_Service_Bamboo_Models_Elem
      */
     public function getEpisodes() {
         // @codingStandardsIgnoreStart
-        return $this->_initial_child_episodes;
+        return $this->_initial_children;
         // @codingStandardsIgnoreEnd
     }
 
@@ -58,8 +58,8 @@ class BBC_Service_Bamboo_Models_Programme extends BBC_Service_Bamboo_Models_Elem
      */
     public function getLatestAvailableEpisode() {
         // @codingStandardsIgnoreStart
-        if (isset($this->_initial_child_episodes[0])) {
-            return $this->_initial_child_episodes[0];
+        if (isset($this->_initial_children[0])) {
+            return $this->_initial_children[0];
         }
         return "";
         // @codingStandardsIgnoreEnd
