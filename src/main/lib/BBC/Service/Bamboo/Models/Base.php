@@ -21,7 +21,7 @@ class BBC_Service_Bamboo_Models_Base
                 case "versions":
                     $this->_setVersions();
                     break;
-                case "initial_child_episodes":
+                case "initial_children":
                     $this->_setEpisodes();
                     break;
                 default:
@@ -93,9 +93,11 @@ class BBC_Service_Bamboo_Models_Base
      */
     private function _setEpisodes() {
         // @codingStandardsIgnoreStart
-        if (isset($this->_response->initial_child_episodes) && isset($this->_initial_child_episodes)) {
-            foreach ($this->_response->initial_child_episodes as $episode) {
-                $this->_initial_child_episodes[] = new BBC_Service_Bamboo_Models_Episode($episode);
+        if (isset($this->_response->initial_children) && isset($this->_initial_children)) {
+            foreach ($this->_response->initial_children as $episode) {
+                if ($episode->type === 'episode') {
+                   $this->_initial_children[] = new BBC_Service_Bamboo_Models_Episode($episode);
+                }
             }
         } else {
             BBC_Service_Bamboo_Log::info("Expected property \$_$key to be set on " . get_class($this));

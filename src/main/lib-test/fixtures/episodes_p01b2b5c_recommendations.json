@@ -23,8 +23,14 @@ Content-Type: application/json;charset=UTF-8
                 "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b036y80n.jpg"
             },
             "master_brand": {
-                "id": "bbc_one",
-                "name": "BBC One"
+                "id": "bbc_two",
+                "type": "master_brand",
+                "titles": {
+                    "small": "BBC Two",
+                    "medium": "BBC Two",
+                    "large": "BBC Two"
+                },
+                "attribution": "bbc_two"
             },
             "versions": [{
                 "id": "b037bm0k",
@@ -54,8 +60,14 @@ Content-Type: application/json;charset=UTF-8
                 "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b036tj52.jpg"
             },
             "master_brand": {
-                "id": "bbc_one",
-                "name": "BBC One"
+                "id": "bbc_two",
+                "type": "master_brand",
+                "titles": {
+                    "small": "BBC Two",
+                    "medium": "BBC Two",
+                    "large": "BBC Two"
+                },
+                "attribution": "bbc_two"
             },
             "versions": [{
                 "id": "b036tj19",
@@ -85,8 +97,14 @@ Content-Type: application/json;charset=UTF-8
                 "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b036t8w6.jpg"
             },
             "master_brand": {
-                "id": "bbc_four",
-                "name": "BBC Four"
+                "id": "bbc_two",
+                "type": "master_brand",
+                "titles": {
+                    "small": "BBC Two",
+                    "medium": "BBC Two",
+                    "large": "BBC Two"
+                },
+                "attribution": "bbc_two"
             },
             "versions": [{
                 "id": "b036t8vj",
@@ -110,8 +128,14 @@ Content-Type: application/json;charset=UTF-8
                 "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b036s3w1.jpg"
             },
             "master_brand": {
-                "id": "bbc_one",
-                "name": "BBC One"
+                "id": "bbc_two",
+                "type": "master_brand",
+                "titles": {
+                    "small": "BBC Two",
+                    "medium": "BBC Two",
+                    "large": "BBC Two"
+                },
+                "attribution": "bbc_two"
             },
             "versions": [{
                 "id": "b036s3rm",
@@ -141,8 +165,14 @@ Content-Type: application/json;charset=UTF-8
                 "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b036j1wh.jpg"
             },
             "master_brand": {
-                "id": "bbc_one",
-                "name": "BBC One"
+                "id": "bbc_two",
+                "type": "master_brand",
+                "titles": {
+                    "small": "BBC Two",
+                    "medium": "BBC Two",
+                    "large": "BBC Two"
+                },
+                "attribution": "bbc_two"
             },
             "versions": [{
                 "id": "p01cb8t1",
@@ -172,8 +202,14 @@ Content-Type: application/json;charset=UTF-8
                 "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01qqyt4.jpg"
             },
             "master_brand": {
-                "id": "bbc_four",
-                "name": "BBC Four"
+                "id": "bbc_two",
+                "type": "master_brand",
+                "titles": {
+                    "small": "BBC Two",
+                    "medium": "BBC Two",
+                    "large": "BBC Two"
+                },
+                "attribution": "bbc_two"
             },
             "versions": [{
                 "id": "b01mq2m5",
@@ -198,8 +234,14 @@ Content-Type: application/json;charset=UTF-8
                 "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b01m87pf.jpg"
             },
             "master_brand": {
-                "id": "bbc_four",
-                "name": "BBC Four"
+                "id": "bbc_two",
+                "type": "master_brand",
+                "titles": {
+                    "small": "BBC Two",
+                    "medium": "BBC Two",
+                    "large": "BBC Two"
+                },
+                "attribution": "bbc_two"
             },
             "versions": [{
                 "id": "b01m87p9",
@@ -223,8 +265,14 @@ Content-Type: application/json;charset=UTF-8
                 "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b017z1kq.jpg"
             },
             "master_brand": {
-                "id": "bbc_one",
-                "name": "BBC One"
+                "id": "bbc_two",
+                "type": "master_brand",
+                "titles": {
+                    "small": "BBC Two",
+                    "medium": "BBC Two",
+                    "large": "BBC Two"
+                },
+                "attribution": "bbc_two"
             },
             "versions": [{
                 "id": "b017z1hn",
@@ -253,8 +301,14 @@ Content-Type: application/json;charset=UTF-8
                 "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b0162zbx.jpg"
             },
             "master_brand": {
-                "id": "bbc_four",
-                "name": "BBC Four"
+                "id": "bbc_two",
+                "type": "master_brand",
+                "titles": {
+                    "small": "BBC Two",
+                    "medium": "BBC Two",
+                    "large": "BBC Two"
+                },
+                "attribution": "bbc_two"
             },
             "versions": [{
                 "id": "b0162zbj",
@@ -284,8 +338,14 @@ Content-Type: application/json;charset=UTF-8
                 "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/b00mq45z.jpg"
             },
             "master_brand": {
-                "id": "bbc_one",
-                "name": "BBC One"
+                "id": "bbc_two",
+                "type": "master_brand",
+                "titles": {
+                    "small": "BBC Two",
+                    "medium": "BBC Two",
+                    "large": "BBC Two"
+                },
+                "attribution": "bbc_two"
             },
             "versions": [{
                 "id": "b00n8bmj",
