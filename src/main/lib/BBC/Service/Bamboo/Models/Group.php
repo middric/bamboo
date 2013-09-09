@@ -16,7 +16,6 @@ class BBC_Service_Bamboo_Models_Group extends BBC_Service_Bamboo_Models_Element
     protected $_count = 0;
     protected $_labels = "";
     protected $_related_links = "";
-    protected $_master_brand = "";
     protected $_stacked = "";
     // @codingStandardsIgnoreEnd
 
@@ -28,17 +27,6 @@ class BBC_Service_Bamboo_Models_Group extends BBC_Service_Bamboo_Models_Element
     public function getRelatedLinks() {
     	// @codingStandardsIgnoreStart
         return $this->_related_links;
-    	// @codingStandardsIgnoreEnd
-    }
-
-    /**
-     * Returns the master brand
-     * 
-     * @return object
-     */
-    public function getMasterBrand() {
-    	// @codingStandardsIgnoreStart
-        return $this->_master_brand;
     	// @codingStandardsIgnoreEnd
     }
 
