@@ -34,6 +34,13 @@ class BBC_Service_Bamboo_Client_HttpMulti
     protected $_headers = array();
 
     /**
+     * Path of ibl request
+     *
+     * @var string
+     */
+    protected $_path;
+
+    /**
      * Status codes and their corresponding exceptions
      *
      * @var array
@@ -62,6 +69,7 @@ class BBC_Service_Bamboo_Client_HttpMulti
      * @return array
      */
     public function get($path, array $params = array()) {
+        $this->_path = $path;
         $url = $this->buildURL($path, $params);
 
         BBC_Service_Bamboo_Log::info("Requesting $url");
@@ -161,8 +169,12 @@ class BBC_Service_Bamboo_Client_HttpMulti
                 BBC_Webapp_Base::getInstance()->getContentCache()
             );
         }
+
+        //add our bamboo listener to log ibl curl times
+        BBC_Http_Multi_Client_Request_Factory::addListener(new BBC_Service_Bamboo_Client_Listener($this->_path));
         // Create a new http multi client from the factory
         $httpClient = BBC_Http_Multi_Client_Factory::build();
+
         // Set the max execution time
         $httpClient->setExecutionTimeout(
             $this->_config->timeout
