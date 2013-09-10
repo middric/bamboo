@@ -71,7 +71,9 @@ class BBC_Service_Bamboo_Client_HttpMulti
         $response = null;
         $client = $this->getHttpClient();
         $self = $this;
-        $client->getWithListener($url, $path, $options)->then(
+        $listener = new BBC_Service_Bamboo_Client_Listener($path);
+
+        $client->getWithListener($url, $listener, $options)->then(
             function ($myResponse) use (&$response, &$self, &$url) {
                 $self->handleErrors($myResponse, $url);
                 $response = $myResponse;

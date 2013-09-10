@@ -20,14 +20,14 @@ class BBC_Service_Bamboo_Client_HttpMultiClient extends BBC_Http_Multi_Client
      * @access public
      * @return BBC_Promise
      */
-    public function getWithListener($uri, $path, $options = array()) {
+    public function getWithListener($uri, BBC_Service_Bamboo_Client_Listener $listener, $options = array()) {
 
     $clientRequest = BBC_Http_Multi_Client_Request_Factory::build(
         $uri,
         BBC_Http_Multi_Client_Request::METHOD_GET,
         $options
     );
-    $clientRequest->addListener(new BBC_Service_Bamboo_Client_Listener($path));
+    $clientRequest->addListener($listener);
 
     return $this->request($clientRequest);
 
