@@ -47,7 +47,7 @@ class BBC_Service_Bamboo_Client_HttpMultiTest extends PHPUnit_Framework_TestCase
     public function testHttpMultiClient() {
         $httpMulti = $this->_client->getHttpClient();
 
-        $this->assertEquals('BBC_Http_Multi_Client', get_class($httpMulti));
+        $this->assertEquals('BBC_Service_Bamboo_Client_HttpMultiClient', get_class($httpMulti));
     }
 
     /**

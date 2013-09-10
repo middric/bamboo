@@ -28,16 +28,6 @@ class BBC_Service_Bamboo_Client_Listener extends BBC_Http_Multi_Listener
     private $_cache;
 
     /**
-     * @var Start time 
-     */
-    private $_start;
-
-    /**
-     * @var End Time
-     */    
-    private $_end;
-
-    /**
      * @var Total time string/float
      */
     private $_total;
@@ -66,31 +56,25 @@ class BBC_Service_Bamboo_Client_Listener extends BBC_Http_Multi_Listener
         return;
     }
 
-    /**
-     * Default BBC Listener to add HAR Data to Curl Multi requests
-     * start a timer for this request 
-     *
-     * @param mixed $request 
-     * @access public
-     * @return void
-     */
-    public function onExecutionStart() {
-        $this->_start = $this->_microtimeFloat();  
-        return;
-    }
 
     /**
      * Default BBC Listener to add HAR Data to Curl Multi requests
-     * Log end time 
+     * Log end time
      *
-     * @param mixed $request 
+     * @param void
      * @access public
      * @return void
      */
     public function onExecutionEnd($request) {
-        //$curl = $subject->getResource('curlHandle');
-        //do something with the curl handle
-        $this->_end = $this->_microtimeFloat();  
+        $handle = $request->getResource('curlHandle');
+        $info = curl_getinfo($handle);
+        $totalTime = $info['total_time'];
+        $startTime = $info['starttransfer_time'];
+        $total = $totalTime - $startTime;
+
+        $this->_total = $total;
+        $this->_uri = $request->getUri();
+
         return;
     }
 
@@ -102,8 +86,6 @@ class BBC_Service_Bamboo_Client_Listener extends BBC_Http_Multi_Listener
      * @return void
      */
     public function onDestroy($request) {
-        $this->_total = $this->_end - $this->_start;
-        $this->_uri = $request->getUri();
 
         //log data
         $this->_logInStatsd();
@@ -120,27 +102,11 @@ class BBC_Service_Bamboo_Client_Listener extends BBC_Http_Multi_Listener
      * @return void
      */
     private function _logInStatsd() {
-        //Example:
-        //BBC_Tviplayer_Monitoring_StatsD::timing("page_components.$this->_module.$this->_name", $total * 1000);
-        //$this->_feedName is unsafe
-        BBC_Tviplayer_Monitoring_StatsD::timing("ibl_feed.$this->_path", $this->_total);
+        //NOTE: Fix unit test and move lib/BBC/Tviplayer/Util.php into sharedlib
+        //BBC_Tviplayer_Monitoring_StatsD::timing("ibl_feed.$this->_path", $this->_total);
         return;
     }
 
-    /**
-     * Caculate ibl feed name. If there is an easier way to do this please implement.
-     *
-     * @param void 
-     * @access private
-     * @return string $uri
-     */
-    private function _feedName() {
-        $uri = preg_replace('/http:\/\/d.bbc.co.uk\/tviplayer\/v1\/stubs\//', '', $this->_uri);
-        $uri = preg_replace('/\.json\?api_key=a9svsu3j2tgva4pchjtux93y&rights=web/', '', $uri);
-        $uri = preg_replace('/\//', '-', $uri);
-
-        return $uri;
-    }
     /**
      * Log data into cache.
      * Could potentially do something with $response item.
@@ -155,30 +121,6 @@ class BBC_Service_Bamboo_Client_Listener extends BBC_Http_Multi_Listener
             $this->_cache->save($uri, $this->_params, $this->_total);
         } 
         return;
-    }
-
-
-    /**
-     * Function to calculate microtime float
-     *
-     * @param void 
-     * @access private
-     * @return float
-     */
-    private function _microtimeFloat() {
-        list($usec, $sec) = explode(" ", microtime());
-        return ((float)$usec + (float)$sec);
-    }
-
-    /**
-     * Return total
-     *
-     * @param void 
-     * @access public
-     * @return float
-     */
-    public function getTotal() { 
-        return $this->_total;
     }
 
 }
