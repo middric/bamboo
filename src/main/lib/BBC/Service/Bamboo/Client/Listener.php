@@ -102,8 +102,7 @@ class BBC_Service_Bamboo_Client_Listener extends BBC_Http_Multi_Listener
      * @return void
      */
     private function _logInStatsd() {
-        //NOTE: Fix unit test and move lib/BBC/Tviplayer/Util.php into sharedlib
-        //BBC_Tviplayer_Monitoring_StatsD::timing("ibl_feed.$this->_path", $this->_total);
+        BBC_Tviplayer_Monitoring_StatsD::timing("ibl_feed.$this->_path", $this->_total);
         return;
     }
 
