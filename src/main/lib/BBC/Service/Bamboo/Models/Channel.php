@@ -9,4 +9,11 @@
  */
 class BBC_Service_Bamboo_Models_Channel extends BBC_Service_Bamboo_Models_Base
 {
+    public function getUnregionalisedID() {
+        if (preg_match('/(bbc_[a-z]+)(_.+)/i', $this->_id, $matches)) {
+            return $matches[1];
+        }
+
+        return $this->_id;
+    }
 }
