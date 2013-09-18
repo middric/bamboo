@@ -102,7 +102,9 @@ class BBC_Service_Bamboo_Client_Listener extends BBC_Http_Multi_Listener
      * @return void
      */
     private function _logInStatsd() {
-        BBC_Tviplayer_Monitoring_StatsD::timing("ibl_feed.$this->_path", $this->_total);
+        if (class_exists('BBC_Tviplayer_Monitoring_StatsD')) {
+            BBC_Tviplayer_Monitoring_StatsD::timing("ibl_feed.$this->_path", $this->_total);
+        }
         return;
     }
 
