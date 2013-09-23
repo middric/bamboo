@@ -39,10 +39,6 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
         $this->_configuration = new BBC_Service_Bamboo_Configuration($params);
         $this->_cache = new BBC_Service_Bamboo_Cache($this->_configuration->getConfiguration()->cache);
         $this->setClient(new BBC_Service_Bamboo_Client_HttpMulti($this->_configuration->getConfiguration()->httpmulti));
-        
-        if (class_exists('BBC_Tviplayer_Monitoring_StatsD')) {
-            BBC_Tviplayer_Monitoring_StatsD::setConfig($this->_configuration->getConfiguration()->statsd);
-        }
     }
 
     /**
