@@ -16,7 +16,7 @@ class BBC_Service_Bamboo_Models_Category extends BBC_Service_Bamboo_Models_Base
 
     /**
      * Get the category kind
-     * 
+     *
      * @return string
      */
     public function getKind() {
@@ -25,12 +25,20 @@ class BBC_Service_Bamboo_Models_Category extends BBC_Service_Bamboo_Models_Base
 
     /**
      * Get the number of episodes for a category
-     * 
+     *
      * @return int
      */
     public function getChildEpisodeCount() {
         // @codingStandardsIgnoreStart
         return $_child_episode_count;
         // @codingStandardsIgnoreEnd
+    }
+
+    /**
+     * Returns whether this category is a children's category
+     * @return bool
+     */
+    public function isChildrens() {
+        return $this->_id == 'cbbc' || $this->_id == 'cbeebies';
     }
 }

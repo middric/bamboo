@@ -16,4 +16,12 @@ class BBC_Service_Bamboo_Models_Channel extends BBC_Service_Bamboo_Models_Base
 
         return $this->_id;
     }
+
+    /**
+     * Returns whether this channel is a children's channel
+     * @return bool
+     */
+    public function isChildrens() {
+        return $this->_id == 'cbbc' || $this->_id == 'cbeebies';
+    }
 }
