@@ -35,10 +35,10 @@ class BBC_Service_Bamboo_Models_Category extends BBC_Service_Bamboo_Models_Base
     }
 
     /**
-     * Returns whether this category requires parental guidance (i.e. CBeebies and CBBC)
+     * Returns whether this category is a children's category
      * @return bool
      */
-    public function requiresParentalGuidance() {
+    public function isChildrens() {
         return $this->_id == 'cbbc' || $this->_id == 'cbeebies';
     }
 }

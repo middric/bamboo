@@ -2,19 +2,19 @@
 
 class BBC_Service_Bamboo_Models_CategoryTest extends PHPUnit_Framework_TestCase
 {
-    public function testCBBCRequiresParentalGuidance() {
+    public function testCBBCIsChildrens() {
         $category = $this->_createCategory(array('id' => 'cbbc'));
-        $this->assertTrue($category->requiresParentalGuidance());
+        $this->assertTrue($category->isChildrens());
     }
 
-    public function testCbeebiesRequiresParentalGuidance() {
+    public function testCbeebiesIsChildrens() {
         $category = $this->_createCategory(array('id' => 'cbeebies'));
-        $this->assertTrue($category->requiresParentalGuidance());
+        $this->assertTrue($category->isChildrens());
     }
 
-    public function testOnlyChildrensCategoriesRequireParentalGuidance() {
-        $category = $this->_createCategory(array('id' => 'another_category'));
-        $this->assertFalse($category->requiresParentalGuidance());
+    public function testComedyIsNotChildrens() {
+        $category = $this->_createCategory(array('id' => 'comedy'));
+        $this->assertFalse($category->isChildrens());
     }
 
     private function _createCategory($params) {

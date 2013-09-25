@@ -7,19 +7,19 @@ class BBC_Service_Bamboo_Models_ChannelTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('bbc_one', $channel->getUnregionalisedID());
     }
 
-    public function testCBBCRequiresParentalGuidance() {
+    public function testCBBCIsChildrens() {
         $channel = $this->_createChannel(array('id' => 'cbbc'));
-        $this->assertTrue($channel->requiresParentalGuidance());
+        $this->assertTrue($channel->isChildrens());
     }
 
-    public function testCbeebiesRequiresParentalGuidance() {
+    public function testCbeebiesIsChildrens() {
         $channel = $this->_createChannel(array('id' => 'cbeebies'));
-        $this->assertTrue($channel->requiresParentalGuidance());
+        $this->assertTrue($channel->isChildrens());
     }
 
-    public function testOnlyChildrensChannelsRequireParentalGuidance() {
-        $channel = $this->_createChannel(array('id' => 'another_channel'));
-        $this->assertFalse($channel->requiresParentalGuidance());
+    public function testBBCOneIsNotChildrens() {
+        $channel = $this->_createChannel(array('id' => 'bbc_one'));
+        $this->assertFalse($channel->isChildrens());
     }
 
     private function _createChannel($params) {

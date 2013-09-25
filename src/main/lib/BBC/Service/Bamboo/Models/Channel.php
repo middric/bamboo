@@ -18,10 +18,10 @@ class BBC_Service_Bamboo_Models_Channel extends BBC_Service_Bamboo_Models_Base
     }
 
     /**
-     * Returns whether this channel requires parental guidance (i.e. CBeebies and CBBC)
+     * Returns whether this channel is a children's channel
      * @return bool
      */
-    public function requiresParentalGuidance() {
+    public function isChildrens() {
         return $this->_id == 'cbbc' || $this->_id == 'cbeebies';
     }
 }
