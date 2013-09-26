@@ -224,9 +224,7 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
      * @return string
      */
     public function getSlug() {
-        // Use title - subtitle
-        $title = $this->getCompleteTitle();
-        // Remove leading and trailing whitespace
+        // Use title - subtitle and remove leading and trailing whitespace
         $title = trim($this->getCompleteTitle());
         // Replace accented characters with unaccented equivalent
         $title = $this->_unaccent($title);
@@ -245,6 +243,11 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
 
     // Convert accented characters to their 'normal' alternative
     private function _unaccent($string) {
-        return iconv('UTF-8', 'ASCII//TRANSLIT', $string);
+        //If locale is "0", the current setting is returned.
+        $oldLocale = setlocale(LC_ALL, 0);
+        setlocale(LC_ALL, 'en_GB');
+        $string = iconv('UTF-8', 'ASCII//TRANSLIT', $string);
+        setlocale(LC_ALL, $oldLocale);
+        return $string;
     }
 }
