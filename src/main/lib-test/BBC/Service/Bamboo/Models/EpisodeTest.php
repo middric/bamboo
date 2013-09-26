@@ -63,6 +63,9 @@ class BBC_Service_Bamboo_Models_EpisodeTest extends PHPUnit_Framework_TestCase
     public function testSlugWithAccentedTitle() {
         $episode = $this->_createEpisode(array('title' => 'MÿTītłę'));
         $this->assertEquals('mytitle', $episode->getSlug());
+
+        $episode = $this->_createEpisode(array('title' => "An L\xc3\xa0"));
+        $this->assertEquals('an-la', $episode->getSlug());
     }
 
     public function testSlugWithSubtitle() {
