@@ -90,9 +90,11 @@ class BBC_Service_Bamboo_ModelFactory
         foreach ($groupEpisodes as $element) {
             //One of the 1st level items will be the array with the episodes 
             if (is_array($element)) {
-                foreach ($element as $episode) {
-                    if ($episode->type === "episode") {
-                        $array[] = new BBC_Service_Bamboo_Models_Episode($episode);
+                foreach ($element as $item) {
+                    if ($item->type === "episode") {
+                        $array[] = new BBC_Service_Bamboo_Models_Episode($item);
+                    } elseif ($item->type === "promotion") {
+                        $array[] = new BBC_Service_Bamboo_Models_Promotion($item);
                     }
                 }
             }
