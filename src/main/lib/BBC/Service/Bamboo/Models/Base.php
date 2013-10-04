@@ -24,6 +24,9 @@ class BBC_Service_Bamboo_Models_Base
                 case "initial_children":
                     $this->_setEpisodes();
                     break;
+                case "episode":
+                    $this->_setBroadcastEpisode();
+                    break; 
                 default:
                     $this->_setProperty($key);
             }
@@ -98,10 +101,29 @@ class BBC_Service_Bamboo_Models_Base
                 if ($episode->type === 'episode') {
                    $this->_initial_children[] = new BBC_Service_Bamboo_Models_Episode($episode);
                 }
+                if($episode->type === 'broadcast') {
+                    $this->_initial_children[] = new BBC_Service_Bamboo_Models_Broadcast($episode);
+                }
             }
         } else {
             BBC_Service_Bamboo_Log::info("Expected property \$_$key to be set on " . get_class($this));
         }
         // @codingStandardsIgnoreEnd
     }
+
+    /**
+     * For iBL responses with broadcast containing episode child this method will generate an
+     * {@link BBC_Service_Bamboo_Models_Episode} object and attach it to the parent object
+     *
+     */
+    private function _setBroadcastEpisode() {
+        if (isset($this->_response->episode) && isset($this->_episode)) {
+                if ($this->_response->episode->type === 'episode') {
+                   $this->_episode = new BBC_Service_Bamboo_Models_Episode($this->_response->episode);
+                }
+        } else {
+            BBC_Service_Bamboo_Log::info("Expected property \$_$key to be set on " . get_class($this));
+        }
+    }
+
 }
