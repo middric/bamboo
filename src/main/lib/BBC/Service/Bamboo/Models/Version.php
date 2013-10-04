@@ -22,6 +22,7 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
     // @codingStandardsIgnoreStart
     protected $_credits_timestamp = "";
     // @codingStandardsIgnoreEnd
+    protected $_events = array();
 
     /**
      * Get the availability for this version
@@ -36,6 +37,23 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
         return "";
     }
 
+    /**
+     * Get onward journey time
+     *
+     * @return string
+     */
+    public function getOnwardJourneyTime() {
+        if (!empty($this->_events)) {
+            foreach ($this->_events as $event) {
+                if ($event->kind == 'onward_journey') {
+                    // @codingStandardsIgnoreStart
+                    return $event->time_offset_seconds;
+                    // @codingStandardsIgnoreEnd
+                }
+            }
+        }
+        return "";
+    }
     /**
      * Get the version duration
      *
