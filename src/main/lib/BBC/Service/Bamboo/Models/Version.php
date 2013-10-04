@@ -43,13 +43,11 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
      * @return string
      */
     public function getOnwardJourneyTime() {
-        if (!empty($this->_events)) {
-            foreach ($this->_events as $event) {
-                if ($event->kind == 'onward_journey') {
-                    // @codingStandardsIgnoreStart
-                    return $event->time_offset_seconds;
-                    // @codingStandardsIgnoreEnd
-                }
+        foreach ($this->_events as $event) {
+            if ($event->kind == 'onward_journey') {
+                // @codingStandardsIgnoreStart
+                return $event->time_offset_seconds;
+                // @codingStandardsIgnoreEnd
             }
         }
         return "";
