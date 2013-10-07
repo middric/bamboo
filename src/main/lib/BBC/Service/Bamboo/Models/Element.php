@@ -171,6 +171,20 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
     }
 
     /**
+     * Get the master brand attribution
+     * 
+     * @return string
+     */
+    public function getMasterBrandAttribution() {
+        // @codingStandardsIgnoreStart
+        if (isset($this->_master_brand['attribution'])) {
+            return $this->_master_brand['attribution'];
+        }
+        // @codingStandardsIgnoreEnd
+        return "";
+    }
+
+    /**
      * Get the element type
      *
      * @return string
