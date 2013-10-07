@@ -234,7 +234,10 @@ class BBC_Service_Bamboo_Models_EpisodeTest extends PHPUnit_Framework_TestCase
         $episode = $this->_createEpisode(array('related_links' => $related));
         $links = $episode->getRelatedLinks();
         $this->assertNotEmpty($links);
-        $this->assertEquals('BBC_Service_Bamboo_Models_Related', get_class($links[0]));
+        $this->assertInstanceOf(
+            'BBC_Service_Bamboo_Models_Related',
+            $links[0]
+        );
     }
 
     private function _createEpisode($params) {
