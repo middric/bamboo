@@ -14,6 +14,7 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
     // @codingStandardsIgnoreStart
     protected $_release_date = "";
     protected $_tleo_id = "";
+    protected $_related_links = array();
     // @codingStandardsIgnoreEnd
     protected $_versions = array();
     protected $_film = false;
@@ -118,6 +119,18 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
      */
     public function getVersions() {
         return $this->_versions;
+    }
+
+    /**
+     * Get the related links attached to this episode.
+     * Returns an array of {@link BBC_Service_Bamboo_Models_Related} objects
+     * 
+     * @return array
+     */
+    public function getRelatedLinks() {
+        // @codingStandardsIgnoreStart
+        return $this->_related_links;
+        // @codingStandardsIgnoreEnd
     }
 
     /**
