@@ -105,7 +105,7 @@ class BBC_Service_Bamboo_Models_Base
         } else {
             BBC_Service_Bamboo_Log::info("Expected property \$_$key to be set on " . get_class($this));
         }
-	// @codingStandardsIgnoreEnd
+        // @codingStandardsIgnoreEnd
     }
 
 
