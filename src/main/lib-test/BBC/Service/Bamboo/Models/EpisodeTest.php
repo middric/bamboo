@@ -218,6 +218,18 @@ class BBC_Service_Bamboo_Models_EpisodeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('', $stub->getDuration());
     }
 
+    public function testGetMasterBrandAttribution() {
+        $episode = $this->_createEpisode(
+            array(
+                'master_brand' => array(
+                    'attribution' => 'bbc_two_wales'
+                 )
+            )
+        );
+        $this->assertEquals('bbc_two_wales', $episode->getMasterBrandAttribution());
+    }
+
+
     private function _createEpisode($params) {
         return new BBC_Service_Bamboo_Models_Episode((object) $params);
     }
