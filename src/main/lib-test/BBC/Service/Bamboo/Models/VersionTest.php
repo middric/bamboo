@@ -26,12 +26,14 @@ class BBC_Service_Bamboo_Models_VersionTest extends PHPUnit_Framework_TestCase
         $version = $this->_createVersion(
             array('event' =>
                 array('kind' => 'onward_journey', 'time_offset_seconds' => '30'))
-            );
+        );
 
         $timeOffset = '';
         foreach ($version as $event) {
             if ($event->kind === 'onward_journey') {
+                // @codingStandardsIgnoreStart
                 $timeOffset = $event->time_offset_seconds;
+                // @codingStandardsIgnoreEnd
             }
         }
         $this->assertEquals($timeOffset, $version->getOnwardJourneyTime());
