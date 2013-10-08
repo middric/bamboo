@@ -13,6 +13,9 @@ class BBC_Service_Bamboo_Models_Base
     protected $_id = "";
     protected $_title = "";
     protected $_response;
+    // @codingStandardsIgnoreStart
+    protected $_related_links = array();
+    // @codingStandardsIgnoreEnd
 
     public function __construct($response) {
         $this->_response = $response;
@@ -103,7 +106,7 @@ class BBC_Service_Bamboo_Models_Base
                 $this->_related_links[] = new BBC_Service_Bamboo_Models_Related($related);
             }
         } else {
-            BBC_Service_Bamboo_Log::info("Expected property \$_$key to be set on " . get_class($this));
+            BBC_Service_Bamboo_Log::info("Expected property to be set on " . get_class($this));
         }
         // @codingStandardsIgnoreEnd
     }

@@ -14,7 +14,6 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
     // @codingStandardsIgnoreStart
     protected $_release_date = "";
     protected $_tleo_id = "";
-    protected $_related_links = array();
     // @codingStandardsIgnoreEnd
     protected $_versions = array();
     protected $_film = false;
