@@ -13,6 +13,9 @@ class BBC_Service_Bamboo_Models_Base
     protected $_id = "";
     protected $_title = "";
     protected $_response;
+    // @codingStandardsIgnoreStart
+    protected $_related_links = array();
+    // @codingStandardsIgnoreEnd
 
     public function __construct($response) {
         $this->_response = $response;
@@ -27,6 +30,9 @@ class BBC_Service_Bamboo_Models_Base
                 case "episode":
                     $this->_setBroadcastEpisode();
                     break; 
+                case "related_links":
+                    $this->_setRelatedLinks();
+                    break;
                 default:
                     $this->_setProperty($key);
             }
@@ -86,6 +92,23 @@ class BBC_Service_Bamboo_Models_Base
         } else {
             BBC_Service_Bamboo_Log::info("Expected property \$_$key to be set on " . get_class($this));
         }
+    }
+
+    /**
+     * For iBL responses with related link children this method will generate an array of
+     * {@link BBC_Service_Bamboo_Models_Related} objects and attach them to the parent object
+     *
+     */
+    private function _setRelatedLinks() {
+        // @codingStandardsIgnoreStart
+        if (isset($this->_response->related_links) && isset($this->_related_links)) {
+            foreach ($this->_response->related_links as $related) {
+                $this->_related_links[] = new BBC_Service_Bamboo_Models_Related($related);
+            }
+        } else {
+            BBC_Service_Bamboo_Log::info("Expected property to be set on " . get_class($this));
+        }
+        // @codingStandardsIgnoreEnd
     }
 
 

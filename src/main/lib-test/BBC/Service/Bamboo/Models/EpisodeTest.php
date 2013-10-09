@@ -229,6 +229,26 @@ class BBC_Service_Bamboo_Models_EpisodeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('bbc_two_wales', $episode->getMasterBrandAttribution());
     }
 
+    public function testGetRelatedLinks() {
+        $related = $this->_createVersions(array('priority_content', 'external'));
+        $episode = $this->_createEpisode(array('related_links' => $related));
+        $links = $episode->getRelatedLinks();
+        $this->assertNotEmpty($links);
+        $this->assertInstanceOf(
+            'BBC_Service_Bamboo_Models_Related',
+            $links[0]
+        );
+    }
+
+    public function testGetFirstRelatedLink() {
+        $related = $this->_createVersions(array('priority_content', 'external'));
+        $episode = $this->_createEpisode(array('related_links' => $related));
+        $link = $episode->getFirstRelatedLink();
+        $this->assertInstanceOf(
+            'BBC_Service_Bamboo_Models_Related',
+            $link
+        );
+    }
 
     private function _createEpisode($params) {
         return new BBC_Service_Bamboo_Models_Episode((object) $params);
