@@ -52,7 +52,7 @@ class BBC_Service_BambooFake extends BBC_Service_Bamboo
         self::$_paths[] = $path;
     }
 
-    public function fetch($feedName, $params) {
+    public function fetch($feedName, $params = array()) {
         $params = parent::_prepareParams($params);
         $response = $this->_client->get($feedName, $params);
 
