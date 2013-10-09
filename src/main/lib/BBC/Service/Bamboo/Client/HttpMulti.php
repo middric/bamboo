@@ -89,6 +89,7 @@ class BBC_Service_Bamboo_Client_HttpMulti
         if ($response->isError()) {
             // Set the status code based on the HTTP status code of the response
             $requestStatus = $response->getStatus();
+
             // Retrieve the custom error nitro provides
             $iblErrorMessage = $this->_getIblError($response);
             $errorMessage = sprintf(
@@ -97,6 +98,7 @@ class BBC_Service_Bamboo_Client_HttpMulti
                 $iblErrorMessage,
                 $url
             );
+
             //
             // Iterate through our predetermined exceptions, and throw the one
             // that matches the response status code
@@ -127,9 +129,8 @@ class BBC_Service_Bamboo_Client_HttpMulti
             return "Unable to parse body content";
         }
 
-        // TODO: refactor if statements so that they are easier to read
-        if (!is_null($json->ibl) && !is_null($json->ibl->error) && !is_null($json->ibl->error->details)) {
-            if (!is_null($json->ibl->error->id)) {
+        if (isset($json->ibl, $json->ibl->error, $json->ibl->error->details)) {
+            if (isset($json->ibl->error->id)) {
                 return sprintf("[%s] %s", $json->ibl->error->id, $json->ibl->error->details);
             }
             return $json->ibl->error->details;
