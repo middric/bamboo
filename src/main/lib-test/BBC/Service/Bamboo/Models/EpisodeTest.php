@@ -240,6 +240,16 @@ class BBC_Service_Bamboo_Models_EpisodeTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    public function testGetFirstRelatedLink() {
+        $related = $this->_createVersions(array('priority_content', 'external'));
+        $episode = $this->_createEpisode(array('related_links' => $related));
+        $link = $episode->getFirstRelatedLink();
+        $this->assertInstanceOf(
+            'BBC_Service_Bamboo_Models_Related',
+            $link
+        );
+    }
+
     private function _createEpisode($params) {
         return new BBC_Service_Bamboo_Models_Episode((object) $params);
     }

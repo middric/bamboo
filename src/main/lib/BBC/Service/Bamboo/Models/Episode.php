@@ -133,6 +133,21 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
     }
 
     /**
+     * Get the first related link attached to this episode.
+     *
+     * @return string|BBC_Service_Bamboo_Models_Related
+     */
+    public function getFirstRelatedLink() {
+        $link = "";
+        // @codingStandardsIgnoreStart
+        if (isset($this->_related_links[0])) {
+            $link = $this->_related_links[0];
+        }
+        // @codingStandardsIgnoreEnd
+        return $link;
+    }
+
+    /**
      * Gets the version with highest priority attached to the episode. A preference can be provided to override the
      * default. If the preference is not found then the default will be returned instead.
      *
