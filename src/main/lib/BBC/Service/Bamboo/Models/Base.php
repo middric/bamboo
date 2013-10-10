@@ -29,7 +29,7 @@ class BBC_Service_Bamboo_Models_Base
                     break;
                 case "episode":
                     $this->_setBroadcastEpisode();
-                    break; 
+                    break;
                 case "related_links":
                     $this->_setRelatedLinks();
                     break;
@@ -90,7 +90,7 @@ class BBC_Service_Bamboo_Models_Base
                 $this->_versions[] = new BBC_Service_Bamboo_Models_Version($version);
             }
         } else {
-            BBC_Service_Bamboo_Log::info("Expected property \$_$key to be set on " . get_class($this));
+            BBC_Service_Bamboo_Log::info('Expected property $_versions to be set on ' . get_class($this));
         }
     }
 
@@ -106,7 +106,7 @@ class BBC_Service_Bamboo_Models_Base
                 $this->_related_links[] = new BBC_Service_Bamboo_Models_Related($related);
             }
         } else {
-            BBC_Service_Bamboo_Log::info("Expected property to be set on " . get_class($this));
+            BBC_Service_Bamboo_Log::info('Expected property $_related_links to be set on ' . get_class($this));
         }
         // @codingStandardsIgnoreEnd
     }
@@ -129,7 +129,7 @@ class BBC_Service_Bamboo_Models_Base
                 }
             }
         } else {
-            BBC_Service_Bamboo_Log::info("Expected property \$_$key to be set on " . get_class($this));
+            BBC_Service_Bamboo_Log::info('Expected property $_initial_children to be set on ' . get_class($this));
         }
         // @codingStandardsIgnoreEnd
     }
@@ -145,7 +145,7 @@ class BBC_Service_Bamboo_Models_Base
                    $this->_episode = new BBC_Service_Bamboo_Models_Episode($this->_response->episode);
                 }
         } else {
-            BBC_Service_Bamboo_Log::info("Expected property \$_$key to be set on " . get_class($this));
+            BBC_Service_Bamboo_Log::info('Expected property $_episode to be set on ' . get_class($this));
         }
     }
 
