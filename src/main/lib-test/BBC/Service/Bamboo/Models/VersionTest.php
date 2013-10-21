@@ -39,6 +39,28 @@ class BBC_Service_Bamboo_Models_VersionTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($timeOffset, $version->getOnwardJourneyTime());
     }
 
+    public function testGuidanceData() {
+        $version = $this->_createVersion(
+            array('guidance' => array(
+                'text' => (object) array(
+                    'small' => 'small text',
+                    'medium' => 'medium text',
+                    'large' => 'large text'
+                )
+            ))
+        );
+        $this->assertEquals('small text', $version->getShortGuidance());
+        $this->assertEquals('medium text', $version->getMediumGuidance());
+        $this->assertEquals('large text', $version->getLargeGuidance());
+    }
+
+    public function testEmptyGuidanceData() {
+        $version = $this->_createVersion(array());
+        $this->assertEquals('', $version->getShortGuidance());
+        $this->assertEquals('', $version->getMediumGuidance());
+        $this->assertEquals('', $version->getLargeGuidance());
+    }
+
     private function _createVersion($params) {
         return new BBC_Service_Bamboo_Models_Version((object) $params);
     }
