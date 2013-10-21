@@ -49,14 +49,14 @@ class BBC_Service_Bamboo_Models_VersionTest extends PHPUnit_Framework_TestCase
                 )
             ))
         );
-        $this->assertEquals('small text', $version->getShortGuidance());
+        $this->assertEquals('small text', $version->getSmallGuidance());
         $this->assertEquals('medium text', $version->getMediumGuidance());
         $this->assertEquals('large text', $version->getLargeGuidance());
     }
 
     public function testEmptyGuidanceData() {
         $version = $this->_createVersion(array());
-        $this->assertEquals('', $version->getShortGuidance());
+        $this->assertEquals('', $version->getSmallGuidance());
         $this->assertEquals('', $version->getMediumGuidance());
         $this->assertEquals('', $version->getLargeGuidance());
     }

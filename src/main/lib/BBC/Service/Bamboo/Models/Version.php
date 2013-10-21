@@ -147,11 +147,11 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
     }
 
     /**
-     * Get the short guidance message (if available)
+     * Get the small guidance message (if available)
      *
      * @return string
      */
-    public function getShortGuidance() {
+    public function getSmallGuidance() {
         if (isset($this->_guidance['text']) && isset($this->_guidance['text']->small)) {
             return $this->_guidance['text']->small;
         }
