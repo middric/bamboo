@@ -129,11 +129,11 @@ class BBC_Service_Bamboo_Client_HttpMulti
             return "Unable to parse body content";
         }
 
-        if (isset($json->ibl, $json->ibl->error, $json->ibl->error->details)) {
-            if (isset($json->ibl->error->id)) {
-                return sprintf("[%s] %s", $json->ibl->error->id, $json->ibl->error->details);
+        if (isset($json->error, $json->error->details)) {
+            if (isset($json->error->id)) {
+                return sprintf("[%s] %s", $json->error->id, $json->error->details);
             }
-            return $json->ibl->error->details;
+            return $json->error->details;
         }
         return "Unable to retrieve error details.";
     }
