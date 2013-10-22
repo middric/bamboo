@@ -28,7 +28,7 @@ class BBC_Service_Bamboo_Models_BroadcastTest extends PHPUnit_Framework_TestCase
         );
         $broadcast = $this->_createBroadcast($params);
 
-        $this->assertEquals('BBC_Service_Bamboo_Models_Episode', get_class($broadcast->getEpisode()));
+        $this->assertInstanceOf('BBC_Service_Bamboo_Models_Episode', $broadcast->getEpisode());
     }
 
     private function _createBroadcast($params) {
