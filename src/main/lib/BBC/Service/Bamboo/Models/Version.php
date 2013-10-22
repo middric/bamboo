@@ -117,8 +117,8 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
      * @return string
      */
     public function getRRCLong() {
-        if (isset($this->_rrc['description']) && isset($this->_rrc['description']['large'])) {
-            return $this->_rrc['description']['large'];
+        if (isset($this->_rrc['description']) && isset($this->_rrc['description']->large)) {
+            return $this->_rrc['description']->large;
         }
 
         return '';
@@ -147,15 +147,38 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
     }
 
     /**
-     * Get the version guidance text
+     * Get the small guidance message (if available)
      *
      * @return string
      */
-    public function getGuidance() {
-        if (isset($this->_guidance['text'])) {
-            return $this->_guidance['text'];
+    public function getSmallGuidance() {
+        if (isset($this->_guidance['text']) && isset($this->_guidance['text']->small)) {
+            return $this->_guidance['text']->small;
         }
+        return '';
+    }
 
+    /**
+     * Get the medium guidance message (if available)
+     *
+     * @return string
+     */
+    public function getMediumGuidance() {
+        if (isset($this->_guidance['text']) && isset($this->_guidance['text']->medium)) {
+            return $this->_guidance['text']->medium;
+        }
+        return '';
+    }
+
+    /**
+     * Get the large guidance message (if available)
+     *
+     * @return string
+     */
+    public function getLargeGuidance() {
+        if (isset($this->_guidance['text']) && isset($this->_guidance['text']->large)) {
+            return $this->_guidance['text']->large;
+        }
         return '';
     }
 
