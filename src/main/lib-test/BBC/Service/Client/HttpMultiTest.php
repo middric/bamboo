@@ -79,12 +79,8 @@ class BBC_Service_Bamboo_Client_HttpMultiTest extends PHPUnit_Framework_TestCase
      */
     public function testGet() {
         $feed = 'status';
-        $fixture = dirname(__FILE__) . '/../../../fixtures/' . $feed . '.json';
-
-        $this->_client->setHost($this->_host);
-        $this->_client->setBaseURL($this->_base);
-        $this->_client->addResponseFromPath($this->_host . $this->_base . $feed . $this->_suffix, $fixture);
-
+        
+        $this->_setupClient($feed);
         $response = $this->_client->get($feed, array('api_key' => 1));
 
         $this->assertEquals('Zend_Http_Response', get_class($response));
@@ -92,18 +88,39 @@ class BBC_Service_Bamboo_Client_HttpMultiTest extends PHPUnit_Framework_TestCase
         $this->assertObjectHasAttribute('status', $body);
     }
 
-    /**
-     * Test exceptions
-     */
-    public function testException(){
+    public function testInternalServerErrorException(){
         $feed = 'error';
+        
+        $this->_setupClient($feed);
+
+        $this->setExpectedException('BBC_Service_Bamboo_Exception_InternalServerError');
+        $response = $this->_client->get($feed, array('api_key' => 1));
+    }
+
+    public function testBadRequestException(){
+        $feed = 'status';
+        
+        $this->_setupClient($feed);
+
+        $this->setExpectedException('BBC_Service_Bamboo_Exception_BadRequest');
+        $response = $this->_client->get($feed);
+    }
+
+    public function testNotFoundException(){
+        $feed = 'not_exist';
+        
+        $this->_setupClient($feed);
+
+        $this->setExpectedException('BBC_Service_Bamboo_Exception_NotFound');
+        $response = $this->_client->get($feed, array('api_key' => 1));
+    }
+
+    private function _setupClient($feed) {
         $fixture = dirname(__FILE__) . '/../../../fixtures/' . $feed . '.json';
 
         $this->_client->setHost($this->_host);
         $this->_client->setBaseURL($this->_base);
         $this->_client->addResponseFromPath($this->_host . $this->_base . $feed . $this->_suffix, $fixture);
-
-        $this->setExpectedException('BBC_Service_Bamboo_Exception_InternalServerError');
-        $response = $this->_client->get($feed, array('api_key' => 1));
     }
+
 }
