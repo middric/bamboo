@@ -38,6 +38,10 @@ class BBC_Service_BambooTest extends PHPUnit_Framework_TestCase
         BBC_Service_Broker::getInstance()->registerService('bamboo', 'BBC_Service_BambooMock', true);
 
         $this->_service = BBC_Service_Broker::getInstance()->build('bamboo');
+
+        $this->_service->setHost('http://hostname.com');
+        $this->_service->setBaseURL('/baseurl/');
+        $this->_service->setAPIKey(1);
     }
 
     /**
@@ -51,10 +55,6 @@ class BBC_Service_BambooTest extends PHPUnit_Framework_TestCase
      * Test that bamboo can fetch data
      */
     public function testFetch() {
-        $this->_service->setHost('http://hostname.com');
-        $this->_service->setBaseURL('/baseurl/');
-        $this->_service->setAPIKey(1);
-
         $fixture = dirname(__FILE__) . '/../../fixtures/status.json';
         $this->_service->getClient()->addResponseFromPath(
             'http://hostname.com/baseurl/status.json?api_key=1&rights=web',
@@ -63,17 +63,13 @@ class BBC_Service_BambooTest extends PHPUnit_Framework_TestCase
         $response = $this->_service->fetch('status', array());
 
         $this->assertEquals('BBC_Service_Bamboo_ResponseArrayObject', get_class($response));
-        $this->assertObjectHasAttribute('build_version', $response);
+
     }
 
     /**
      * Test that bamboo can fetch data with a query string appended to it
      */
     public function testQueryFetch() {
-        $this->_service->setHost('http://hostname.com');
-        $this->_service->setBaseURL('/baseurl/');
-        $this->_service->setAPIKey(1);
-
         $fixture = dirname(__FILE__) . '/../../fixtures/status.json_page_1';
         $this->_service->getClient()->addResponseFromPath(
             'http://hostname.com/baseurl/status.json?api_key=1&page=1&rights=web',
@@ -81,6 +77,19 @@ class BBC_Service_BambooTest extends PHPUnit_Framework_TestCase
         );
         $response = $this->_service->fetch('status', array('page' => '1'));
 
+        $this->assertEquals('BBC_Service_Bamboo_ResponseArrayObject', get_class($response));
+        $this->assertObjectHasAttribute('build_version', $response);
+    }
+
+    public function testSetLanguage() {
+        $fixture = dirname(__FILE__) . '/../../fixtures/status.json';
+        $this->_service->setLanguage('cy');
+
+        $this->_service->getClient()->addResponseFromPath(
+            'http://hostname.com/baseurl/status.json?api_key=1&lang=cy&rights=web',
+            $fixture
+        );
+        $response = $this->_service->fetch('status', array());
         $this->assertEquals('BBC_Service_Bamboo_ResponseArrayObject', get_class($response));
         $this->assertObjectHasAttribute('build_version', $response);
     }
