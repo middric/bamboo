@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * BBC_Service_Bamboo_Client_Listener
  *
@@ -40,12 +40,12 @@ class BBC_Service_Bamboo_Client_Listener extends BBC_Http_Multi_Listener
     /**
      * @var path of request
      */
-    private $_path; 
+    private $_path;
 
     /**
      * Initialise cache for storing stats
      *
-     * @param $params array 
+     * @param $params array
      * @access public
      * @return void
      */
@@ -81,23 +81,23 @@ class BBC_Service_Bamboo_Client_Listener extends BBC_Http_Multi_Listener
     /**
      * Calculate total time for this request and log it.
      *
-     * @param mixed $request 
+     * @param mixed $request
      * @access public
      * @return void
      */
     public function onDestroy($request) {
 
         //log data
-        $this->_logInStatsd();
+        // $this->_logInStatsd();
         //$this->_logInCache();
         return;
-    }	
+    }
 
     /**
      * Function to write data to statsd.
      * It should display within 10 seconds.
      *
-     * @param void 
+     * @param void
      * @access private
      * @return void
      */
@@ -112,7 +112,7 @@ class BBC_Service_Bamboo_Client_Listener extends BBC_Http_Multi_Listener
      * Log data into cache.
      * Could potentially do something with $response item.
      *
-     * @param void 
+     * @param void
      * @access private
      * @return void
      */
@@ -120,7 +120,7 @@ class BBC_Service_Bamboo_Client_Listener extends BBC_Http_Multi_Listener
         $response = $this->_cache->get($this->_uri, $this->_params);
         if (!$response) {
             $this->_cache->save($uri, $this->_params, $this->_total);
-        } 
+        }
         return;
     }
 

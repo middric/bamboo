@@ -25,9 +25,9 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
      */
     protected $_client;
     /**
-     * @var String api key
+     * @var array stores the default parameters for each request, including api_key
      */
-    protected $_apiKey;
+    protected $_defaultParameters;
 
     /**
      * Construct a new BBC_Service_Bamboo
@@ -37,6 +37,7 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
      */
     public function __construct(array $params = array()) {
         $this->_configuration = new BBC_Service_Bamboo_Configuration($params);
+        $this->_defaultParameters = array('rights'=>'web');
         $this->_cache = new BBC_Service_Bamboo_Cache($this->_configuration->getConfiguration()->cache);
         $this->setClient(new BBC_Service_Bamboo_Client_HttpMulti($this->_configuration->getConfiguration()->httpmulti));
     }
@@ -100,12 +101,12 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
 
     public function setAPIKey($apiKey) {
         BBC_Service_Bamboo_Log::info("API Key set to $apiKey");
-        $this->_apiKey = $apiKey;
+        $this->_defaultParameters['api_key'] = $apiKey;
     }
 
     public function setLanguage($language) {
-        BBC_Service_Bamboo_Log::info("Accept-Language set to $language");
-        $this->_client->setHeader('Accept-Language', $language);
+        BBC_Service_Bamboo_Log::info("Setting language to $language");
+        $this->_defaultParameters['lang'] = $language;
     }
 
     public function setHost($host) {
@@ -121,7 +122,7 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
     }
 
     protected function _prepareParams($params) {
-        $params = array_merge(array('api_key' => $this->_apiKey, 'rights'=>'web'), $params);
+        $params = array_merge($this->_defaultParameters, $params);
         ksort($params);
         return $params;
     }
