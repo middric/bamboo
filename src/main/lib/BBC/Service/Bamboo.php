@@ -37,7 +37,7 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
      */
     public function __construct(array $params = array()) {
         $this->_configuration = new BBC_Service_Bamboo_Configuration($params);
-        $this->_defaultParameters = array('rights'=>'web');
+        $this->_defaultParameters = array('rights'=>'web', 'lang' => 'en');
         $this->_cache = new BBC_Service_Bamboo_Cache($this->_configuration->getConfiguration()->cache);
         $this->setClient(new BBC_Service_Bamboo_Client_HttpMulti($this->_configuration->getConfiguration()->httpmulti));
     }
@@ -107,6 +107,10 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
     public function setLanguage($language) {
         BBC_Service_Bamboo_Log::info("Setting language to $language");
         $this->_defaultParameters['lang'] = $language;
+    }
+
+    public function getLanguage() {
+        return $this->_defaultParameters['lang'];
     }
 
     public function setHost($host) {
