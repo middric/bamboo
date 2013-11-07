@@ -27,7 +27,7 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
     /**
      * @var array stores the default parameters for each request, including api_key
      */
-    protected $_defaultParameters;
+    protected $_defaultParameters = array('rights' => 'web', 'lang' => 'en');
 
     /**
      * Construct a new BBC_Service_Bamboo
@@ -37,7 +37,6 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
      */
     public function __construct(array $params = array()) {
         $this->_configuration = new BBC_Service_Bamboo_Configuration($params);
-        $this->_defaultParameters = array('rights'=>'web', 'lang' => 'en');
         $this->_cache = new BBC_Service_Bamboo_Cache($this->_configuration->getConfiguration()->cache);
         $this->setClient(new BBC_Service_Bamboo_Client_HttpMulti($this->_configuration->getConfiguration()->httpmulti));
     }
