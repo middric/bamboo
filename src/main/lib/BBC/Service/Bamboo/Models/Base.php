@@ -20,6 +20,7 @@ class BBC_Service_Bamboo_Models_Base
     public function __construct($response) {
         $this->_response = $response;
         foreach ($response as $key => $value) {
+            var_dump($key);
             switch ($key) {
                 case "versions":
                     $this->_setVersions();
