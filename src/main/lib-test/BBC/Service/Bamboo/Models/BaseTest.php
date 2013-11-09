@@ -1,55 +1,70 @@
 <?php
 class BBC_Service_Bamboo_Models_BaseTest extends PHPUnit_Framework_TestCase
 {
-
-    protected $_mockedObject;
+    protected $_responseEpisode;
 
     protected function setUp() {
-        $episodeResponse = Zend_Http_Response::fromString(
+        $response = Zend_Http_Response::fromString(
             file_get_contents(dirname(__FILE__) . '/../../../../fixtures/episodes_p01b2b5c.json')
         );
-        $response = json_decode($episodeResponse->getBody());
-        $this->_mockedObject = $this->_mockEpisode($response->episodes[0]);  
+        $responseObject = json_decode($response->getBody());
+        $this->_responseEpisode = $responseObject->episodes[0];
+    }
+
+    /*
+    * We use a mocked Base object here
+    */
+    public function testGetId() {
+        $mockedBase = $this->_mockBase();
+
+        $this->assertEquals($mockedBase->getId(), 'p01b2b5c');
     }
 
     public function testGetResponse() {
-        $mockedObject = $this->_mockedObject;
-        $response = $mockedObject->getResponse();
+        $mockedBase = $this->_mockBase();
 
-        $this->assertEquals(get_class($response), 'stdClass');
+        $this->assertEquals(get_class($mockedBase->getResponse()), 'stdClass');
     }
 
+    /*
+     * SetVersions and NOT getVersions as checking Base SetVersions() runs as expected.
+     * Using a mocked Episode object.
+     */
     public function testSetVersions() {
-        $mockedObject = $this->_mockedObject;
-        $versions = $mockedObject->getVersions();
+        $mockedEpisode = $this->_mockEpisode();
+        $versions = $mockedEpisode->getVersions();
         $firstVersion = $versions[0];
 
         $this->assertEquals(get_class($firstVersion), 'BBC_Service_Bamboo_Models_Version');
     }
 
     public function testSetPropertySubtitle() {
-        $mockedObject = $this->_mockedObject;
+        $mockedEpisode = $this->_mockEpisode();
 
-        $this->assertEquals($mockedObject->getSubtitle(), 'Series 3 - Episode 1');
+        $this->assertEquals($mockedEpisode->getSubtitle(), 'Series 3 - Episode 1');
     }
 
     public function testSetPropertyTleoId() {
-        $mockedObject = $this->_mockedObject;
+        $mockedEpisode = $this->_mockEpisode();
         // @codingStandardsIgnoreStart
-        $this->assertEquals($mockedObject->getTleoId(), 'b00vk2lp');
+        $this->assertEquals($mockedEpisode->getTleoId(), 'b00vk2lp');
         // @codingStandardsIgnoreEnd
     }
 
     public function testSetVersionsSetPropertyId() {
-        $mockedObject = $this->_mockedObject;
-        $versions = $mockedObject->getVersions();
+        $mockedEpisode = $this->_mockEpisode();
+        $versions = $mockedEpisode->getVersions();
         $firstVersion = $versions[0];
 
         $this->assertEquals($firstVersion->getId(), 'b036y9g5');
     }
 
-    private function _mockEpisode($response) {
-        return new EpisodeMock($response);
+    private function _mockEpisode() {
+        return new EpisodeMock($this->_responseEpisode);
+    }
+
+    private function _mockBase() {
+        return new BBC_Service_Bamboo_Models_Base($this->_responseEpisode);
     }
 
 }
