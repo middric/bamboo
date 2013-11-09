@@ -12,6 +12,13 @@ class BBC_Service_Bamboo_Models_BaseTest extends PHPUnit_Framework_TestCase
         $this->_mockedObject = $this->_mockEpisode($response->episodes[0]);  
     }
 
+    public function testGetResponse() {
+        $mockedObject = $this->_mockedObject;
+        $response = $mockedObject->getResponse();
+
+        $this->assertEquals(get_class($response), 'stdClass');
+    }
+
     public function testSetVersions() {
         $mockedObject = $this->_mockedObject;
         $versions = $mockedObject->getVersions();
