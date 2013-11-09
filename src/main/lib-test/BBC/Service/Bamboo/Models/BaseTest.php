@@ -3,7 +3,7 @@ class BBC_Service_Bamboo_Models_BaseTest extends PHPUnit_Framework_TestCase
 {
 
     protected $_mockedObject;
-    
+
     protected function setUp() {
         $episodeResponse = Zend_Http_Response::fromString(
             file_get_contents(dirname(__FILE__) . '/../../../../fixtures/episodes_p01b2b5c.json')
@@ -14,28 +14,31 @@ class BBC_Service_Bamboo_Models_BaseTest extends PHPUnit_Framework_TestCase
 
     public function testSetVersions() {
         $mockedObject = $this->_mockedObject;
-        $firstVersion = $mockedObject->_versions[0];
+        $versions = $mockedObject->getVersions();
+        $firstVersion = $versions[0];
 
-        $this->assertEquals(get_class($firstVersion), 'BBC_Service_Bamboo_Models_Version' );
+        $this->assertEquals(get_class($firstVersion), 'BBC_Service_Bamboo_Models_Version');
     }
 
     public function testSetPropertySubtitle() {
         $mockedObject = $this->_mockedObject;
 
-        $this->assertEquals($mockedObject->_subtitle, 'Series 3 - Episode 1' );
+        $this->assertEquals($mockedObject->getSubtitle(), 'Series 3 - Episode 1');
     }
 
     public function testSetPropertyTleoId() {
         $mockedObject = $this->_mockedObject;
-
-        $this->assertEquals($mockedObject->_tleo_id, 'b00vk2lp' );
+        // @codingStandardsIgnoreStart
+        $this->assertEquals($mockedObject->getTleoId(), 'b00vk2lp');
+        // @codingStandardsIgnoreEnd
     }
 
     public function testSetVersionsSetPropertyId() {
         $mockedObject = $this->_mockedObject;
-        $firstVersion = $mockedObject->_versions[0];
+        $versions = $mockedObject->getVersions();
+        $firstVersion = $versions[0];
 
-        $this->assertEquals($firstVersion->getId(), 'b036y9g5' );
+        $this->assertEquals($firstVersion->getId(), 'b036y9g5');
     }
 
     private function _mockEpisode($response) {
@@ -46,28 +49,42 @@ class BBC_Service_Bamboo_Models_BaseTest extends PHPUnit_Framework_TestCase
 
 class ElementMock extends BBC_Service_Bamboo_Models_Base
 {
-    public $_type = '';
-    public $_synopses = array();
-    public $_images = array();
+    protected $_type = '';
+    protected $_synopses = array();
+    protected $_images = array();
     // @codingStandardsIgnoreStart
-    public $_master_brand = array();
+    protected $_master_brand = array();
     // @codingStandardsIgnoreEnd
 }
 
 class EpisodeMock extends ElementMock
 {
-    public $_subtitle = "";
+    protected $_subtitle = "";
     // @codingStandardsIgnoreStart
-    public $_release_date = "";
-    public $_tleo_id = "";
+    protected $_release_date = "";
+    protected $_tleo_id = "";
     // @codingStandardsIgnoreEnd
-    public $_versions = array();
-    public $_film = false;
-    public $_duration = "";
-    public $_href = "";
-    public $_labels = array();
-    public $_stacked = "";
-    public $_guidance = "";
-    public $_credits = "";
+    protected $_versions = array();
+    protected $_film = false;
+    protected $_duration = "";
+    protected $_href = "";
+    protected $_labels = array();
+    protected $_stacked = "";
+    protected $_guidance = "";
+    protected $_credits = "";
+
+    public function getSubtitle() {
+        return $this->_subtitle;
+    }
+
+    public function getTleoId() {
+        // @codingStandardsIgnoreStart
+        return $this->_tleo_id;
+        // @codingStandardsIgnoreStart
+    }
+
+    public function getVersions() {
+        return $this->_versions;
+    }
 }
 
