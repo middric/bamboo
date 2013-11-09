@@ -2,79 +2,72 @@
 class BBC_Service_Bamboo_Models_BaseTest extends PHPUnit_Framework_TestCase
 {
 
-/*
-    public function testEpisodeType() {
-        $params = array(
-            'type' => 'broadcast',
-            'episode' => (object) array('type'=>'episode', 'title' => 'title', 'subtitle' => 'subtitle')
-        );
-        $broadcast = $this->_createBroadcast($params);
-
-        $this->assertInstanceOf('BBC_Service_Bamboo_Models_Episode', $broadcast->getEpisode());
-    }
-
-    private function _createBroadcast($params) {
-        return new BBC_Service_Bamboo_Models_Base((object) $params);
-    }
-
-*/
-
-/*
+    protected $_mockedObject;
+    
     protected function setUp() {
-        $appCacheBackend = new Zend_Cache_Backend_Apc();
-        $appCacheFront = new Zend_Cache_Core(
-            array(
-                'cache_id_prefix' => 'bamboo',
-                'lifetime' => 3600,
-                'automatic_serialization' => true
-            )
-        );
-        $appCacheFront->setBackend($appCacheBackend);
-        BBC_Service_Broker::setCache($appCacheFront);
-        BBC_Service_Broker::getInstance()->registerService('bamboo', 'BBC_Service_BambooMock', true);
-
-        $this->_service = BBC_Service_Broker::getInstance()->build('bamboo');
-
-        $this->_service->setHost('http://hostname.com');
-        $this->_service->setBaseURL('/baseurl/');
-        $this->_service->setAPIKey(1);
-    }
-*/
-
-    public function testOne() {
-        /*
-        $params = array(
-            'type' => 'broadcast',
-            'episode' => (object) array('type'=>'episode', 'title' => 'title', 'subtitle' => 'subtitle')
-        );
-        */
-        $zendResponse = Zend_Http_Response::fromString(
+        $episodeResponse = Zend_Http_Response::fromString(
             file_get_contents(dirname(__FILE__) . '/../../../../fixtures/episodes_p01b2b5c.json')
         );
-        $response = json_decode($zendResponse->getBody());
-
-        $mockObject = $this->_mockObject($response);
-
-        //WRONG...check what ModelFactory does and replicate.
-
-die;
-        var_dump($mockObject);die;
-//die;
-        $this->assertEquals('', '' );
-        //$this->assertEquals('BBC_Service_BambooMock', get_class($this->_service));
+        $response = json_decode($episodeResponse->getBody());
+        $this->_mockedObject = $this->_mockEpisode($response->episodes[0]);  
     }
 
-    private function _mockObject($response) {
-        //$new = new MockClass($params);
-        //var_dump($new);die;
-        return new MockClass($response);
-        //return new BBC_Service_Bamboo_Models_Category((object) $params);
+    public function testSetVersions() {
+        $mockedObject = $this->_mockedObject;
+        $firstVersion = $mockedObject->_versions[0];
+
+        $this->assertEquals(get_class($firstVersion), 'BBC_Service_Bamboo_Models_Version' );
     }
 
+    public function testSetPropertySubtitle() {
+        $mockedObject = $this->_mockedObject;
+
+        $this->assertEquals($mockedObject->_subtitle, 'Series 3 - Episode 1' );
+    }
+
+    public function testSetPropertyTleoId() {
+        $mockedObject = $this->_mockedObject;
+
+        $this->assertEquals($mockedObject->_tleo_id, 'b00vk2lp' );
+    }
+
+    public function testSetVersionsSetPropertyId() {
+        $mockedObject = $this->_mockedObject;
+        $firstVersion = $mockedObject->_versions[0];
+
+        $this->assertEquals($firstVersion->getId(), 'b036y9g5' );
+    }
+
+    private function _mockEpisode($response) {
+        return new EpisodeMock($response);
+    }
 
 }
 
-class MockClass extends BBC_Service_Bamboo_Models_Base
+class ElementMock extends BBC_Service_Bamboo_Models_Base
 {
-
+    public $_type = '';
+    public $_synopses = array();
+    public $_images = array();
+    // @codingStandardsIgnoreStart
+    public $_master_brand = array();
+    // @codingStandardsIgnoreEnd
 }
+
+class EpisodeMock extends ElementMock
+{
+    public $_subtitle = "";
+    // @codingStandardsIgnoreStart
+    public $_release_date = "";
+    public $_tleo_id = "";
+    // @codingStandardsIgnoreEnd
+    public $_versions = array();
+    public $_film = false;
+    public $_duration = "";
+    public $_href = "";
+    public $_labels = array();
+    public $_stacked = "";
+    public $_guidance = "";
+    public $_credits = "";
+}
+
