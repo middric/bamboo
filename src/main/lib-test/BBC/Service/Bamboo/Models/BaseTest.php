@@ -69,7 +69,7 @@ class BBC_Service_Bamboo_Models_BaseTest extends PHPUnit_Framework_TestCase
 
 }
 
-class ElementMock extends BBC_Service_Bamboo_Models_Base
+class EpisodeMock extends BBC_Service_Bamboo_Models_Base
 {
     protected $_type = '';
     protected $_synopses = array();
@@ -77,10 +77,7 @@ class ElementMock extends BBC_Service_Bamboo_Models_Base
     // @codingStandardsIgnoreStart
     protected $_master_brand = array();
     // @codingStandardsIgnoreEnd
-}
 
-class EpisodeMock extends ElementMock
-{
     protected $_subtitle = "";
     // @codingStandardsIgnoreStart
     protected $_release_date = "";
