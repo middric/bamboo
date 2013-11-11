@@ -46,9 +46,8 @@ class BBC_Service_Bamboo_Models_BaseTest extends PHPUnit_Framework_TestCase
 
     public function testSetPropertyTleoId() {
         $mockedEpisode = $this->_mockEpisode();
-        // @codingStandardsIgnoreStart
+
         $this->assertEquals($mockedEpisode->getTleoId(), 'b00vk2lp');
-        // @codingStandardsIgnoreEnd
     }
 
     public function testSetVersionsSetPropertyId() {
@@ -76,13 +75,10 @@ class EpisodeMock extends BBC_Service_Bamboo_Models_Base
     protected $_images = array();
     // @codingStandardsIgnoreStart
     protected $_master_brand = array();
-    // @codingStandardsIgnoreEnd
-
-    protected $_subtitle = "";
-    // @codingStandardsIgnoreStart
     protected $_release_date = "";
     protected $_tleo_id = "";
     // @codingStandardsIgnoreEnd
+    protected $_subtitle = "";
     protected $_versions = array();
     protected $_film = false;
     protected $_duration = "";
