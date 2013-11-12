@@ -15,15 +15,15 @@ class BBC_Service_Bamboo_Models_BaseTest extends PHPUnit_Framework_TestCase
     * We use a mocked Base object here
     */
     public function testGetId() {
-        $mockedBase = $this->_mockBase();
+        $base = $this->_createBase();
 
-        $this->assertEquals($mockedBase->getId(), 'p01b2b5c');
+        $this->assertEquals($base->getId(), 'p01b2b5c');
     }
 
     public function testGetResponse() {
-        $mockedBase = $this->_mockBase();
+        $base = $this->_createBase();
 
-        $this->assertEquals(get_class($mockedBase->getResponse()), 'stdClass');
+        $this->assertEquals(get_class($base->getResponse()), 'stdClass');
     }
 
     /*
@@ -62,7 +62,7 @@ class BBC_Service_Bamboo_Models_BaseTest extends PHPUnit_Framework_TestCase
         return new EpisodeMock($this->_responseEpisode);
     }
 
-    private function _mockBase() {
+    private function _createBase() {
         return new BBC_Service_Bamboo_Models_Base($this->_responseEpisode);
     }
 

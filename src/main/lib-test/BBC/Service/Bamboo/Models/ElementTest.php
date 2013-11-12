@@ -15,31 +15,31 @@ class BBC_Service_Bamboo_Models_ElementTest extends PHPUnit_Framework_TestCase
      * Using an Element Mock
      */
     public function testGetType() {
-        $mockedElement = $this->_mockElement();
+        $element = $this->_createElement();
 
-        $this->assertEquals($mockedElement->getType(), 'episode_large');
+        $this->assertEquals($element->getType(), 'episode_large');
     }
 
     public function testGetShortSynopsis() {
-        $mockedElement = $this->_mockElement(); 
+        $element = $this->_createElement(); 
 
         $this->assertEquals(
-            $mockedElement->getShortSynopsis(),
+            $element->getShortSynopsis(),
             'Luther investigates two horrific cases, unaware his every step is under scrutiny.'
         );
     }
 
     public function testGetMasterBrand() {
-        $mockedElement = $this->_mockElement(); 
+        $element = $this->_createElement(); 
 
-        $this->assertEquals($mockedElement->getMasterBrand(), 'BBC Two');
+        $this->assertEquals($element->getMasterBrand(), 'BBC Two');
     }
 
     public function testGetImage() {
-        $mockedElement = $this->_mockElement(); 
+        $element = $this->_createElement(); 
 
         $this->assertEquals(
-            $mockedElement->getImage(),
+            $element->getImage(),
             'http://ichef.live.bbci.co.uk/images/ic/336x581/legacy/episode/p01b2b5c.jpg'
         );
     }
@@ -69,7 +69,7 @@ class BBC_Service_Bamboo_Models_ElementTest extends PHPUnit_Framework_TestCase
         return new EpisodeMock($this->_responseEpisode);
     }
 
-    private function _mockElement() {
+    private function _createElement() {
         return new BBC_Service_Bamboo_Models_Element($this->_responseEpisode);
     }
 }
