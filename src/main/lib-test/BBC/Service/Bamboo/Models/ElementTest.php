@@ -22,9 +22,11 @@ class BBC_Service_Bamboo_Models_ElementTest extends PHPUnit_Framework_TestCase
 
     public function testGetShortSynopsis() {
         $mockedElement = $this->_mockElement(); 
-        $shortSynopsis = 'Luther investigates two horrific cases, unaware his every step is under scrutiny.';
 
-        $this->assertEquals($mockedElement->getShortSynopsis(), $shortSynopsis);
+        $this->assertEquals(
+            $mockedElement->getShortSynopsis(),
+            'Luther investigates two horrific cases, unaware his every step is under scrutiny.'
+        );
     }
 
     public function testGetMasterBrand() {
@@ -36,8 +38,10 @@ class BBC_Service_Bamboo_Models_ElementTest extends PHPUnit_Framework_TestCase
     public function testGetImage() {
         $mockedElement = $this->_mockElement(); 
 
-        $imageUrl = 'http://ichef.live.bbci.co.uk/images/ic/336x581/legacy/episode/p01b2b5c.jpg';
-        $this->assertEquals($mockedElement->getImage(), $imageUrl);
+        $this->assertEquals(
+            $mockedElement->getImage(),
+            'http://ichef.live.bbci.co.uk/images/ic/336x581/legacy/episode/p01b2b5c.jpg'
+        );
     }
 
     /* 
