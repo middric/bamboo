@@ -1,27 +1,19 @@
 <?php
 class BBC_Service_Bamboo_Models_BaseTest extends PHPUnit_Framework_TestCase
 {
-    protected $_responseEpisode;
-
-    protected function setUp() {
-        $response = Zend_Http_Response::fromString(
-            file_get_contents(dirname(__FILE__) . '/../../../../fixtures/episodes_p01b2b5c.json')
-        );
-        $responseObject = json_decode($response->getBody());
-        $this->_responseEpisode = $responseObject->episodes[0];
-    }
-
     /*
     * We use a mocked Base object here
     */
     public function testGetId() {
-        $base = $this->_createBase();
+        $params = array('id'=>'p01b2b5c');
+        $base = $this->_createBase($params);
 
         $this->assertEquals($base->getId(), 'p01b2b5c');
     }
 
     public function testGetResponse() {
-        $base = $this->_createBase();
+        $params = array('response'=> (object) array());
+        $base = $this->_createBase($params);
 
         $this->assertEquals(get_class($base->getResponse()), 'stdClass');
     }
@@ -31,7 +23,8 @@ class BBC_Service_Bamboo_Models_BaseTest extends PHPUnit_Framework_TestCase
      * Using a mocked Episode object.
      */
     public function testSetVersions() {
-        $mockedEpisode = $this->_mockEpisode();
+        $params = array('versions' => array(0 => array('id' => 'b036y9g5')));
+        $mockedEpisode = $this->_mockEpisode($params);
         $versions = $mockedEpisode->getVersions();
         $firstVersion = $versions[0];
 
@@ -39,31 +32,34 @@ class BBC_Service_Bamboo_Models_BaseTest extends PHPUnit_Framework_TestCase
     }
 
     public function testSetPropertySubtitle() {
-        $mockedEpisode = $this->_mockEpisode();
+        $params = array('subtitle' => 'Series 3 - Episode 1');
+        $mockedEpisode = $this->_mockEpisode($params);
 
         $this->assertEquals($mockedEpisode->getSubtitle(), 'Series 3 - Episode 1');
     }
 
     public function testSetPropertyTleoId() {
-        $mockedEpisode = $this->_mockEpisode();
+        $params = array('tleo_id' => 'b00vk2lp');
+        $mockedEpisode = $this->_mockEpisode($params);
 
         $this->assertEquals($mockedEpisode->getTleoId(), 'b00vk2lp');
     }
 
     public function testSetVersionsSetPropertyId() {
-        $mockedEpisode = $this->_mockEpisode();
+        $params = array('versions' => array(0 => (object) array('id' => 'b036y9g5')));
+        $mockedEpisode = $this->_mockEpisode($params);
         $versions = $mockedEpisode->getVersions();
         $firstVersion = $versions[0];
 
         $this->assertEquals($firstVersion->getId(), 'b036y9g5');
     }
 
-    private function _mockEpisode() {
-        return new EpisodeMock($this->_responseEpisode);
+    private function _mockEpisode($params) {
+        return new EpisodeMock((object) $params);
     }
 
-    private function _createBase() {
-        return new BBC_Service_Bamboo_Models_Base($this->_responseEpisode);
+    private function _createBase($params) {
+        return new BBC_Service_Bamboo_Models_Base((object) $params);
     }
 
 }
