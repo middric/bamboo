@@ -30,7 +30,7 @@ class BBC_Service_Bamboo_Models_Category extends BBC_Service_Bamboo_Models_Base
      */
     public function getChildEpisodeCount() {
         // @codingStandardsIgnoreStart
-        return $_child_episode_count;
+        return $this->_child_episode_count;
         // @codingStandardsIgnoreEnd
     }
 
