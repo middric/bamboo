@@ -31,7 +31,9 @@ class BBC_Service_Bamboo_Client_Fake
         'api_key',
         'rights',
         'availability',
-        'lang'
+        'lang',
+        'sort',
+        'sort_direction'
     );
 
     /**
