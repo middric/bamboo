@@ -55,7 +55,7 @@ class BBC_Service_Bamboo_Models_BaseTest extends PHPUnit_Framework_TestCase
     }
 
     private function _mockEpisode($params) {
-        return new EpisodeMock((object) $params);
+        return new BBC_Service_Bamboo_Models_Episode((object) $params);
     }
 
     private function _createBase($params) {
@@ -63,39 +63,3 @@ class BBC_Service_Bamboo_Models_BaseTest extends PHPUnit_Framework_TestCase
     }
 
 }
-
-class EpisodeMock extends BBC_Service_Bamboo_Models_Base
-{
-    protected $_type = '';
-    protected $_synopses = array();
-    protected $_images = array();
-    // @codingStandardsIgnoreStart
-    protected $_master_brand = array();
-    protected $_release_date = "";
-    protected $_tleo_id = "";
-    // @codingStandardsIgnoreEnd
-    protected $_subtitle = "";
-    protected $_versions = array();
-    protected $_film = false;
-    protected $_duration = "";
-    protected $_href = "";
-    protected $_labels = array();
-    protected $_stacked = "";
-    protected $_guidance = "";
-    protected $_credits = "";
-
-    public function getSubtitle() {
-        return $this->_subtitle;
-    }
-
-    public function getTleoId() {
-        // @codingStandardsIgnoreStart
-        return $this->_tleo_id;
-        // @codingStandardsIgnoreStart
-    }
-
-    public function getVersions() {
-        return $this->_versions;
-    }
-}
-
