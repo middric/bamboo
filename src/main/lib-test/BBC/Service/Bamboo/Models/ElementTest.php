@@ -70,14 +70,10 @@ class BBC_Service_Bamboo_Models_ElementTest extends PHPUnit_Framework_TestCase
     }
 
     private function _mockEpisode($params) {
-        return new EpisodeMock((object) $params);
+        return new BBC_Service_Bamboo_Models_Episode((object) $params);
     }
 
     private function _createElement($params) {
         return new BBC_Service_Bamboo_Models_Element((object) $params);
     }
-}
-
-class EpisodeMock extends BBC_Service_Bamboo_Models_Element
-{
 }
