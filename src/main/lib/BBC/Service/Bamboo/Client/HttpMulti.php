@@ -64,22 +64,33 @@ class BBC_Service_Bamboo_Client_HttpMulti
     public function get($path, array $params = array()) {
         $url = $this->buildURL($path, $params);
 
-        BBC_Service_Bamboo_Log::info("Requesting $url");
         $options = array(
             'headers' => $this->getHeaders()
         );
         $response = null;
         $client = $this->getHttpClient();
         $self = $this;
-        $listener = new BBC_Service_Bamboo_Client_Listener($path);
+        $resolved = false;
 
-        $client->getWithListener($url, $listener, $options)->then(
-            function ($myResponse) use (&$response, &$self, &$url) {
+        $client->get($url, $options)->then(
+            function ($myResponse) use (&$response, &$self, &$url, &$resolved) {
                 $self->handleErrors($myResponse, $url);
                 $response = $myResponse;
+                /*
+                    This should NOT be necessary. However, due to a bug with the frameworks HTTP client
+                    we should only call run if we have not already resolved the promise. Failure to do this
+                    will result in the HTTP client timing out for the specified timeout (15 seconds per request)
+                */
+                $resolved = true;
             }
         )->end();
-        $client->run();
+
+        if (!$resolved) {
+            BBC_Service_Bamboo_Log::info("Requesting: $url");
+            $client->run();
+        } else {
+            BBC_Service_Bamboo_Log::info("Cache hit: $url");
+        }
 
         return $response;
     }
@@ -164,16 +175,15 @@ class BBC_Service_Bamboo_Client_HttpMulti
                 BBC_Webapp_Base::getInstance()->getContentCache()
             );
         }
-
+        $this->_httpClient = BBC_Http_Multi_Client_Factory::build();
         // Create a new http multi client from the factory
-        $httpClient = new BBC_Service_Bamboo_Client_HttpMultiClient();
 
-        // Set the max execution time
-        $httpClient->setExecutionTimeout(
+        // // Set the max execution time
+        $this->_httpClient->setExecutionTimeout(
             $this->_config->timeout
         );
 
-        return $httpClient;
+        return $this->_httpClient;
     }
 
     public function setHost($host) {
