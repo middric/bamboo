@@ -84,7 +84,7 @@ class BBC_Service_Bamboo_Models_Group extends BBC_Service_Bamboo_Models_Element
      * Get the iStats type of the group
      */
     public function getType() {
-        if ($this->getId() === 'popular' || $this->getId() === 'most-popular') {
+        if ($this->getId() === 'popular') {
             $type = 'most-popular';
         } elseif ($this->isStacked()) {
             $type = 'series-catchup';
