@@ -13,10 +13,6 @@
 class BBC_Service_Bamboo implements BBC_Service_Interface
 {
     /**
-     * @var BBC_Service_Bamboo_Cache
-     */
-    protected $_cache;
-    /**
      * @var BBC_Service_Bamboo_Configuration
      */
     protected $_configuration;
@@ -37,7 +33,6 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
      */
     public function __construct(array $params = array()) {
         $this->_configuration = new BBC_Service_Bamboo_Configuration($params);
-        $this->_cache = new BBC_Service_Bamboo_Cache($this->_configuration->getConfiguration()->cache);
         $this->setClient(new BBC_Service_Bamboo_Client_HttpMulti($this->_configuration->getConfiguration()->httpmulti));
     }
 
@@ -80,12 +75,7 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
 
     public function getJson($feedName, $params = array()) {
         $params = $this->_prepareParams($params);
-
-        $response = $this->_cache->get($feedName, $params);
-        if (!$response) {
-            $response = $this->_client->get($feedName, $params);
-            $this->_cache->save($feedName, $params, $response);
-        }
+        $response = $this->_client->get($feedName, $params);
         return $response->getBody();
     }
 

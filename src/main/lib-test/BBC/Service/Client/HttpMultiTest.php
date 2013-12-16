@@ -47,7 +47,7 @@ class BBC_Service_Bamboo_Client_HttpMultiTest extends PHPUnit_Framework_TestCase
     public function testHttpMultiClient() {
         $httpMulti = $this->_client->getHttpClient();
 
-        $this->assertEquals('BBC_Service_Bamboo_Client_HttpMultiClient', get_class($httpMulti));
+        $this->assertEquals('BBC_Http_Multi_Client', get_class($httpMulti));
     }
 
     /**
@@ -79,7 +79,7 @@ class BBC_Service_Bamboo_Client_HttpMultiTest extends PHPUnit_Framework_TestCase
      */
     public function testGet() {
         $feed = 'status';
-        
+
         $this->_setupClient($feed);
         $response = $this->_client->get($feed, array('api_key' => 1));
 
@@ -90,7 +90,7 @@ class BBC_Service_Bamboo_Client_HttpMultiTest extends PHPUnit_Framework_TestCase
 
     public function testInternalServerErrorException(){
         $feed = 'error';
-        
+
         $this->_setupClient($feed);
 
         $this->setExpectedException('BBC_Service_Bamboo_Exception_InternalServerError');
@@ -99,7 +99,7 @@ class BBC_Service_Bamboo_Client_HttpMultiTest extends PHPUnit_Framework_TestCase
 
     public function testBadRequestException(){
         $feed = 'status';
-        
+
         $this->_setupClient($feed);
 
         $this->setExpectedException('BBC_Service_Bamboo_Exception_BadRequest');
@@ -108,7 +108,7 @@ class BBC_Service_Bamboo_Client_HttpMultiTest extends PHPUnit_Framework_TestCase
 
     public function testNotFoundException(){
         $feed = 'not_exist';
-        
+
         $this->_setupClient($feed);
 
         $this->setExpectedException('BBC_Service_Bamboo_Exception_NotFound');
