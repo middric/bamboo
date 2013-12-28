@@ -61,6 +61,16 @@ class BBC_Service_Bamboo_Models_VersionTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('', $version->getLargeGuidance());
     }
 
+    public function testFirstBroadcast() {
+        $version = $this->_createVersion(array('first_broadcast' => '8pm 27 Dec 2013'));
+        $this->assertEquals('8pm 27 Dec 2013', $version->getFirstBroadcast());
+    }
+
+    public function testEmptyFirstBroadcast() {
+        $version = $this->_createVersion(array());
+        $this->assertEquals('', $version->getFirstBroadcast());
+    }
+
     private function _createVersion($params) {
         return new BBC_Service_Bamboo_Models_Version((object) $params);
     }

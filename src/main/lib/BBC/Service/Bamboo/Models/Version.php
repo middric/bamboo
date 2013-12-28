@@ -21,6 +21,7 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
     protected $_guidance = array();
     // @codingStandardsIgnoreStart
     protected $_credits_timestamp = "";
+    protected $_first_broadcast = '';
     // @codingStandardsIgnoreEnd
     protected $_events = array();
 
@@ -144,6 +145,18 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
      */
     public function getGuidanceObj() {
         return $this->_guidance;
+    }
+
+    /**
+     * Get the first broadcast date
+     * NOTE: This is different to the episode release date!
+     *
+     * @return string
+     */
+    public function getFirstBroadcast() {
+        // @codingStandardsIgnoreStart
+        return $this->_first_broadcast;
+        // @codingStandardsIgnoreEnd
     }
 
     /**
