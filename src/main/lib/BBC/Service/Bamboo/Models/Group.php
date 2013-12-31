@@ -21,7 +21,7 @@ class BBC_Service_Bamboo_Models_Group extends BBC_Service_Bamboo_Models_Element
 
     /**
      * Returns the related links
-     * 
+     *
      * @return object
      */
     public function getRelatedLinks() {
@@ -83,7 +83,7 @@ class BBC_Service_Bamboo_Models_Group extends BBC_Service_Bamboo_Models_Element
     /**
      * Get the iStats type of the group
      */
-    public function getType() {
+    public function getIstatsType() {
         if ($this->getId() === 'popular') {
             $type = 'most-popular';
         } elseif ($this->isStacked()) {
