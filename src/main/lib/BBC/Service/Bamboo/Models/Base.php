@@ -17,7 +17,7 @@ class BBC_Service_Bamboo_Models_Base
     protected $_related_links = array();
     // @codingStandardsIgnoreEnd
 
-    public function __construct($response) {
+    public function __construct($response = array()) {
         $this->_response = $response;
         foreach ($response as $key => $value) {
             switch ($key) {
