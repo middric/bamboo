@@ -14,6 +14,7 @@ class BBC_Service_Bamboo_Models_Programme extends BBC_Service_Bamboo_Models_Elem
     protected $_initial_children = array();
     protected $_count = 0;
     // @codingStandardsIgnoreEnd
+    protected $_status = "";
 
     /**
      * Get the number of episodes within this programme object
@@ -63,5 +64,14 @@ class BBC_Service_Bamboo_Models_Programme extends BBC_Service_Bamboo_Models_Elem
         }
         return "";
         // @codingStandardsIgnoreEnd
+    }
+
+    /**
+     * Get the programme status
+     * 
+     * @return String
+     */
+    public function getStatus() {
+        return $this->_status;
     }
 }

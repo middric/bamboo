@@ -23,6 +23,7 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
     protected $_stacked = "";
     protected $_guidance = "";
     protected $_credits = "";
+    protected $_status = "";
 
     /**
      * Get the episode subtitle
@@ -266,6 +267,15 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
 
     public function getCredits() {
         return $this->_credits;
+    }
+
+    /**
+     * Get the programme status
+     * 
+     * @return String
+     */
+    public function getStatus() {
+        return $this->_status;
     }
 
     // Convert accented characters to their 'normal' alternative
