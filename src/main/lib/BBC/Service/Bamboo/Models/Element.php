@@ -208,8 +208,8 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
      * 
      * @return bool
      */
-    public function isAvailable() {
-        return $this->_status === 'available';
+    public function isComingSoon() {
+        return $this->_status === 'unavailable';
     }
 
     /**
