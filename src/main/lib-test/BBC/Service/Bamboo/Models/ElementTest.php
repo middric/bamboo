@@ -69,6 +69,19 @@ class BBC_Service_Bamboo_Models_ElementTest extends PHPUnit_Framework_TestCase
         $this->assertEmpty($mockedEpisode->getImageRecipe('vertical'));
     }
 
+    public function testFetchStatus() {
+        $episode = $this->_createEpisode(array('status' => 'unavailable'));
+        $this->assertEquals('unavailable', $episode->getStatus());
+    }
+
+    public function testIsComingSoon() {
+        $episode = $this->_createEpisode(array('status' => 'unavailable'));
+        $this->assertEquals(true, $episode->isComingSoon());
+
+        $episode = $this->_createEpisode(array('status' => 'available'));
+        $this->assertEquals(false, $episode->isComingSoon());
+    }
+
     private function _mockEpisode($params) {
         return new BBC_Service_Bamboo_Models_Episode((object) $params);
     }

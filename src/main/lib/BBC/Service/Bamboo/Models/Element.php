@@ -16,6 +16,7 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
     // @codingStandardsIgnoreStart
     protected $_master_brand = array();
     // @codingStandardsIgnoreEnd
+    protected $_status = "";
 
     /**
      * Get the short synopsis (if available)
@@ -191,6 +192,24 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
      */
     public function getType() {
         return $this->_type;
+    }
+
+    /**
+     * Get the programme status
+     * 
+     * @return String
+     */
+    public function getStatus() {
+        return $this->_status;
+    }
+
+    /**
+     * Is the element status set to 'available'
+     * 
+     * @return bool
+     */
+    public function isComingSoon() {
+        return $this->_status === 'unavailable';
     }
 
     /**
