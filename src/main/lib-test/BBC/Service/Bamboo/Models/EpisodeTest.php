@@ -250,6 +250,11 @@ class BBC_Service_Bamboo_Models_EpisodeTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    public function testFetchStatus() {
+        $episode = $this->_createEpisode(array('status' => 'unavailable'));
+        $this->assertEquals('unavailable', $episode->getStatus());
+    }
+
     private function _createEpisode($params) {
         return new BBC_Service_Bamboo_Models_Episode((object) $params);
     }
