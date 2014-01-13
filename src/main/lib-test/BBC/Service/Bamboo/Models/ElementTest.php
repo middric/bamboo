@@ -1,7 +1,7 @@
-<?php 
+<?php
 class BBC_Service_Bamboo_Models_ElementTest extends PHPUnit_Framework_TestCase
 {
-    /* 
+    /*
      * Using an Element Mock
      */
     public function testGetType() {
@@ -16,7 +16,7 @@ class BBC_Service_Bamboo_Models_ElementTest extends PHPUnit_Framework_TestCase
         $params = array('synopses' => array('small' =>
                 'Luther investigates two horrific cases, unaware his every step is under scrutiny.')
         );
-        $element = $this->_createElement($params); 
+        $element = $this->_createElement($params);
 
         $this->assertEquals(
             $element->getShortSynopsis(),
@@ -28,16 +28,16 @@ class BBC_Service_Bamboo_Models_ElementTest extends PHPUnit_Framework_TestCase
         // @codingStandardsIgnoreStart
         $params =  array('master_brand' => array('titles' => (object) array('small' => 'BBC Two')));
         // @codingStandardsIgnoreStart
-        $element = $this->_createElement($params); 
+        $element = $this->_createElement($params);
 
         $this->assertEquals($element->getMasterBrand(), 'BBC Two');
     }
 
     public function testGetImage() {
-        $params = array('images' => 
+        $params = array('images' =>
             array('standard' => 'http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/p01b2b5c.jpg')
         );
-        $element = $this->_createElement($params); 
+        $element = $this->_createElement($params);
 
         $this->assertEquals(
             $element->getImage(),
@@ -45,40 +45,40 @@ class BBC_Service_Bamboo_Models_ElementTest extends PHPUnit_Framework_TestCase
         );
     }
 
-    /* 
+    /*
      * Using an Episode Mock and inheritance
      */
     public function testGetEpisodeType() {
         $params =  array('type'=>'episode_large');
-        $mockedEpisode = $this->_mockEpisode($params); 
+        $mockedEpisode = $this->_mockEpisode($params);
 
         $this->assertEquals($mockedEpisode->getType(), 'episode_large');
     }
 
     public function testGetEpisodeMasterBrandAttribution() {
         $params =  array('master_brand' => array('attribution'=>'bbc_two'));
-        $mockedEpisode = $this->_mockEpisode($params); 
+        $mockedEpisode = $this->_mockEpisode($params);
 
         $this->assertEquals($mockedEpisode->getMasterBrandAttribution(), 'bbc_two');
     }
 
     public function testGetEpisodeImageRecipe() {
         $params = array();
-        $mockedEpisode = $this->_mockEpisode($params); 
+        $mockedEpisode = $this->_mockEpisode($params);
 
         $this->assertEmpty($mockedEpisode->getImageRecipe('vertical'));
     }
 
     public function testFetchStatus() {
-        $episode = $this->_createEpisode(array('status' => 'unavailable'));
+        $episode = $this->_createElement(array('status' => 'unavailable'));
         $this->assertEquals('unavailable', $episode->getStatus());
     }
 
     public function testIsComingSoon() {
-        $episode = $this->_createEpisode(array('status' => 'unavailable'));
+        $episode = $this->_createElement(array('status' => 'unavailable'));
         $this->assertEquals(true, $episode->isComingSoon());
 
-        $episode = $this->_createEpisode(array('status' => 'available'));
+        $episode = $this->_createElement(array('status' => 'available'));
         $this->assertEquals(false, $episode->isComingSoon());
     }
 
