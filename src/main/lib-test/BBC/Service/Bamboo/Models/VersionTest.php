@@ -71,6 +71,22 @@ class BBC_Service_Bamboo_Models_VersionTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('', $version->getFirstBroadcast());
     }
 
+    public function testAbbreviations() {
+        $sd = $this->_createVersion(array('kind' => 'original'));
+        $ad = $this->_createVersion(array('kind' => 'audio-described'));
+        $adhd = $this->_createVersion(array('kind' => 'audio-described', 'hd' => true));
+        $sl = $this->_createVersion(array('kind' => 'signed'));
+        $slhd = $this->_createVersion(array('kind' => 'signed', 'hd' => true));
+        $hd = $this->_createVersion(array('kind' => 'original', 'hd' => true));
+
+        $this->assertEquals('SD', $sd->getAbbreviation());
+        $this->assertEquals('AD', $ad->getAbbreviation());
+        $this->assertEquals('AD', $adhd->getAbbreviation());
+        $this->assertEquals('SL', $sl->getAbbreviation());
+        $this->assertEquals('SL', $slhd->getAbbreviation());
+        $this->assertEquals('HD', $hd->getAbbreviation());
+    }
+
     private function _createVersion($params) {
         return new BBC_Service_Bamboo_Models_Version((object) $params);
     }

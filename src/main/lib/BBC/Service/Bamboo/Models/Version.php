@@ -26,6 +26,27 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
     protected $_events = array();
 
     /**
+     * Returns the 2 letter abbreviation used for a version
+     * @return string the abbreviation (SD, HD, AD or SL)
+     */
+    public function getAbbreviation() {
+        $abbr = '';
+        switch ($this->getKind()) {
+            case 'audio-described':
+                $abbr = 'AD';
+                break;
+            case 'signed':
+                $abbr = 'SL';
+                break;
+            default:
+                $abbr = $this->isHD() ? 'HD' : 'SD';
+                break;
+        }
+
+        return $abbr;
+    }
+
+    /**
      * Get the availability for this version
      *
      * @param string $type start, end or remaining
