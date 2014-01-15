@@ -4,51 +4,51 @@ class BBC_Service_Bamboo_Models_EpisodeDownloadsTest extends PHPUnit_Framework_T
     public function testItReturnsAnArray() {
         $version = $this->_createVersions(array('original' => true));
         $episode = $this->_createEpisode(array('versions' => $version));
-        $this->assertTrue(is_array($episode->getDownloadLinks()));
+        $this->assertTrue(is_array($episode->getDownloadURIs()));
     }
 
     public function testItReturnsALinkForEachVersion() {
         $versions = $this->_createVersions(array('original' => true, 'audio-described' => true));
         $episode = $this->_createEpisode(array('versions' => $versions));
-        $this->assertEquals(2, sizeof($episode->getDownloadLinks()));
+        $this->assertEquals(2, sizeof($episode->getDownloadURIs()));
     }
 
     public function testItDoesntIncludeNonDownloadableVersions() {
         $versions = $this->_createVersions(array('original' => true, 'audio-described' => false));
         $episode = $this->_createEpisode(array('versions' => $versions));
-        $this->assertEquals(1, sizeof($episode->getDownloadLinks()));
+        $this->assertEquals(1, sizeof($episode->getDownloadURIs()));
     }
 
     public function testItReturnsEmptyWhenNoVersions() {
         $episode = $this->_createEpisode(array('title' => 'no downloads'));
-        $this->assertEquals(array(), $episode->getDownloadLinks());
+        $this->assertEquals(array(), $episode->getDownloadURIs());
     }
 
     public function testItContainsTheVersionAbbreviations() {
         $versions = $this->_createVersions(array('original' => true, 'audio-described' => false, 'signed' => true));
         $episode = $this->_createEpisode(array('versions' => $versions));
-        $downloadLinks = $episode->getDownloadLinks();
+        $downloadLinks = $episode->getDownloadURIs();
         $this->assertEquals(array('SD', 'SL'), array_keys($downloadLinks));
     }
 
     public function testItContainsHDKeyIfHDVersionIsAvailable() {
         $versions = $this->_createHDVersions(array('original' => true));
         $episode = $this->_createEpisode(array('versions' => $versions));
-        $this->assertEquals(2, count($episode->getDownloadLinks()));
-        $this->assertTrue(array_key_exists('HD', $episode->getDownloadLinks()));
+        $this->assertEquals(2, count($episode->getDownloadURIs()));
+        $this->assertTrue(array_key_exists('HD', $episode->getDownloadURIs()));
     }
 
     public function testItContainsHDKeyIfPremiereHDVersionIsAvailable() {
         $versions = $this->_createHDVersions(array('premiere' => true));
         $episode = $this->_createEpisode(array('versions' => $versions));
-        $this->assertEquals(2, count($episode->getDownloadLinks()));
-        $this->assertTrue(array_key_exists('HD', $episode->getDownloadLinks()));
+        $this->assertEquals(2, count($episode->getDownloadURIs()));
+        $this->assertTrue(array_key_exists('HD', $episode->getDownloadURIs()));
     }
 
     public function testItDoesNotContainHDIfOriginalVersionIsNotInHD() {
         $versions = $this->_createHDVersions(array('original' => false, 'audio-described' => true, 'signed' => true));
         $episode = $this->_createEpisode(array('versions' => $versions));
-        $this->assertFalse(array_key_exists('HD', $episode->getDownloadLinks()));
+        $this->assertFalse(array_key_exists('HD', $episode->getDownloadURIs()));
     }
 
     public function testItReturnsADownloadEncodedURIForEachVersion() {
@@ -69,7 +69,7 @@ class BBC_Service_Bamboo_Models_EpisodeDownloadsTest extends PHPUnit_Framework_T
             'bbc-ipd:download/episode-id/signed-id/sd/signed/TXkgVGl0bGUgLSBNeSBTdWJ0aXRsZQ=='
         );
 
-        $this->assertEquals($expectedURIs, array_values($episode->getDownloadLinks()));
+        $this->assertEquals($expectedURIs, array_values($episode->getDownloadURIs()));
     }
 
     public function testItRemovesSlashesFromTheTitle() {
@@ -86,7 +86,7 @@ class BBC_Service_Bamboo_Models_EpisodeDownloadsTest extends PHPUnit_Framework_T
             'bbc-ipd:download/episode-id/original-id/sd/standard/QmF0bWFuIFJldHVybnM_'
         );
 
-        $this->assertEquals($expectedURIs, array_values($episode->getDownloadLinks()));
+        $this->assertEquals($expectedURIs, array_values($episode->getDownloadURIs()));
     }
 
     private function _createEpisode($params) {
