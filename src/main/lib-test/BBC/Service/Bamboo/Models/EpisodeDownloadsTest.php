@@ -63,8 +63,8 @@ class BBC_Service_Bamboo_Models_EpisodeDownloadsTest extends PHPUnit_Framework_T
         );
 
         $expectedURIs = array(
-            'bbc-ipd:download/episode-id/original-id/hd/standard/TXkgVGl0bGUgLSBNeSBTdWJ0aXRsZQ==',
             'bbc-ipd:download/episode-id/original-id/sd/standard/TXkgVGl0bGUgLSBNeSBTdWJ0aXRsZQ==',
+            'bbc-ipd:download/episode-id/original-id/hd/standard/TXkgVGl0bGUgLSBNeSBTdWJ0aXRsZQ==',
             'bbc-ipd:download/episode-id/audio-described-id/sd/dubbedaudiodescribed/TXkgVGl0bGUgLSBNeSBTdWJ0aXRsZQ==',
             'bbc-ipd:download/episode-id/signed-id/sd/signed/TXkgVGl0bGUgLSBNeSBTdWJ0aXRsZQ=='
         );

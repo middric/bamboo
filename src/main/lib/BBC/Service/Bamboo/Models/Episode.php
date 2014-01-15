@@ -279,21 +279,12 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
         $downloadbleVersions = array();
         foreach($this->_versions as $version) {
             if ($version->isDownload()) {
-                $key = 'SD';
-                switch ($version->getKind()) {
-                    case 'audio-described':
-                        $key = 'AD';
-                        break;
-                    case 'signed':
-                        $key = 'SL';
-                        break;
-                    default:
-                        if ($version->isHD()) {
-                            $downloadbleVersions['HD'] = $this->_downloaderLink($version, 'hd');
-                        }
-                        break;
+                if ($version->getAbbreviation() === 'HD') {
+                    $downloadbleVersions['SD'] = $this->_downloaderLink($version, 'sd');
+                    $downloadbleVersions['HD'] = $this->_downloaderLink($version, 'hd');
+                } else {
+                    $downloadbleVersions[$version->getAbbreviation()] = $this->_downloaderLink($version, 'sd');
                 }
-                $downloadbleVersions[$key] = $this->_downloaderLink($version, 'sd');
             }
         }
 
