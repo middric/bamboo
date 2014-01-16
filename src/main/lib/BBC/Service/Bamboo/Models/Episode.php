@@ -276,20 +276,20 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
      * @return array the download links in format 'SD' => 'URI'
      */
     public function getDownloadURIs() {
-        $downloadbleVersions = array();
+        $downloadableVersions = array();
         foreach($this->_versions as $version) {
             if ($version->isDownload()) {
                 // If the version is HD then also add the SD version
                 if ($version->getAbbreviation() === 'HD') {
-                    $downloadbleVersions['SD'] = $this->_createDownloadURI($version, 'sd');
-                    $downloadbleVersions['HD'] = $this->_createDownloadURI($version, 'hd');
+                    $downloadableVersions['SD'] = $this->_createDownloadURI($version, 'sd');
+                    $downloadableVersions['HD'] = $this->_createDownloadURI($version, 'hd');
                 } else {
-                    $downloadbleVersions[$version->getAbbreviation()] = $this->_createDownloadURI($version, 'sd');
+                    $downloadableVersions[$version->getAbbreviation()] = $this->_createDownloadURI($version, 'sd');
                 }
             }
         }
 
-        return $downloadbleVersions;
+        return $downloadableVersions;
     }
 
     /**
