@@ -298,7 +298,7 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
      * @param string $quality the quality of the download (either 'sd' or 'hd')
      * @return string URI compatible with iPlayer Downloader
      */
-    private function _createDownloadURI($version, $quality) {
+    private function _createDownloadURI(BBC_Service_Bamboo_Models_Version $version, $quality) {
         $link = 'bbc-ipd:download/' . $this->getId() . '/' . $version->getId() . '/' . $quality;
         // Convert iBL version kinds to dynamite versions
         switch ($version->getKind()) {
