@@ -94,7 +94,7 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
 
     /**
      * Is the episode stacked
-     * 
+     *
      * @access public
      * @return void
      */
@@ -123,7 +123,7 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
     /**
      * Get the related links attached to this episode.
      * Returns an array of {@link BBC_Service_Bamboo_Models_Related} objects
-     * 
+     *
      * @return array
      */
     public function getRelatedLinks() {
@@ -199,8 +199,8 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
         // if the episode has any versions at all
         if (isset($this->_versions[0])) {
             // we won't need version flags in this scenario: there's only the original version and has no HD
-            if ((count($this->_versions) === 1) && 
-                ($this->_versions[0]->getKind() === 'original') && 
+            if ((count($this->_versions) === 1) &&
+                ($this->_versions[0]->getKind() === 'original') &&
                 !($this->_versions[0]->isHD())) {
                 return false;
             }
@@ -266,6 +266,56 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
 
     public function getCredits() {
         return $this->_credits;
+    }
+
+    /**
+     * Returns an array of download URIs for this episode. These URIs are specifically generated to be compatible with
+     * iPlayer downloader. Only versions that are available for download are included and an additional 'HD' version is
+     * added if an original version is available in HD.
+     *
+     * @return array the download links in format 'SD' => 'URI'
+     */
+    public function getDownloadURIs() {
+        $downloadableVersions = array();
+        foreach($this->_versions as $version) {
+            if ($version->isDownload()) {
+                // If the version is HD then also add the SD version
+                if ($version->getAbbreviation() === 'HD') {
+                    $downloadableVersions['SD'] = $this->_createDownloadURI($version);
+                    $downloadableVersions['HD'] = $this->_createDownloadURI($version, 'hd');
+                } else {
+                    $downloadableVersions[$version->getAbbreviation()] = $this->_createDownloadURI($version);
+                }
+            }
+        }
+
+        return $downloadableVersions;
+    }
+
+    /**
+     * Generate an iPlayer Downloader URI for a specified version and quality
+     * @param BBC_Service_Bamboo_Models_Version $version the version object to create a URI for
+     * @param string $quality the quality of the download (either 'sd' or 'hd')
+     * @return string URI compatible with iPlayer Downloader
+     */
+    private function _createDownloadURI(BBC_Service_Bamboo_Models_Version $version, $quality = 'sd') {
+        $link = 'bbc-ipd:download/' . $this->getId() . '/' . $version->getId() . '/' . $quality;
+        // Convert iBL version kinds to dynamite versions
+        switch ($version->getKind()) {
+            case 'audio-described':
+                $link .= '/dubbedaudiodescribed';
+                break;
+            case 'signed':
+                $link .= '/signed';
+                break;
+            default:
+                $link .= '/standard';
+                break;
+        }
+        // iPlayer Downloader cannot understand '/' in the base64 title so we must replace them with '_'
+        $link .= '/' . str_replace('/', '_', base64_encode($this->getCompleteTitle()));
+
+        return $link;
     }
 
     // Convert accented characters to their 'normal' alternative
