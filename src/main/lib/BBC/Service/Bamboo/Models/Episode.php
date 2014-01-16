@@ -281,10 +281,10 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
             if ($version->isDownload()) {
                 // If the version is HD then also add the SD version
                 if ($version->getAbbreviation() === 'HD') {
-                    $downloadableVersions['SD'] = $this->_createDownloadURI($version, 'sd');
+                    $downloadableVersions['SD'] = $this->_createDownloadURI($version);
                     $downloadableVersions['HD'] = $this->_createDownloadURI($version, 'hd');
                 } else {
-                    $downloadableVersions[$version->getAbbreviation()] = $this->_createDownloadURI($version, 'sd');
+                    $downloadableVersions[$version->getAbbreviation()] = $this->_createDownloadURI($version);
                 }
             }
         }
@@ -298,7 +298,7 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
      * @param string $quality the quality of the download (either 'sd' or 'hd')
      * @return string URI compatible with iPlayer Downloader
      */
-    private function _createDownloadURI(BBC_Service_Bamboo_Models_Version $version, $quality) {
+    private function _createDownloadURI(BBC_Service_Bamboo_Models_Version $version, $quality = 'sd') {
         $link = 'bbc-ipd:download/' . $this->getId() . '/' . $version->getId() . '/' . $quality;
         // Convert iBL version kinds to dynamite versions
         switch ($version->getKind()) {
