@@ -250,14 +250,21 @@ class BBC_Service_Bamboo_Models_EpisodeTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    public function testHasDownloads() {
+        $downloadable = $this->_createEpisode(array('versions' => $this->_createVersions(array('original'))));
+        $notDownloadable = $this->_createEpisode(array('versions' => $this->_createVersions(array('original'), false)));
+        $this->assertTrue($downloadable->hasDownloads());
+        $this->assertFalse($notDownloadable->hasDownloads());
+    }
+
     private function _createEpisode($params) {
         return new BBC_Service_Bamboo_Models_Episode((object) $params);
     }
 
-    private function _createVersions($kinds) {
+    private function _createVersions($kinds, $downloadable = true) {
         $versions = array();
         foreach ($kinds as $kind) {
-            $versions[] = (object) array('kind' => $kind);
+            $versions[] = (object) array('kind' => $kind, 'download' => $downloadable);
         }
         return $versions;
     }
