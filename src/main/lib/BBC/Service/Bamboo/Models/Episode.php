@@ -273,7 +273,7 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
      * @return boolean
      */
     public function hasDownloads() {
-        foreach($this->_versions as $version) {
+        foreach ($this->_versions as $version) {
             if ($version->isDownload()) {
                 return true;
             }
@@ -290,7 +290,7 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
      */
     public function getDownloadURIs() {
         $downloadableVersions = array();
-        foreach($this->_versions as $version) {
+        foreach ($this->_versions as $version) {
             if ($version->isDownload()) {
                 // If the version is HD then also add the SD version
                 if ($version->getAbbreviation() === 'HD') {
