@@ -269,6 +269,19 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
     }
 
     /**
+     * Determines whether this episode has any versions available for download
+     * @return boolean
+     */
+    public function hasDownloads() {
+        foreach($this->_versions as $version) {
+            if ($version->isDownload()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Returns an array of download URIs for this episode. These URIs are specifically generated to be compatible with
      * iPlayer downloader. Only versions that are available for download are included and an additional 'HD' version is
      * added if an original version is available in HD.
