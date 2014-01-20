@@ -117,4 +117,3 @@ class BBC_Service_Bamboo_Models_EpisodeDownloadsTest extends PHPUnit_Framework_T
         return $versions;
     }
 }
-?>
