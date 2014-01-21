@@ -60,9 +60,9 @@ class BBC_Service_Bamboo_ModelFactory
             }
 
             $response = new BBC_Service_Bamboo_ResponseArrayObject($responseArray);
-            
+
             if (is_array($this->_responseDecoded) || is_object($this->_responseDecoded)) {
-                // This needs to be refactored when ibl wraps all of our known objects in an elements array         
+                // This needs to be refactored when ibl wraps all of our known objects in an elements array
                 foreach ($this->_responseDecoded as $key => $value) {
                     $ucKey = mb_convert_case($key, MB_CASE_TITLE);
                     $className = "BBC_Service_Bamboo_Models_$ucKey";
@@ -71,7 +71,7 @@ class BBC_Service_Bamboo_ModelFactory
                         $response->$key = new $className($value);
                     } else {
                         $response->$key = $value;
-                    } 
+                    }
                 }
             }
 
@@ -88,7 +88,7 @@ class BBC_Service_Bamboo_ModelFactory
     public function getGroupEpisodes($groupEpisodes) {
         $array = array();
         foreach ($groupEpisodes as $element) {
-            //One of the 1st level items will be the array with the episodes 
+            //One of the 1st level items will be the array with the episodes
             if (is_array($element)) {
                 foreach ($element as $item) {
                     if ($item->type === "episode") {
