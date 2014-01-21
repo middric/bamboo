@@ -30,6 +30,9 @@ class BBC_Service_Bamboo_Models_Base
                 case "episode":
                     $this->_setBroadcastEpisode();
                     break;
+                case "episode_large":
+                    $this->_setBroadcastEpisode();
+                    break;
                 case "related_links":
                     $this->_setRelatedLinks();
                     break;
@@ -141,7 +144,7 @@ class BBC_Service_Bamboo_Models_Base
      */
     private function _setBroadcastEpisode() {
         if (isset($this->_response->episode) && isset($this->_episode)) {
-                if ($this->_response->episode->type === 'episode') {
+                if ($this->_response->episode->type === 'episode' || $this->_response->episode->type === 'episode_large') {
                    $this->_episode = new BBC_Service_Bamboo_Models_Episode($this->_response->episode);
                 }
         } else {
