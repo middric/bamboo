@@ -1,6 +1,11 @@
 <?php
 class BBC_Service_Bamboo_Models_ElementTest extends PHPUnit_Framework_TestCase
 {
+
+    const SECONDS_IN_A_YEAR = 31536000;
+    const SECONDS_IN_A_WEEK = 604800;
+    const SECONDS_IN_A_DAY = 86400;
+
     /*
      * Using an Element Mock
      */
@@ -80,6 +85,72 @@ class BBC_Service_Bamboo_Models_ElementTest extends PHPUnit_Framework_TestCase
 
         $episode = $this->_createElement(array('status' => 'available'));
         $this->assertEquals(false, $episode->isComingSoon());
+    }
+
+    /* Testing dates like 6pm 24 Feb 2014 */
+    public function testIsFutureDateHour() {
+        $hourAgoDate = date('ha d M Y', time() - 3600);
+        $this->_testIsFuture($hourAgoDate, false);
+
+        $inAnHourDate = date('ha d M Y', time() + 3600);
+        $this->_testIsFuture($inAnHourDate, true);
+
+        $yesterdayDate = date('ha d M Y', time() - self::SECONDS_IN_A_DAY);
+        $this->_testIsFuture($yesterdayDate, false);
+
+        $tomorrowDate = date('ha d M Y', time() + self::SECONDS_IN_A_DAY);
+        $this->_testIsFuture($tomorrowDate, true);
+
+        $nowDate = date('ha d M Y', time());
+        $this->_testIsFuture($nowDate, false);
+    }
+
+
+    /* Testing dates like 24 Feb 2014 */
+    public function testIsFutureDate() {
+        $todayDate = date('d M Y', time());
+        $this->_testIsFuture($todayDate, false);
+
+        $tomorrowDate = date('d M Y', time() + self::SECONDS_IN_A_DAY);
+        $this->_testIsFuture($tomorrowDate, true);
+
+        $nextWeekDate = date('d M Y', time() + self::SECONDS_IN_A_WEEK);
+        $this->_testIsFuture($nextWeekDate, true);
+
+        $pastWeekDate = date('d M Y', time() - self::SECONDS_IN_A_WEEK);
+        $this->_testIsFuture($pastWeekDate, false);
+
+        $pastYearDate = date('d M Y', time() - self::SECONDS_IN_A_YEAR);
+        $this->_testIsFuture($pastYearDate, false);
+
+        $nextYearDate = date('d M Y', time() + self::SECONDS_IN_A_YEAR);
+        $this->_testIsFuture($nextYearDate, true);
+    }
+
+    /* Testing dates like Feb 2014 */
+    public function testIsFutureDateMonthYear() {
+        $nextMonthDate = date('M Y', time() + self::SECONDS_IN_A_WEEK * 4.5);
+        $this->_testIsFuture($nextMonthDate, true);
+
+        $pastMonthDate = date('M Y', time() - self::SECONDS_IN_A_WEEK * 4.5);
+        $this->_testIsFuture($pastMonthDate, false);
+
+        $thisMonthDate = date('M Y', time());
+        $this->_testIsFuture($thisMonthDate, false);
+    }
+
+    /* Testing dates like 2014 */
+    public function testIsFutureDateYear() {
+        $thisYear = intval(date('Y'));
+        $this->_testIsFuture($thisYear, false);
+
+        $nextYear = intval(date('Y')) + 1;
+        $this->_testIsFuture($nextYear, true);
+    }
+
+    private function _testIsFuture($date, $isFuture) {
+        $element = $this->_createElement(array());
+        $this->assertEquals($element->isFutureDate($date), $isFuture);
     }
 
     private function _mockEpisode($params) {
