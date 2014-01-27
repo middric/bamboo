@@ -112,6 +112,15 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
     }
 
     /**
+     * Has the episode a release date set in the future?
+     *
+     * @return bool
+     */
+    public function hasFutureReleaseDate() {
+        return $this->isFutureDate($this->getReleaseDate());
+    }
+
+    /**
      * Get the versions attached to this episode. Returns an array of {@link BBC_Service_Bamboo_Models_Version} objects
      *
      * @return array

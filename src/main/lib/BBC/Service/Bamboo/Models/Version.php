@@ -180,6 +180,10 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
         // @codingStandardsIgnoreEnd
     }
 
+    public function hasFutureFirstBroadcast() {
+        return $this->isFutureDate($this->getFirstBroadcast());
+    }
+
     /**
      * Get the small guidance message (if available)
      *
