@@ -219,7 +219,7 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
         }
 
         //If date has time we have to take the current time when comparing.
-        if ($this->hasTimeInDate($date)) {
+        if ($this->_hasTimeInDate($date)) {
             $now = mktime();
         } else {
             //If not, compare with right before midnight
@@ -241,7 +241,7 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
      * @param string $date 
      * @return bool
      */
-    public function hasTimeInDate($date) {
+    private function _hasTimeInDate($date) {
         preg_match("/^[0-9]{1,2}(pm|am) [0-9]{1,2} [A-Z]{1}[a-z]{2} [0-9]{4}$/", $date, $matches);
         return count($matches)>0;
     }
