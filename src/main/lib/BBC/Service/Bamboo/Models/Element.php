@@ -233,11 +233,18 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
         return $now < $releaseTime;
     }
 
-    public static function hasTimeInDate($date) {
+    /**
+     * Returns true if a date follows a specific format including the time in a 12-hour format
+     * Will return true for 8pm 23 Feb 2010
+     * And false for 23 Feb 2010
+     * 
+     * @param string $date 
+     * @return bool
+     */
+    public function hasTimeInDate($date) {
         preg_match("/^[0-9]{1,2}(pm|am) [0-9]{1,2} [A-Z]{1}[a-z]{2} [0-9]{4}$/", $date, $matches);
         return count($matches)>0;
     }
-
 
     /**
      * Returns the recipe for a specific width x height or a recipe name
