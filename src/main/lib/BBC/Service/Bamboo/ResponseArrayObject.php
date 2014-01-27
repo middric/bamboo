@@ -18,7 +18,7 @@ class BBC_Service_Bamboo_ResponseArrayObject extends ArrayObject
         return $this->count() > 0;
     }
 
-    public function getTotal() {
+    public function getElementCount() {
         if (isset($this->count)) {
             return $this->count;
         }
