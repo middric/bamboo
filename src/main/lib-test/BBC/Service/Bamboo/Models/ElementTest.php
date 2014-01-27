@@ -148,6 +148,12 @@ class BBC_Service_Bamboo_Models_ElementTest extends PHPUnit_Framework_TestCase
         $this->_testIsFuture($nextYear, true);
     }
 
+    /* Testing dates like junk */
+    public function testIsFutureJunk() {
+        $this->_testIsFuture("This is junk", false);
+        $this->_testIsFuture("", false);
+    }
+
     private function _testIsFuture($date, $isFuture) {
         $element = $this->_createElement(array());
         $this->assertEquals($element->isFutureDate($date), $isFuture);

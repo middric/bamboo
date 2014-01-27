@@ -227,6 +227,9 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
         }
 
         $releaseTime = strtotime($date);
+        if ($releaseTime === false) {
+            return false;
+        }
         return $now < $releaseTime;
     }
 
