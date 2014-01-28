@@ -172,7 +172,7 @@ class BBC_Service_Bamboo_Models_Element extends BBC_Service_Bamboo_Models_Base
     }
 
     /**
-     * Get the master brand id
+     * Get the 'medium' master brand label
      *
      * @return string
      */
