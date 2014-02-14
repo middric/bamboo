@@ -14,6 +14,7 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
     // @codingStandardsIgnoreStart
     protected $_release_date = "";
     protected $_tleo_id = "";
+    protected $_tleo_type = "";
     // @codingStandardsIgnoreEnd
     protected $_versions = array();
     protected $_film = false;
@@ -41,6 +42,17 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
     public function getTleoId() {
         // @codingStandardsIgnoreStart
         return $this->_tleo_id;
+        // @codingStandardsIgnoreEnd
+    }
+
+    /**
+     * Get the type of the TLEO
+     *
+     * @return string
+     */
+    public function getTleoType() {
+        // @codingStandardsIgnoreStart
+        return $this->_tleo_type;
         // @codingStandardsIgnoreEnd
     }
 
