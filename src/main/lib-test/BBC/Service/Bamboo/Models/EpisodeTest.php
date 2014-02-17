@@ -88,6 +88,16 @@ class BBC_Service_Bamboo_Models_EpisodeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('the-longer-the-title-the-more-hyphens', $episode->getSlug());
     }
 
+    public function testEmpttyTleoType() {
+        $episode = $this->_createEpisode(array());
+        $this->assertEquals('', $episode->getTleoType());
+    }
+
+    public function testTleoType() {
+        $episode = $this->_createEpisode(array('tleo_type' => 'brand'));
+        $this->assertEquals('brand', $episode->getTleoType());
+    }
+
     public function testPriorityVersionWithMultipleVersions() {
         $versions = $this->_createVersions(array('original', 'audio-described', 'signed', 'other'));
         $episode = $this->_createEpisode(array('versions' => $versions));
