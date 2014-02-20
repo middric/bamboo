@@ -13,8 +13,11 @@ class BBC_Service_Bamboo_Models_Channel extends BBC_Service_Bamboo_Models_Base
         if (preg_match('/(bbc_[a-z]+)(_.+)/i', $this->_id, $matches)) {
             return $matches[1];
         }
-
         return $this->_id;
+    }
+
+    public function getSlug() {
+        return preg_replace('/[0-9_]/', '', $this->getUnregionalisedID());
     }
 
     /**
