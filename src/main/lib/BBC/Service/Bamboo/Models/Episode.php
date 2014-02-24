@@ -23,7 +23,6 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
     protected $_labels = array();
     protected $_stacked = "";
     protected $_guidance = "";
-    protected $_credits = "";
 
     /**
      * Get the episode subtitle
@@ -283,10 +282,6 @@ class BBC_Service_Bamboo_Models_Episode extends BBC_Service_Bamboo_Models_Elemen
         // Reduce multiple spaces to a single hyphen
         $title = preg_replace('/\s\s*/', '-', $title);
         return $title;
-    }
-
-    public function getCredits() {
-        return $this->_credits;
     }
 
     /**
