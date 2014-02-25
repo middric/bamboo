@@ -104,7 +104,7 @@ class BBC_Service_Bamboo_Client_HttpMulti
             // Retrieve the custom error nitro provides
             $iblErrorMessage = $this->_getIblError($response);
             $errorMessage = sprintf(
-                "Error Code %s: %s \nFor URL: %s",
+                "iBL returned code %s: %s \nFor URL: %s",
                 $requestStatus,
                 $iblErrorMessage,
                 $url
@@ -137,7 +137,7 @@ class BBC_Service_Bamboo_Client_HttpMulti
         }
         $json = json_decode($body);
         if (!$json) {
-            return "Unable to parse body content";
+            return "iBL response is not valid";
         }
 
         if (isset($json->error, $json->error->details)) {
