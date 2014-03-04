@@ -63,6 +63,9 @@ class BBC_Service_Bamboo_Models_EpisodeTest extends PHPUnit_Framework_TestCase
     public function testSlugWithAccentedTitle() {
         $episode = $this->_createEpisode(array('title' => 'MÿTītłę'));
         $this->assertEquals('mytitle', $episode->getSlug());
+
+        $episode = $this->_createEpisode(array('title' => "An L\xc3\xa0"));
+        $this->assertEquals('an-la', $episode->getSlug());
     }
 
     public function testSlugWithSubtitle() {
@@ -83,6 +86,16 @@ class BBC_Service_Bamboo_Models_EpisodeTest extends PHPUnit_Framework_TestCase
             )
         );
         $this->assertEquals('the-longer-the-title-the-more-hyphens', $episode->getSlug());
+    }
+
+    public function testEmpttyTleoType() {
+        $episode = $this->_createEpisode(array());
+        $this->assertEquals('', $episode->getTleoType());
+    }
+
+    public function testTleoType() {
+        $episode = $this->_createEpisode(array('tleo_type' => 'brand'));
+        $this->assertEquals('brand', $episode->getTleoType());
     }
 
     public function testPriorityVersionWithMultipleVersions() {
@@ -215,14 +228,53 @@ class BBC_Service_Bamboo_Models_EpisodeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('', $stub->getDuration());
     }
 
+    public function testGetMasterBrandAttribution() {
+        $episode = $this->_createEpisode(
+            array(
+                'master_brand' => array(
+                    'attribution' => 'bbc_two_wales'
+                 )
+            )
+        );
+        $this->assertEquals('bbc_two_wales', $episode->getMasterBrandAttribution());
+    }
+
+    public function testGetRelatedLinks() {
+        $related = $this->_createVersions(array('priority_content', 'external'));
+        $episode = $this->_createEpisode(array('related_links' => $related));
+        $links = $episode->getRelatedLinks();
+        $this->assertNotEmpty($links);
+        $this->assertInstanceOf(
+            'BBC_Service_Bamboo_Models_Related',
+            $links[0]
+        );
+    }
+
+    public function testGetFirstRelatedLink() {
+        $related = $this->_createVersions(array('priority_content', 'external'));
+        $episode = $this->_createEpisode(array('related_links' => $related));
+        $link = $episode->getFirstRelatedLink();
+        $this->assertInstanceOf(
+            'BBC_Service_Bamboo_Models_Related',
+            $link
+        );
+    }
+
+    public function testHasDownloads() {
+        $downloadable = $this->_createEpisode(array('versions' => $this->_createVersions(array('original'))));
+        $notDownloadable = $this->_createEpisode(array('versions' => $this->_createVersions(array('original'), false)));
+        $this->assertTrue($downloadable->hasDownloads());
+        $this->assertFalse($notDownloadable->hasDownloads());
+    }
+
     private function _createEpisode($params) {
         return new BBC_Service_Bamboo_Models_Episode((object) $params);
     }
 
-    private function _createVersions($kinds) {
+    private function _createVersions($kinds, $downloadable = true) {
         $versions = array();
         foreach ($kinds as $kind) {
-            $versions[] = (object) array('kind' => $kind);
+            $versions[] = (object) array('kind' => $kind, 'download' => $downloadable);
         }
         return $versions;
     }

@@ -29,7 +29,11 @@ class BBC_Service_Bamboo_Client_Fake
     protected $_defaultParams = array(
         'per_page',
         'api_key',
-        'rights'
+        'rights',
+        'availability',
+        'lang',
+        'sort',
+        'sort_direction'
     );
 
     /**

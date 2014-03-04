@@ -13,10 +13,6 @@
 class BBC_Service_Bamboo implements BBC_Service_Interface
 {
     /**
-     * @var BBC_Service_Bamboo_Cache
-     */
-    protected $_cache;
-    /**
      * @var BBC_Service_Bamboo_Configuration
      */
     protected $_configuration;
@@ -25,9 +21,9 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
      */
     protected $_client;
     /**
-     * @var String api key
+     * @var array stores the default parameters for each request, including api_key
      */
-    protected $_apiKey;
+    protected $_defaultParameters = array('rights' => 'web', 'lang' => 'en');
 
     /**
      * Construct a new BBC_Service_Bamboo
@@ -37,7 +33,6 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
      */
     public function __construct(array $params = array()) {
         $this->_configuration = new BBC_Service_Bamboo_Configuration($params);
-        $this->_cache = new BBC_Service_Bamboo_Cache($this->_configuration->getConfiguration()->cache);
         $this->setClient(new BBC_Service_Bamboo_Client_HttpMulti($this->_configuration->getConfiguration()->httpmulti));
     }
 
@@ -80,21 +75,14 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
 
     public function getJson($feedName, $params = array()) {
         $params = $this->_prepareParams($params);
-
-        $response = $this->_cache->get($feedName, $params);
-        if (!$response) {
-            $response = $this->_client->get($feedName, $params);
-            $this->_cache->save($feedName, $params, $response);
-        }
-
-        $json = json_decode($response->getBody());
-
-        return $json;
+        $response = $this->_client->get($feedName, $params);
+        return $response->getBody();
     }
 
     public function fetch($feedName, $params = array()) {
         $json = $this->getJson($feedName, $params);
-        $factory = new BBC_Service_Bamboo_ModelFactory($json);
+        $objects = json_decode($json);
+        $factory = new BBC_Service_Bamboo_ModelFactory($objects);
         $built = $factory->build();
 
         return $built;
@@ -102,12 +90,16 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
 
     public function setAPIKey($apiKey) {
         BBC_Service_Bamboo_Log::info("API Key set to $apiKey");
-        $this->_apiKey = $apiKey;
+        $this->_defaultParameters['api_key'] = $apiKey;
     }
 
     public function setLanguage($language) {
-        BBC_Service_Bamboo_Log::info("Accept-Language set to $language");
-        $this->_client->setHeader('Accept-Language', $language);
+        BBC_Service_Bamboo_Log::info("Setting language to $language");
+        $this->_defaultParameters['lang'] = $language;
+    }
+
+    public function getLanguage() {
+        return $this->_defaultParameters['lang'];
     }
 
     public function setHost($host) {
@@ -123,7 +115,7 @@ class BBC_Service_Bamboo implements BBC_Service_Interface
     }
 
     protected function _prepareParams($params) {
-        $params = array_merge(array('api_key' => $this->_apiKey, 'rights'=>'web'), $params);
+        $params = array_merge($this->_defaultParameters, $params);
         ksort($params);
         return $params;
     }

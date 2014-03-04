@@ -21,7 +21,30 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
     protected $_guidance = array();
     // @codingStandardsIgnoreStart
     protected $_credits_timestamp = "";
+    protected $_first_broadcast = '';
     // @codingStandardsIgnoreEnd
+    protected $_events = array();
+
+    /**
+     * Returns the 2 letter abbreviation used for a version
+     * @return string the abbreviation (SD, HD, AD or SL)
+     */
+    public function getAbbreviation() {
+        $abbr = '';
+        switch ($this->getKind()) {
+            case 'audio-described':
+                $abbr = 'AD';
+                break;
+            case 'signed':
+                $abbr = 'SL';
+                break;
+            default:
+                $abbr = $this->isHD() ? 'HD' : 'SD';
+                break;
+        }
+
+        return $abbr;
+    }
 
     /**
      * Get the availability for this version
@@ -36,6 +59,21 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
         return "";
     }
 
+    /**
+     * Get onward journey time
+     *
+     * @return string
+     */
+    public function getOnwardJourneyTime() {
+        foreach ($this->_events as $event) {
+            if ($event->kind == 'onward_journey') {
+                // @codingStandardsIgnoreStart
+                return $event->time_offset_seconds;
+                // @codingStandardsIgnoreEnd
+            }
+        }
+        return "";
+    }
     /**
      * Get the version duration
      *
@@ -101,8 +139,8 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
      * @return string
      */
     public function getRRCLong() {
-        if (isset($this->_rrc['description']) && isset($this->_rrc['description']['large'])) {
-            return $this->_rrc['description']['large'];
+        if (isset($this->_rrc['description']) && isset($this->_rrc['description']->large)) {
+            return $this->_rrc['description']->large;
         }
 
         return '';
@@ -131,15 +169,54 @@ class BBC_Service_Bamboo_Models_Version extends BBC_Service_Bamboo_Models_Base
     }
 
     /**
-     * Get the version guidance text
+     * Get the first broadcast date
+     * NOTE: This is different to the episode release date!
      *
      * @return string
      */
-    public function getGuidance() {
-        if (isset($this->_guidance['text'])) {
-            return $this->_guidance['text'];
-        }
+    public function getFirstBroadcast() {
+        // @codingStandardsIgnoreStart
+        return $this->_first_broadcast;
+        // @codingStandardsIgnoreEnd
+    }
 
+    public function hasFutureFirstBroadcast() {
+        return $this->isFutureDate($this->getFirstBroadcast());
+    }
+
+    /**
+     * Get the small guidance message (if available)
+     *
+     * @return string
+     */
+    public function getSmallGuidance() {
+        if (isset($this->_guidance['text']) && isset($this->_guidance['text']->small)) {
+            return $this->_guidance['text']->small;
+        }
+        return '';
+    }
+
+    /**
+     * Get the medium guidance message (if available)
+     *
+     * @return string
+     */
+    public function getMediumGuidance() {
+        if (isset($this->_guidance['text']) && isset($this->_guidance['text']->medium)) {
+            return $this->_guidance['text']->medium;
+        }
+        return '';
+    }
+
+    /**
+     * Get the large guidance message (if available)
+     *
+     * @return string
+     */
+    public function getLargeGuidance() {
+        if (isset($this->_guidance['text']) && isset($this->_guidance['text']->large)) {
+            return $this->_guidance['text']->large;
+        }
         return '';
     }
 

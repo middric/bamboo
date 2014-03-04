@@ -20,8 +20,14 @@ Content-Type: application/json;charset=UTF-8
             "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/p01b2b5c.jpg"
         },
         "master_brand": {
-            "id": "bbc_one",
-            "name": "BBC One"
+            "id": "bbc_two",
+            "type": "master_brand",
+            "titles": {
+                "small": "BBC Two",
+                "medium": "BBC Two",
+                "large": "BBC Two"
+            },
+            "attribution": "bbc_two"
         },
         "versions": [{
             "id": "b036y9g5",
@@ -58,8 +64,14 @@ Content-Type: application/json;charset=UTF-8
             "standard": "http://ichef.live.bbci.co.uk/images/ic/{recipe}/legacy/episode/p01b2b5c.jpg"
         },
         "master_brand": {
-            "id": "bbc_one",
-            "name": "BBC One"
+            "id": "bbc_two",
+            "type": "master_brand",
+            "titles": {
+                "small": "BBC Two",
+                "medium": "BBC Two",
+                "large": "BBC Two"
+            },
+            "attribution": "bbc_two"
         },
         "versions": [{
             "id": "b036y9g5",

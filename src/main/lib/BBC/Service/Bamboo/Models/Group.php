@@ -12,33 +12,21 @@ class BBC_Service_Bamboo_Models_Group extends BBC_Service_Bamboo_Models_Element
 {
     protected $_subtitle = "";
     // @codingStandardsIgnoreStart
-    protected $_initial_child_episodes = "";
-    protected $_child_episode_count = "";
+    protected $_initial_children = array();
+    protected $_count = 0;
     protected $_labels = "";
     protected $_related_links = "";
-    protected $_master_brand = "";
     protected $_stacked = "";
     // @codingStandardsIgnoreEnd
 
     /**
      * Returns the related links
-     * 
+     *
      * @return object
      */
     public function getRelatedLinks() {
     	// @codingStandardsIgnoreStart
         return $this->_related_links;
-    	// @codingStandardsIgnoreEnd
-    }
-
-    /**
-     * Returns the master brand
-     * 
-     * @return object
-     */
-    public function getMasterBrand() {
-    	// @codingStandardsIgnoreStart
-        return $this->_master_brand;
     	// @codingStandardsIgnoreEnd
     }
 
@@ -72,7 +60,7 @@ class BBC_Service_Bamboo_Models_Group extends BBC_Service_Bamboo_Models_Element
      */
     public function getEpisodes() {
     	// @codingStandardsIgnoreStart
-        return $this->_initial_child_episodes;
+        return $this->_initial_children;
         // @codingStandardsIgnoreEnd
     }
 
@@ -88,7 +76,22 @@ class BBC_Service_Bamboo_Models_Group extends BBC_Service_Bamboo_Models_Element
      */
     public function getTotalEpisodeCount() {
     	// @codingStandardsIgnoreStart
-        return $this->_child_episode_count;
+        return $this->_count;
         // @codingStandardsIgnoreEnd
     }
+
+    /**
+     * Get the iStats type of the group
+     */
+    public function getIstatsType() {
+        if ($this->getId() === 'popular') {
+            $type = 'most-popular';
+        } elseif ($this->isStacked()) {
+            $type = 'series-catchup';
+        } else {
+            $type = 'editorial';
+        }
+        return $type;
+    }
+
 }

@@ -64,20 +64,33 @@ class BBC_Service_Bamboo_Client_HttpMulti
     public function get($path, array $params = array()) {
         $url = $this->buildURL($path, $params);
 
-        BBC_Service_Bamboo_Log::info("Requesting $url");
         $options = array(
             'headers' => $this->getHeaders()
         );
         $response = null;
         $client = $this->getHttpClient();
         $self = $this;
+        $resolved = false;
+
         $client->get($url, $options)->then(
-            function ($myResponse) use (&$response, &$self, &$url) {
+            function ($myResponse) use (&$response, &$self, &$url, &$resolved) {
                 $self->handleErrors($myResponse, $url);
                 $response = $myResponse;
+                /*
+                    This should NOT be necessary. However, due to a bug with the frameworks HTTP client
+                    we should only call run if we have not already resolved the promise. Failure to do this
+                    will result in the HTTP client timing out for the specified timeout (15 seconds per request)
+                */
+                $resolved = true;
             }
         )->end();
-        $client->run();
+
+        if (!$resolved) {
+            BBC_Service_Bamboo_Log::info("Requesting: $url");
+            $client->run();
+        } else {
+            BBC_Service_Bamboo_Log::info("Cache hit: $url");
+        }
 
         return $response;
     }
@@ -87,14 +100,16 @@ class BBC_Service_Bamboo_Client_HttpMulti
         if ($response->isError()) {
             // Set the status code based on the HTTP status code of the response
             $requestStatus = $response->getStatus();
+
             // Retrieve the custom error nitro provides
             $iblErrorMessage = $this->_getIblError($response);
             $errorMessage = sprintf(
-                "Error Code %s: %s \nFor URL: %s",
+                "iBL returned code %s: %s \nFor URL: %s",
                 $requestStatus,
                 $iblErrorMessage,
                 $url
             );
+
             //
             // Iterate through our predetermined exceptions, and throw the one
             // that matches the response status code
@@ -122,15 +137,14 @@ class BBC_Service_Bamboo_Client_HttpMulti
         }
         $json = json_decode($body);
         if (!$json) {
-            return "Unable to parse body content";
+            return "iBL response is not valid";
         }
 
-        // TODO: refactor if statements so that they are easier to read
-        if (!is_null($json->ibl) && !is_null($json->ibl->error) && !is_null($json->ibl->error->details)) {
-            if (!is_null($json->ibl->error->id)) {
-                return sprintf("[%s] %s", $json->ibl->error->id, $json->ibl->error->details);
+        if (isset($json->error, $json->error->details)) {
+            if (isset($json->error->id)) {
+                return sprintf("[%s] %s", $json->error->id, $json->error->details);
             }
-            return $json->ibl->error->details;
+            return $json->error->details;
         }
         return "Unable to retrieve error details.";
     }
@@ -161,14 +175,15 @@ class BBC_Service_Bamboo_Client_HttpMulti
                 BBC_Webapp_Base::getInstance()->getContentCache()
             );
         }
+        $this->_httpClient = BBC_Http_Multi_Client_Factory::build();
         // Create a new http multi client from the factory
-        $httpClient = BBC_Http_Multi_Client_Factory::build();
-        // Set the max execution time
-        $httpClient->setExecutionTimeout(
+
+        // // Set the max execution time
+        $this->_httpClient->setExecutionTimeout(
             $this->_config->timeout
         );
 
-        return $httpClient;
+        return $this->_httpClient;
     }
 
     public function setHost($host) {
