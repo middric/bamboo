@@ -1,0 +1,8 @@
+{
+    "name": "bbc/bamboo",
+    "description": ".",
+    "license": "proprietary",
+    "autoload": {
+        "classmap": ["src/main/lib/BBC/Service"]
+    }
+}
