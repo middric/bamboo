@@ -58,7 +58,7 @@ class BBC_Service_Bamboo_Client_Fake
         foreach ($this->_keywords as $keyword) {
             if ($this->_matchesKeyword($keyword[0], $path)) {
                 if (!empty($this->_paths[0])) {
-                    $suffix = !empty($keyword[1]) ? "_{$keyword[1]}" : '';
+                    $suffix = !empty($keyword[1]) ? "{$keyword[1]}" : '';
                     $response = $this->_getFakeResponseForRequest($path, $params, $suffix);
                     $this->handleErrors($response);
                     return $response;
@@ -78,7 +78,7 @@ class BBC_Service_Bamboo_Client_Fake
      */
     private function _getFakeResponseForRequest($path, $params, $suffix="") {
 
-        $baseName = preg_replace("/\W+/", "_", $path.$suffix);
+        $baseName = preg_replace("/\W+/", "_", $suffix);
 
         // Remove default parameters from the query string
         foreach ($this->_defaultParams as $parameter) {
@@ -95,7 +95,7 @@ class BBC_Service_Bamboo_Client_Fake
             $queryString = '';
         }
 
-        $fileName = $this->_buildFilename($this->_paths[0], $baseName, $queryString, $this->_extension);
+        $fileName = $this->_buildFilename($this->_paths[0], $baseName, $this->_extension);
 
         if (file_exists($fileName)) {
             BBC_Service_Bamboo_Log::info(__CLASS__ . ": using the file [" . $fileName . "]");
@@ -113,11 +113,9 @@ class BBC_Service_Bamboo_Client_Fake
         return (($keyword === "*") || (mb_strstr($requestUrl, $keyword) !== false));
     }
 
-    private function _buildFilename($location, $baseName, $queryString, $extension) {
+    private function _buildFilename($location, $baseName, $extension) {
         $fileName = $location . $baseName;
-        if ($queryString) {
-            $fileName .= "_$queryString";
-        }
+
         $fileName .= ".$extension";
         return $fileName;
     }
